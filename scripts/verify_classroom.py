@@ -23,7 +23,7 @@ for m,g in c.B[c.B.scoreable==1].groupby('method'):
  assert np.isclose(100*np.abs(g.forecast-g.actual).sum()/g.actual.sum(),r['backtest'][m]['wape'])
 for p in c.PRODUCTS:
  for w in c.WINDOWS:
-  q=c.comparison_data(p,w);assert len(q)==12 and q.method.nunique()==3
+  q=c.comparison_data(p,w);assert len(q)==4*len(c.COMPARE) and set(q.method)==set(c.COMPARE)
   s=c.score_table(q);assert np.isfinite(s['Average miss, units']).all()
   # No-demand windows remain valid comparisons in units, not fake finite percentages.
   if q.actual.sum()==0:assert s['Total miss, % of demand'].isna().all()

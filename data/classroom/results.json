@@ -1,5 +1,5 @@
 {
-  "release": "2026-09-29",
+  "release": "2026-09-30",
   "scope": "Sina, T2: demand forecasting and inventory decisions",
   "n_rows": 12480,
   "n_series": 80,
@@ -11,6 +11,10 @@
     "Global model": {
       "wape": 25.10490037693021,
       "bias_pct": -3.1109132471134258
+    },
+    "Prophet": {
+      "wape": 27.083478788892418,
+      "bias_pct": 0.28587064012816366
     },
     "Repeat last year": {
       "wape": 43.760401881383764,
@@ -167,6 +171,28 @@
         "bias_pct": 0.3032567134004307
       }
     },
+    "Prophet": {
+      "all": {
+        "wape": 27.083478788892418,
+        "bias_pct": 0.28587064012816366
+      },
+      "erratic": {
+        "wape": 79.15200664304528,
+        "bias_pct": -2.640683297307549
+      },
+      "intermittent": {
+        "wape": 130.64394825237284,
+        "bias_pct": 0.8557820050880512
+      },
+      "lumpy": {
+        "wape": 173.2676695063777,
+        "bias_pct": 9.819375469562457
+      },
+      "smooth": {
+        "wape": 19.84355813200733,
+        "bias_pct": 0.6000043429377685
+      }
+    },
     "Repeat last year": {
       "all": {
         "wape": 43.760401881383764,
@@ -232,6 +258,62 @@
         "wape": 30.339073405538723,
         "bias_pct": 0.3520718373206715
       }
+    }
+  },
+  "by_horizon": {
+    "Croston": {
+      "1": 35.93139424385544,
+      "2": 35.9423581829568,
+      "3": 36.1754797181677,
+      "4": 36.39649076578815
+    },
+    "Croston SBA": {
+      "1": 34.668991236645745,
+      "2": 34.675220717140284,
+      "3": 35.1882645802005,
+      "4": 35.097200382148706
+    },
+    "Global model": {
+      "1": 24.950110605991167,
+      "2": 25.278474061844992,
+      "3": 26.460488601484844,
+      "4": 23.72945564210741
+    },
+    "Holt-Winters": {
+      "1": 39.0196102616231,
+      "2": 38.04412642969634,
+      "3": 39.35386955647804,
+      "4": 39.534124120143034
+    },
+    "Moving average": {
+      "1": 37.18103033220992,
+      "2": 37.3021774354649,
+      "3": 37.45762898397606,
+      "4": 38.17249961583211
+    },
+    "Prophet": {
+      "1": 27.705286321809357,
+      "2": 26.610366338109852,
+      "3": 27.934394074851664,
+      "4": 26.107362458687312
+    },
+    "Repeat last year": {
+      "1": 42.907581906137516,
+      "2": 42.65642687501388,
+      "3": 44.05485120619828,
+      "4": 45.37516738743881
+    },
+    "Smooth recent demand": {
+      "1": 34.043211780127194,
+      "2": 35.14408281950289,
+      "3": 34.86015630003062,
+      "4": 35.63107969770428
+    },
+    "TSB": {
+      "1": 35.95316352433674,
+      "2": 35.96436997390605,
+      "3": 36.182266353295645,
+      "4": 36.392865408423916
     }
   },
   "per_origin": {
@@ -326,6 +408,21 @@
         33.43238682221733,
         31.452087969629535
       ],
+      "Prophet": [
+        27.1062452129521,
+        21.62660194357544,
+        20.623100030291308,
+        18.17152775640617,
+        21.306245575169644,
+        17.436458491608605,
+        19.396411167591076,
+        22.025336151579385,
+        18.332610505620366,
+        20.73762726905842,
+        19.360737968776924,
+        19.240441138185723,
+        15.062254231010238
+      ],
       "Repeat last year": [
         31.4323472603436,
         36.26205280706497,
@@ -381,6 +478,7 @@
       "Global model": 18.139976622400656,
       "Holt-Winters": 32.95532213879732,
       "Moving average": 31.452087969629535,
+      "Prophet": 15.062254231010238,
       "Repeat last year": 37.89108522057861,
       "Smooth recent demand": 26.623973363490684,
       "TSB": 33.17891954009954
@@ -391,6 +489,7 @@
       "Global model": 18.816130567051957,
       "Holt-Winters": 32.356626056378246,
       "Moving average": 31.634760879256113,
+      "Prophet": 19.84355813200733,
       "Repeat last year": 36.60867326757539,
       "Smooth recent demand": 29.359971842295334,
       "TSB": 30.339073405538723
@@ -1002,6 +1101,28 @@
       "smooth": {
         "wape": 18.816130567051957,
         "bias_pct": -1.425264681536177,
+        "n_series": 26
+      }
+    },
+    "Prophet": {
+      "erratic": {
+        "wape": 79.15200664304528,
+        "bias_pct": -2.640683297307549,
+        "n_series": 20
+      },
+      "intermittent": {
+        "wape": 130.64394825237284,
+        "bias_pct": 0.8557820050880512,
+        "n_series": 23
+      },
+      "lumpy": {
+        "wape": 173.2676695063777,
+        "bias_pct": 9.819375469562457,
+        "n_series": 11
+      },
+      "smooth": {
+        "wape": 19.84355813200733,
+        "bias_pct": 0.6000043429377685,
         "n_series": 26
       }
     },
@@ -3532,6 +3653,11 @@
           "Total miss, % of demand": 20.476044465617544,
           "Average bias, units": 23.504423160232705
         },
+        "Prophet": {
+          "Average miss, units": 16.69726719699209,
+          "Total miss, % of demand": 14.39419585947594,
+          "Average bias, units": 0.4026453653088602
+        },
         "Global model": {
           "Average miss, units": 17.066405307296275,
           "Total miss, % of demand": 14.712418368358856,
@@ -3549,6 +3675,11 @@
           "Total miss, % of demand": 31.82608695652174,
           "Average bias, units": -29.88258013163724
         },
+        "Prophet": {
+          "Average miss, units": 19.563600468271236,
+          "Total miss, % of demand": 13.60946119531912,
+          "Average bias, units": 12.763326683059905
+        },
         "Global model": {
           "Average miss, units": 13.729453014229744,
           "Total miss, % of demand": 9.550923835985909,
@@ -3565,6 +3696,11 @@
           "Average miss, units": 154.9493058065727,
           "Total miss, % of demand": 49.98364703437829,
           "Average bias, units": -154.9493058065727
+        },
+        "Prophet": {
+          "Average miss, units": 29.56788060541671,
+          "Total miss, % of demand": 9.538026001747326,
+          "Average bias, units": -14.741550762078099
         },
         "Global model": {
           "Average miss, units": 56.074068853900044,
@@ -3585,6 +3721,11 @@
           "Total miss, % of demand": 11.688101321603213,
           "Average bias, units": -4.811088766569156
         },
+        "Prophet": {
+          "Average miss, units": 16.028909607666904,
+          "Total miss, % of demand": 11.248357619415371,
+          "Average bias, units": -1.8469724754039873
+        },
         "Global model": {
           "Average miss, units": 20.431607217271974,
           "Total miss, % of demand": 14.337969977032964,
@@ -3602,6 +3743,11 @@
           "Total miss, % of demand": 29.990858787847092,
           "Average bias, units": 38.23834495450504
         },
+        "Prophet": {
+          "Average miss, units": 16.21457187008425,
+          "Total miss, % of demand": 12.717311270654314,
+          "Average bias, units": 11.629778384099929
+        },
         "Global model": {
           "Average miss, units": 7.012564131551322,
           "Total miss, % of demand": 5.500050299255939,
@@ -3618,6 +3764,11 @@
           "Average miss, units": 45.50295072519032,
           "Total miss, % of demand": 13.227601954997183,
           "Average bias, units": -38.005901450380634
+        },
+        "Prophet": {
+          "Average miss, units": 35.72428468483352,
+          "Total miss, % of demand": 10.384966478149279,
+          "Average bias, units": -1.2494668393521806
         },
         "Global model": {
           "Average miss, units": 87.1269621092142,
@@ -3638,6 +3789,11 @@
           "Total miss, % of demand": 47.27272727272727,
           "Average bias, units": 7.750001053230811
         },
+        "Prophet": {
+          "Average miss, units": 15.388069895141195,
+          "Total miss, % of demand": 55.95661780051343,
+          "Average bias, units": -15.388069895141195
+        },
         "Global model": {
           "Average miss, units": 13.916307977430863,
           "Total miss, % of demand": 50.60475628156678,
@@ -3655,6 +3811,11 @@
           "Total miss, % of demand": 49.02973833099699,
           "Average bias, units": 3.3984377652181337
         },
+        "Prophet": {
+          "Average miss, units": 18.272573152420247,
+          "Total miss, % of demand": 58.94378436264596,
+          "Average bias, units": -18.272573152420247
+        },
         "Global model": {
           "Average miss, units": 14.378428352857831,
           "Total miss, % of demand": 46.38202694470268,
@@ -3671,6 +3832,11 @@
           "Average miss, units": 21.25,
           "Total miss, % of demand": 45.94594594594595,
           "Average bias, units": -12.434210203377305
+        },
+        "Prophet": {
+          "Average miss, units": 38.34156810105537,
+          "Total miss, % of demand": 82.90068778606567,
+          "Average bias, units": 27.97323597156142
         },
         "Global model": {
           "Average miss, units": 33.23350453689061,
@@ -3691,6 +3857,11 @@
           "Total miss, % of demand": 220.68965354723122,
           "Average bias, units": 0.35344826773615623
         },
+        "Prophet": {
+          "Average miss, units": 0.5405639567041797,
+          "Total miss, % of demand": 216.22558268167188,
+          "Average bias, units": 0.38968620331266884
+        },
         "Global model": {
           "Average miss, units": 0.47241520980542295,
           "Total miss, % of demand": 188.9660839221692,
@@ -3708,6 +3879,11 @@
           "Total miss, % of demand": null,
           "Average bias, units": 0.6093750008432912
         },
+        "Prophet": {
+          "Average miss, units": 1.130955946928497,
+          "Total miss, % of demand": null,
+          "Average bias, units": 1.130955946928497
+        },
         "Global model": {
           "Average miss, units": 0.5186064326099992,
           "Total miss, % of demand": null,
@@ -3724,6 +3900,11 @@
           "Average miss, units": 0.7993421005582121,
           "Total miss, % of demand": 159.86842011164242,
           "Average bias, units": 0.09868420111642418
+        },
+        "Prophet": {
+          "Average miss, units": 0.5812954763521219,
+          "Total miss, % of demand": 116.25909527042437,
+          "Average bias, units": 0.02473754315861776
         },
         "Global model": {
           "Average miss, units": 0.7382361420921156,
@@ -3744,6 +3925,11 @@
           "Total miss, % of demand": 20.54805732442643,
           "Average bias, units": -21.370143311066073
         },
+        "Prophet": {
+          "Average miss, units": 31.593730002278534,
+          "Total miss, % of demand": 25.274984001822826,
+          "Average bias, units": 29.025858253222907
+        },
         "Global model": {
           "Average miss, units": 28.107277994619288,
           "Total miss, % of demand": 22.485822395695433,
@@ -3761,6 +3947,11 @@
           "Total miss, % of demand": 37.586294639252095,
           "Average bias, units": 59.01048258362579
         },
+        "Prophet": {
+          "Average miss, units": 44.372460332055695,
+          "Total miss, % of demand": 28.262713587296624,
+          "Average bias, units": 44.372460332055695
+        },
         "Global model": {
           "Average miss, units": 30.34186074162053,
           "Total miss, % of demand": 19.32602595007677,
@@ -3777,6 +3968,11 @@
           "Average miss, units": 57.58212788398549,
           "Total miss, % of demand": 55.36743065767836,
           "Average bias, units": -12.835744232029004
+        },
+        "Prophet": {
+          "Average miss, units": 22.620816609621784,
+          "Total miss, % of demand": 21.75078520155941,
+          "Average bias, units": -20.02496694808263
         },
         "Global model": {
           "Average miss, units": 21.32823206138725,
@@ -3887,9 +4083,9 @@
     }
   },
   "source_hashes": {
-    "src/retail_fc.py": "a7a4ed86b90a330e0d7c8c9b9cb2c0834b3863268e38c45fc976583e26bb7911",
-    "src/classroom.py": "db57b2dbce52c4ffc632b67640526306b44ef926fd4fa8e1c983e31844d57938",
-    "analysis/build_classroom.py": "83bf7e84e2b9cbe6fd2207f58a4676a5985496c47f8ac6e68d64a0f6624392a9",
+    "src/retail_fc.py": "db4101c19ac678c1de04afb57502d5bb4e8fe4226db8d6b52137cc636d8dd0d4",
+    "src/classroom.py": "cc595afc32f0dbe90eabd075f23f2a17c386bcde774695de6e5bf7961c744ebb",
+    "analysis/build_classroom.py": "b700f6fd18c4105f475e0acf06bd83cde0dc22ea89c164aef45878bbe1f7e4a4",
     "data/demand_weekly.csv": "d32c56bcc33197b9f153014fce05f5fafad64e01e0358969c12fb149ab28b511",
     "data/products.csv": "87cb40a96d3605b7588114181c7fe5712c90f595b0d5a14710dbc03b0dfe2f00"
   }

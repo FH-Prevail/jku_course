@@ -9,7 +9,8 @@ from scipy.stats import norm
 
 BLUE = '#2F789F'
 INK = '#253746'
-METHODS = ['Repeat last year', 'Smooth recent demand', 'Global model']
+METHODS = ['Repeat last year', 'Smooth recent demand', 'Global model']            # the stock replay uses these three
+COMPARE = ['Repeat last year', 'Smooth recent demand', 'Prophet', 'Global model']  # the forecast comparisons: two simple rules, a local model, the global model
 PRODUCTS = {'Plush Bear, store': 'P010_store', 'Plush Bear, online': 'P010_online',
             'Puzzle 1000, store': 'P011_store', 'Vacuum Filter, store': 'P035_store',
             'Garden Hose, store': 'P015_store'}
@@ -96,7 +97,7 @@ def comparison_data(product='Plush Bear, store',window='Christmas'):
 
 def score_table(g):
     rows=[]
-    for m in METHODS:
+    for m in COMPARE:
         q=g[(g.method==m)&(g.scoreable==1)];a=q.actual.to_numpy();f=q.forecast.to_numpy();total=a.sum()
         rows.append({'Method':m,'Average miss, units':np.abs(f-a).mean(),
                      'Total miss, % of demand':np.abs(f-a).sum()/total*100 if total else np.nan,
@@ -108,7 +109,7 @@ def compare(product='Plush Bear, store',window='Christmas'):
     g=comparison_data(product,window);a=g[g.method==METHODS[0]].sort_values('week_start')
     fig,ax=plt.subplots(figsize=(9,3.8))
     ax.bar(np.arange(4)-.12,a.actual,width=.24,color='#A8B4BE',label='Actual sales')
-    for m,style,marker in zip(METHODS,['--',':','-'],['s','^','o']):
+    for m,style,marker in zip(COMPARE,['--',':','-.','-'],['s','^','D','o']):
         q=g[g.method==m].sort_values('week_start');ax.plot(range(4),q.forecast,color=BLUE,ls=style,marker=marker,lw=2,label=m)
     ax.set(xticks=range(4),xticklabels=a.week_start.dt.strftime('%d %b'),ylabel='Units',title=f'{product} | {window}')
     ax.legend(loc='upper left',bbox_to_anchor=(1,1),fontsize=10);fig.tight_layout();plt.show()
@@ -130,13 +131,13 @@ def forecast_widget():
 
 def backtest():
     rows=[]
-    for m in METHODS:
+    for m in COMPARE:
         q=B[(B.method==m)&(B.scoreable==1)];e=q.forecast-q.actual
         rows.append([m,f'{e.abs().sum()/q.actual.sum()*100:.1f} %',f'{e.sum()/q.actual.sum()*100:+.1f} %'])
     for m in ['Holt-Winters','Croston SBA','TSB','Moving average']:
         s=R['backtest_all'][m]['all'];rows.append([m,f"{s['wape']:.1f} %",f"{s['bias_pct']:+.1f} %"])
     print('13 test dates; four weeks ahead each; all 80 series. The same weeks and products for every method.')
-    print('The three methods of the window comparison come first; four more local methods from the slides were scored the same way.')
+    print('The four methods of the window comparison come first; four more local methods from the slides were scored the same way.')
     print('Flagged stockout observations are excluded from scoring because their demand is unknown.')
     return pd.DataFrame(rows,columns=['Method','WAPE: total miss / total demand','Bias: net error / total demand']).set_index('Method')
 

@@ -16,6 +16,7 @@ for sid,g in clean.groupby('series_id'):
         v=float(np.mean(hist[-4:])) if row.stockout_flag and hist else float(row.units)
         clean.loc[idx,'units']=v;hist.append(v)
 wide=rf.to_wide(clean);actual=rf.to_wide(raw);weeks=wide.index;pos={w:i for i,w in enumerate(weeks)}
+disc=raw.pivot(index='week_start',columns='series_id',values='discount_pct').sort_index()   # planned, so known for the forecast weeks too
 patterns=rf.pattern_table(wide.iloc[:104]) # training history only
 cols=rf.FEATURE_COLS+['horizon'];features=pd.concat([rf.make_features(clean,horizon=h) for h in range(1,8)],ignore_index=True)
 features['t']=features.week_start.map(pos)
@@ -28,6 +29,7 @@ for o in range(104,153,4):
     for sid in wide.columns:
         train=wide[sid].iloc[:o].to_numpy(float)
         forecasts={'Repeat last year':rf.seasonal_naive(train,4),'Smooth recent demand':rf.ses(train,4),
+                   'Prophet':rf.prophet_forecast(weeks[:o],train,disc[sid].iloc[:o],weeks[o:o+4],disc[sid].iloc[o:o+4]),
                    'Global model':np.array([pred_lookup[sid,h] for h in range(1,5)])}
         for m,fc in forecasts.items():
             for h in range(4):
@@ -55,7 +57,7 @@ for sid in selected:
         for m,f in forecasts.items():inv.append([sid,str(weeks[t].date()),m,float(actual[sid].iloc[t]),*map(float,f)])
 pd.DataFrame(inv,columns=['series_id','week_start','method','actual']+[f'h{h}' for h in range(1,8)]).to_csv(OUT/'inventory.csv',index=False)
 raw.to_csv(OUT/'demand.csv',index=False);products.to_csv(OUT/'products.csv',index=False)
-r={'release':'2026-09-29','scope':'Sina, T2: demand forecasting and inventory decisions',
+r={'release':'2026-09-30','scope':'Sina, T2: demand forecasting and inventory decisions',
    'n_rows':len(raw),'n_series':80,'n_weeks':156,'total_units':int(raw.units.sum()),
    'data_start':str(weeks[0].date()),'data_end':str(weeks[-1].date()),
    'backtest':{},'backtest_setup':{'origins':13,'horizon':4,'first_test_week':str(weeks[104].date()),'last_test_week':str(weeks[-1].date()),'flagged_test_rows_excluded':int(bt[bt.method=='Global model'].scoreable.eq(0).sum())},
@@ -67,6 +69,7 @@ def _score(g):
     e=g.forecast-g.actual;return {'wape':float(e.abs().sum()/g.actual.sum()*100),'bias_pct':float(e.sum()/g.actual.sum()*100)}
 sc=allbt[allbt.scoreable==1]
 r['backtest_all']={m:{'all':_score(g),**{p:_score(gp) for p,gp in g.groupby('pattern')}} for m,g in sc.groupby('method')}
+r['by_horizon']={m:{str(h):_score(g[g.horizon==h])['wape'] for h in range(1,5)} for m,g in sc.groupby('method')}   # WAPE by weeks ahead
 sm=sc[sc.pattern=='smooth'];origins=sorted(sm.test_start.unique())
 r['per_origin']={'origins':origins,'smooth':{m:[_score(g[g.test_start==o])['wape'] for o in origins] for m,g in sm.groupby('method')}}
 r['split_demo']={'window':origins[-1],'fixed_last':{m:_score(g[g.test_start==origins[-1]])['wape'] for m,g in sm.groupby('method')},

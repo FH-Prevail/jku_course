@@ -118,10 +118,11 @@ Four demand patterns are useful descriptions, not guarantees of forecast accurac
  code('lesson.pattern_examples()'),
  md('''Two numbers place every product on one picture. **ADI** (average demand interval) is the average number of weeks between sales: 1 means a sale every week. **CV²** (squared coefficient of variation) says how irregular the amounts are from one sale to the next. The dashed lines are the usual limits from the literature, 1.32 and 0.49; they are a convention, not a law.'''),
  code('lesson.pattern_map()'),
- md('''## 2. Compare three approaches
+ md('''## 2. Compare four approaches
 
 - **Repeat last year**, also called seasonal naive: reuse sales from 52 weeks earlier.
 - **Smooth recent demand**, or simple exponential smoothing: give more weight to recent sales; this version forecasts a constant level.
+- **Prophet**, a local model from Meta: one model per product and channel that adds up a trend, a yearly season and the effect of the planned discount.
 - **Global model**: one model learns from all products and channels, using past sales and planned prices, promotions and calendar information.
 
 We forecast the same four weeks with each method and then reveal actual sales. An **average miss** is the average absolute difference in units. **Total miss as a percentage of demand** adds up those absolute misses and divides by total actual demand. **Bias** is the average forecast minus actual: positive means too high, negative means too low.

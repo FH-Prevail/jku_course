@@ -188,6 +188,22 @@ def seasonal_naive(y, h, m=52):
     return np.array([y[-m + (i % m)] for i in range(h)])
 
 
+def prophet_forecast(weeks, y, discount, future_weeks, future_discount):
+    """Prophet (Meta), one model per series: a trend, a yearly season and the planned discount as a
+    regressor, added together. Fitted on the weeks up to the forecast date only; negative
+    forecasts are cut at zero. Weekly data, so no weekly or daily seasonality."""
+    import logging
+    from prophet import Prophet
+    for name in ("cmdstanpy", "prophet"):
+        logging.getLogger(name).setLevel(logging.ERROR)
+        logging.getLogger(name).disabled = True
+    m = Prophet(yearly_seasonality=True, weekly_seasonality=False, daily_seasonality=False, uncertainty_samples=0)
+    m.add_regressor("discount")
+    m.fit(pd.DataFrame({"ds": pd.to_datetime(weeks), "y": np.asarray(y, float), "discount": np.asarray(discount, float)}))
+    fut = pd.DataFrame({"ds": pd.to_datetime(future_weeks), "discount": np.asarray(future_discount, float)})
+    return np.clip(m.predict(fut).yhat.to_numpy(float), 0, None)
+
+
 def moving_average(y, h, window=8):
     y = np.asarray(y, float)
     return np.repeat(float(y[-window:].mean()), h)
