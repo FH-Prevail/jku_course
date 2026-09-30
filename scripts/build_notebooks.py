@@ -123,7 +123,7 @@ Four demand patterns are useful descriptions, not guarantees of forecast accurac
 - **Repeat last year**, also called seasonal naive: reuse sales from 52 weeks earlier.
 - **Smooth recent demand**, or simple exponential smoothing: give more weight to recent sales; this version forecasts a constant level.
 - **Prophet**, a local model from Meta: one model per product and channel that adds up a trend, a yearly season and the effect of the planned discount.
-- **Global model**: one model learns from all products and channels, using past sales and planned prices, promotions and calendar information.
+- **LightGBM in global mode**: one LightGBM model learns from all products and channels, using past sales and planned prices, promotions and calendar information. (LightGBM can also be trained one series at a time, in local mode; here it runs in global mode.)
 
 We forecast the same four weeks with each method and then reveal actual sales. An **average miss** is the average absolute difference in units. **Total miss as a percentage of demand** adds up those absolute misses and divides by total actual demand. **Bias** is the average forecast minus actual: positive means too high, negative means too low.
 
@@ -150,7 +150,7 @@ A **backtest** replays past forecast decisions using only information available 
 
 **WAPE**, weighted absolute percentage error, is total absolute miss divided by total actual demand. **Percentage bias** is total signed error divided by total demand; earlier we expressed bias in units instead. Both definitions use forecast minus actual for the sign.'''),
  code('lesson.backtest()'),
- md('''**What to see.** The table compares all 80 series on the same dates; the four extra rows are the further local methods from the slides (Holt-Winters, Croston SBA, TSB, a moving average), scored the same way. Large sellers have more influence on these aggregate percentages, so the best assortment result does not promise the best result for your product. These results were computed in advance; the global model was retrained at each test date.'''),
+ md('''**What to see.** The table compares all 80 series on the same dates; the four extra rows are the further local methods from the slides (Holt-Winters, Croston SBA, TSB, a moving average), scored the same way. Large sellers have more influence on these aggregate percentages, so the best assortment result does not promise the best result for your product. These results were computed in advance; LightGBM in global mode was retrained at each test date.'''),
  md('''## 5. A forecast can be right most weeks and still miss all sales
 
 **MAPE**, mean absolute percentage error, computes a percentage miss for each week before averaging. A week with zero actual demand makes that division undefined.'''),
@@ -176,7 +176,7 @@ A **cycle service level** is the probability of completing a replenishment cycle
 
 **Fill rate** is the share of demand actually served. The replay below reports fill rate, weeks with a stockout and average stock. We do not compare fill rate directly with the cycle service target.
 
-The global model is trained before 2025. Error variability is measured on 25 weeks from January to June; the stock rule is then replayed on 26 weeks from 30 June to 22 December. Orders are rounded up to whole units.'''),
+LightGBM in global mode is trained once, before 2025. Error variability is measured on 25 weeks from January to June; the stock rule is then replayed on 26 weeks from 30 June to 22 December. Orders are rounded up to whole units.'''),
  code("lesson.stock_decision('Plush Bear, store', 95)"),
  md('''**Try it.** Move Target % from 50 to 80, then to 95 and 99. Does every increase serve more demand? Then choose Puzzle 1000 and Vacuum Filter; the same target need not deliver the same observed outcome.'''),
  code('stock_controls = lesson.stock_widget()',True),

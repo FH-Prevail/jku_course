@@ -30,7 +30,7 @@ for o in range(104,153,4):
         train=wide[sid].iloc[:o].to_numpy(float)
         forecasts={'Repeat last year':rf.seasonal_naive(train,4),'Smooth recent demand':rf.ses(train,4),
                    'Prophet':rf.prophet_forecast(weeks[:o],train,disc[sid].iloc[:o],weeks[o:o+4],disc[sid].iloc[o:o+4]),
-                   'Global model':np.array([pred_lookup[sid,h] for h in range(1,5)])}
+                   'LightGBM in global mode':np.array([pred_lookup[sid,h] for h in range(1,5)])}
         for m,fc in forecasts.items():
             for h in range(4):
                 t=o+h;flag=int(raw[(raw.series_id==sid)&(raw.week_start==weeks[t])].stockout_flag.iloc[0])
@@ -53,14 +53,14 @@ for sid in selected:
     for t in sorted(te.t.unique()):
         fs=[float(lookup.loc[(sid,t,h)]) for h in range(1,8) if t+h-1<len(weeks)]
         fs+= [fs[-1]]*(7-len(fs))
-        forecasts={'Repeat last year':rf.seasonal_naive(y[:t],7),'Smooth recent demand':rf.ses(y[:t],7),'Global model':fs}
+        forecasts={'Repeat last year':rf.seasonal_naive(y[:t],7),'Smooth recent demand':rf.ses(y[:t],7),'LightGBM in global mode':fs}
         for m,f in forecasts.items():inv.append([sid,str(weeks[t].date()),m,float(actual[sid].iloc[t]),*map(float,f)])
 pd.DataFrame(inv,columns=['series_id','week_start','method','actual']+[f'h{h}' for h in range(1,8)]).to_csv(OUT/'inventory.csv',index=False)
 raw.to_csv(OUT/'demand.csv',index=False);products.to_csv(OUT/'products.csv',index=False)
 r={'release':'2026-09-30','scope':'Sina, T2: demand forecasting and inventory decisions',
    'n_rows':len(raw),'n_series':80,'n_weeks':156,'total_units':int(raw.units.sum()),
    'data_start':str(weeks[0].date()),'data_end':str(weeks[-1].date()),
-   'backtest':{},'backtest_setup':{'origins':13,'horizon':4,'first_test_week':str(weeks[104].date()),'last_test_week':str(weeks[-1].date()),'flagged_test_rows_excluded':int(bt[bt.method=='Global model'].scoreable.eq(0).sum())},
+   'backtest':{},'backtest_setup':{'origins':13,'horizon':4,'first_test_week':str(weeks[104].date()),'last_test_week':str(weeks[-1].date()),'flagged_test_rows_excluded':int(bt[bt.method=='LightGBM in global mode'].scoreable.eq(0).sum())},
    'model':rf.lgbm_params(n_jobs=2),'inventory_setup':{'training_end':'2024-12-30','calibration_start':'2025-01-06','calibration_end':'2025-06-23','test_start':'2025-06-30','test_end':'2025-12-22','calibration_weeks':25,'test_weeks':26,'integer_orders':True,'initial_stock':'ceiling of first protection forecast, no pipeline','tail':'extend the last available forecast from the same origin'},
    'history_repair':'4 flagged sales observations replaced by mean of preceding four weeks; flagged test observations excluded from forecast scores'}
 for m,g in bt[bt.scoreable==1].groupby('method'):
@@ -209,7 +209,7 @@ r['order_example']=c.order_example();r['stock']={p:{str(t):c.simulate(p,t) for t
 r['forecast_value']={m:c.simulate('Plush Bear, store',95,m) for m in c.METHODS}
 _rb={}
 for _p in ['Plush Bear, store','Puzzle 1000, store','Vacuum Filter, store']:
-    _g,_a,_f,_sig,_L,_half=c.profile(_p,'Global model')
+    _g,_a,_f,_sig,_L,_half=c.profile(_p,'LightGBM in global mode')
     _test=slice(_half,len(_a));_e=_f[_test,0]-_a[_test]
     _fp=_f.sum(1);_ap=np.array([_a[t:t+_L+1].sum() if t+_L+1<=len(_a) else np.nan for t in range(len(_a))])
     _ok=(~np.isnan(_ap))&(np.arange(len(_a))>=_half)

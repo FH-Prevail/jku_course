@@ -281,7 +281,7 @@ FORECASTERS = {
 }
 
 
-# ----------------------------------------------------------- global model features
+# ------------------------------------------- features for LightGBM in global mode
 LAGS = (1, 2, 3, 4, 8, 12, 26, 52)
 ROLLS = (4, 8, 13, 26)
 

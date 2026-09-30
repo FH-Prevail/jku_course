@@ -8,7 +8,7 @@
   "data_start": "2023-01-02",
   "data_end": "2025-12-22",
   "backtest": {
-    "Global model": {
+    "LightGBM in global mode": {
       "wape": 25.10490037693021,
       "bias_pct": -3.1109132471134258
     },
@@ -105,28 +105,6 @@
         "bias_pct": -4.665647536068735
       }
     },
-    "Global model": {
-      "all": {
-        "wape": 25.10490037693021,
-        "bias_pct": -3.1109132471134258
-      },
-      "erratic": {
-        "wape": 70.53592058835898,
-        "bias_pct": -15.791335684022703
-      },
-      "intermittent": {
-        "wape": 121.15490238647901,
-        "bias_pct": -14.504876401095915
-      },
-      "lumpy": {
-        "wape": 136.8727975700861,
-        "bias_pct": -35.4244497969382
-      },
-      "smooth": {
-        "wape": 18.816130567051957,
-        "bias_pct": -1.425264681536177
-      }
-    },
     "Holt-Winters": {
       "all": {
         "wape": 38.98997148174618,
@@ -147,6 +125,28 @@
       "smooth": {
         "wape": 32.356626056378246,
         "bias_pct": -0.14176360687403883
+      }
+    },
+    "LightGBM in global mode": {
+      "all": {
+        "wape": 25.10490037693021,
+        "bias_pct": -3.1109132471134258
+      },
+      "erratic": {
+        "wape": 70.53592058835898,
+        "bias_pct": -15.791335684022703
+      },
+      "intermittent": {
+        "wape": 121.15490238647901,
+        "bias_pct": -14.504876401095915
+      },
+      "lumpy": {
+        "wape": 136.8727975700861,
+        "bias_pct": -35.4244497969382
+      },
+      "smooth": {
+        "wape": 18.816130567051957,
+        "bias_pct": -1.425264681536177
       }
     },
     "Moving average": {
@@ -273,17 +273,17 @@
       "3": 35.1882645802005,
       "4": 35.097200382148706
     },
-    "Global model": {
-      "1": 24.950110605991167,
-      "2": 25.278474061844992,
-      "3": 26.460488601484844,
-      "4": 23.72945564210741
-    },
     "Holt-Winters": {
       "1": 39.0196102616231,
       "2": 38.04412642969634,
       "3": 39.35386955647804,
       "4": 39.534124120143034
+    },
+    "LightGBM in global mode": {
+      "1": 24.950110605991167,
+      "2": 25.278474061844992,
+      "3": 26.460488601484844,
+      "4": 23.72945564210741
     },
     "Moving average": {
       "1": 37.18103033220992,
@@ -363,21 +363,6 @@
         34.049913861071765,
         34.12109856931352
       ],
-      "Global model": [
-        21.46312934713494,
-        18.65544482202121,
-        19.314283889125868,
-        16.986923511873172,
-        20.19136882419631,
-        16.434103050379694,
-        17.899681997828004,
-        18.28991357082497,
-        17.849936768722696,
-        20.007834499931253,
-        17.4520288044632,
-        22.029650627257244,
-        18.139976622400656
-      ],
       "Holt-Winters": [
         30.391638610752143,
         30.69695138716355,
@@ -392,6 +377,21 @@
         25.04451426835651,
         28.02900917683171,
         32.95532213879732
+      ],
+      "LightGBM in global mode": [
+        21.46312934713494,
+        18.65544482202121,
+        19.314283889125868,
+        16.986923511873172,
+        20.19136882419631,
+        16.434103050379694,
+        17.899681997828004,
+        18.28991357082497,
+        17.849936768722696,
+        20.007834499931253,
+        17.4520288044632,
+        22.029650627257244,
+        18.139976622400656
       ],
       "Moving average": [
         63.868557487038736,
@@ -475,8 +475,8 @@
     "fixed_last": {
       "Croston": 33.178920388850926,
       "Croston SBA": 34.12109856931352,
-      "Global model": 18.139976622400656,
       "Holt-Winters": 32.95532213879732,
+      "LightGBM in global mode": 18.139976622400656,
       "Moving average": 31.452087969629535,
       "Prophet": 15.062254231010238,
       "Repeat last year": 37.89108522057861,
@@ -486,8 +486,8 @@
     "rolling": {
       "Croston": 30.33901392529507,
       "Croston SBA": 29.170152026937796,
-      "Global model": 18.816130567051957,
       "Holt-Winters": 32.356626056378246,
+      "LightGBM in global mode": 18.816130567051957,
       "Moving average": 31.634760879256113,
       "Prophet": 19.84355813200733,
       "Repeat last year": 36.60867326757539,
@@ -1082,7 +1082,7 @@
     }
   },
   "backtest_by_pattern": {
-    "Global model": {
+    "LightGBM in global mode": {
       "erratic": {
         "wape": 70.53592058835898,
         "bias_pct": -15.791335684022703,
@@ -3598,7 +3598,7 @@
       "protection_weeks": 5,
       "test_weeks": 26
     },
-    "Global model": {
+    "LightGBM in global mode": {
       "target": 95.0,
       "safety_stock": 147.0,
       "average_stock": 288.65384615384613,
@@ -3658,7 +3658,7 @@
           "Total miss, % of demand": 14.39419585947594,
           "Average bias, units": 0.4026453653088602
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 17.066405307296275,
           "Total miss, % of demand": 14.712418368358856,
           "Average bias, units": -5.060841620467404
@@ -3680,7 +3680,7 @@
           "Total miss, % of demand": 13.60946119531912,
           "Average bias, units": 12.763326683059905
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 13.729453014229744,
           "Total miss, % of demand": 9.550923835985909,
           "Average bias, units": 9.061876689281302
@@ -3702,7 +3702,7 @@
           "Total miss, % of demand": 9.538026001747326,
           "Average bias, units": -14.741550762078099
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 56.074068853900044,
           "Total miss, % of demand": 18.08840930770969,
           "Average bias, units": -56.074068853900044
@@ -3726,7 +3726,7 @@
           "Total miss, % of demand": 11.248357619415371,
           "Average bias, units": -1.8469724754039873
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 20.431607217271974,
           "Total miss, % of demand": 14.337969977032964,
           "Average bias, units": -12.44814877951454
@@ -3748,7 +3748,7 @@
           "Total miss, % of demand": 12.717311270654314,
           "Average bias, units": 11.629778384099929
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 7.012564131551322,
           "Total miss, % of demand": 5.500050299255939,
           "Average bias, units": -0.07177327973352021
@@ -3770,7 +3770,7 @@
           "Total miss, % of demand": 10.384966478149279,
           "Average bias, units": -1.2494668393521806
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 87.1269621092142,
           "Total miss, % of demand": 25.327605264306456,
           "Average bias, units": -87.1269621092142
@@ -3794,7 +3794,7 @@
           "Total miss, % of demand": 55.95661780051343,
           "Average bias, units": -15.388069895141195
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 13.916307977430863,
           "Total miss, % of demand": 50.60475628156678,
           "Average bias, units": -6.637611639643943
@@ -3816,7 +3816,7 @@
           "Total miss, % of demand": 58.94378436264596,
           "Average bias, units": -18.272573152420247
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 14.378428352857831,
           "Total miss, % of demand": 46.38202694470268,
           "Average bias, units": -14.378428352857831
@@ -3838,7 +3838,7 @@
           "Total miss, % of demand": 82.90068778606567,
           "Average bias, units": 27.97323597156142
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 33.23350453689061,
           "Total miss, % of demand": 71.85622602570942,
           "Average bias, units": 2.062941648549259
@@ -3862,7 +3862,7 @@
           "Total miss, % of demand": 216.22558268167188,
           "Average bias, units": 0.38968620331266884
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 0.47241520980542295,
           "Total miss, % of demand": 188.9660839221692,
           "Average bias, units": 0.19476268383767953
@@ -3884,7 +3884,7 @@
           "Total miss, % of demand": null,
           "Average bias, units": 1.130955946928497
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 0.5186064326099992,
           "Total miss, % of demand": null,
           "Average bias, units": 0.5186064326099992
@@ -3906,7 +3906,7 @@
           "Total miss, % of demand": 116.25909527042437,
           "Average bias, units": 0.02473754315861776
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 0.7382361420921156,
           "Total miss, % of demand": 147.64722841842314,
           "Average bias, units": 0.039852596421783626
@@ -3930,7 +3930,7 @@
           "Total miss, % of demand": 25.274984001822826,
           "Average bias, units": 29.025858253222907
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 28.107277994619288,
           "Total miss, % of demand": 22.485822395695433,
           "Average bias, units": 11.476663503367
@@ -3952,7 +3952,7 @@
           "Total miss, % of demand": 28.262713587296624,
           "Average bias, units": 44.372460332055695
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 30.34186074162053,
           "Total miss, % of demand": 19.32602595007677,
           "Average bias, units": 30.34186074162053
@@ -3974,7 +3974,7 @@
           "Total miss, % of demand": 21.75078520155941,
           "Average bias, units": -20.02496694808263
         },
-        "Global model": {
+        "LightGBM in global mode": {
           "Average miss, units": 21.32823206138725,
           "Total miss, % of demand": 20.507915443641586,
           "Average bias, units": -4.2510724289607715
@@ -4083,9 +4083,9 @@
     }
   },
   "source_hashes": {
-    "src/retail_fc.py": "db4101c19ac678c1de04afb57502d5bb4e8fe4226db8d6b52137cc636d8dd0d4",
-    "src/classroom.py": "cc595afc32f0dbe90eabd075f23f2a17c386bcde774695de6e5bf7961c744ebb",
-    "analysis/build_classroom.py": "b700f6fd18c4105f475e0acf06bd83cde0dc22ea89c164aef45878bbe1f7e4a4",
+    "src/retail_fc.py": "decdb5e8a98b66175ce251eacc732c35e0c2a69518c59691c24a3d2657c0e33b",
+    "src/classroom.py": "f8a4524ca0586cbfbdd272125fdd80749b2aff2a0d2b2b04de8dc006e6f663d2",
+    "analysis/build_classroom.py": "f505aafb20c097a45e83bd09d7739261fbfa309323389d64986c9561e814240e",
     "data/demand_weekly.csv": "d32c56bcc33197b9f153014fce05f5fafad64e01e0358969c12fb149ab28b511",
     "data/products.csv": "87cb40a96d3605b7588114181c7fe5712c90f595b0d5a14710dbc03b0dfe2f00"
   }

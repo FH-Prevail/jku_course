@@ -9,8 +9,8 @@ from scipy.stats import norm
 
 BLUE = '#2F789F'
 INK = '#253746'
-METHODS = ['Repeat last year', 'Smooth recent demand', 'Global model']            # the stock replay uses these three
-COMPARE = ['Repeat last year', 'Smooth recent demand', 'Prophet', 'Global model']  # the forecast comparisons: two simple rules, a local model, the global model
+METHODS = ['Repeat last year', 'Smooth recent demand', 'LightGBM in global mode']            # the stock replay uses these three
+COMPARE = ['Repeat last year', 'Smooth recent demand', 'Prophet', 'LightGBM in global mode']  # the forecast comparisons: two simple rules, Prophet (local), LightGBM trained on all series (global mode)
 PRODUCTS = {'Plush Bear, store': 'P010_store', 'Plush Bear, online': 'P010_online',
             'Puzzle 1000, store': 'P011_store', 'Vacuum Filter, store': 'P035_store',
             'Garden Hose, store': 'P015_store'}
@@ -151,7 +151,7 @@ def zeros_demo():
     print('Do not choose a stock policy by counting the weeks a forecast gets right.')
 
 
-def profile(product='Plush Bear, store',method='Global model'):
+def profile(product='Plush Bear, store',method='LightGBM in global mode'):
     sid=_sid(product)
     if method not in METHODS: raise ValueError('Choose a method shown in the table.')
     g=I[(I.series_id==sid)&(I.method==method)].sort_values('week_start')
@@ -162,7 +162,7 @@ def profile(product='Plush Bear, store',method='Global model'):
     return g,a,f,sig,L,half
 
 
-def simulate(product='Plush Bear, store',target=95,method='Global model',details=False):
+def simulate(product='Plush Bear, store',target=95,method='LightGBM in global mode',details=False):
     if not np.isfinite(target) or not 50<=target<=99: raise ValueError('Choose a target from 50 to 99 percent.')
     g,a,f,sig,L,half=profile(product,method)
     ss=float(norm.ppf(target/100)*sig*np.sqrt(L+1));on=float(np.ceil(f[half].sum()));pipeline=[];rows=[]
