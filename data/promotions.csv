@@ -1,0 +1,1038 @@
+product_id,channel,week_start,discount_pct,promo_type
+P001,store,2023-02-06,15,price cut
+P001,store,2023-03-20,15,price cut
+P001,store,2023-06-19,15,bundle
+P001,store,2023-08-07,10,bundle
+P001,store,2023-08-21,10,price cut
+P001,store,2024-02-19,10,price cut
+P001,store,2024-03-04,10,newsletter
+P001,store,2024-03-25,20,newsletter
+P001,store,2024-05-13,25,price cut
+P001,store,2024-06-10,30,price cut
+P001,store,2024-07-01,25,bundle
+P001,store,2024-08-05,25,newsletter
+P001,store,2024-12-23,30,price cut
+P001,store,2025-01-06,15,newsletter
+P001,store,2025-02-03,25,newsletter
+P001,store,2025-03-03,15,bundle
+P001,store,2025-04-07,20,price cut
+P001,store,2025-09-01,30,newsletter
+P001,online,2023-05-22,30,price cut
+P001,online,2023-08-21,10,bundle
+P001,online,2023-09-18,15,price cut
+P001,online,2023-12-18,30,price cut
+P001,online,2024-01-29,25,bundle
+P001,online,2024-06-24,10,newsletter
+P001,online,2024-07-22,25,newsletter
+P001,online,2024-09-09,15,price cut
+P001,online,2024-10-14,30,bundle
+P001,online,2024-11-11,20,price cut
+P001,online,2024-12-09,15,price cut
+P001,online,2024-12-30,20,price cut
+P001,online,2025-01-27,10,price cut
+P001,online,2025-03-17,15,bundle
+P001,online,2025-06-09,10,bundle
+P001,online,2025-11-03,10,newsletter
+P002,store,2023-01-16,10,bundle
+P002,store,2023-07-17,25,price cut
+P002,store,2023-10-30,25,newsletter
+P002,store,2023-12-04,10,bundle
+P002,store,2024-03-11,25,bundle
+P002,store,2024-04-15,15,bundle
+P002,store,2024-05-13,30,price cut
+P002,store,2024-06-24,25,newsletter
+P002,store,2024-12-30,20,bundle
+P002,store,2025-01-27,15,price cut
+P002,store,2025-03-24,20,bundle
+P002,store,2025-05-12,20,price cut
+P002,store,2025-06-09,30,bundle
+P002,store,2025-07-28,10,bundle
+P002,online,2023-03-20,20,price cut
+P002,online,2023-04-17,20,bundle
+P002,online,2023-05-08,15,price cut
+P002,online,2023-06-19,15,newsletter
+P002,online,2023-07-10,15,bundle
+P002,online,2023-07-31,25,bundle
+P002,online,2023-08-28,30,bundle
+P002,online,2023-12-25,20,bundle
+P002,online,2024-01-22,15,bundle
+P002,online,2024-04-22,10,bundle
+P002,online,2024-06-17,25,price cut
+P002,online,2024-09-23,15,bundle
+P002,online,2024-10-07,10,newsletter
+P002,online,2024-10-28,15,bundle
+P002,online,2024-12-02,10,price cut
+P002,online,2024-12-23,30,price cut
+P002,online,2025-01-13,20,price cut
+P002,online,2025-02-17,25,bundle
+P002,online,2025-04-14,20,price cut
+P002,online,2025-04-28,30,newsletter
+P002,online,2025-06-02,10,bundle
+P002,online,2025-09-15,10,bundle
+P002,online,2025-10-13,20,price cut
+P002,online,2025-10-27,10,price cut
+P003,store,2023-01-23,15,newsletter
+P003,store,2023-02-06,30,newsletter
+P003,store,2023-04-17,10,price cut
+P003,store,2023-05-22,30,newsletter
+P003,store,2023-06-05,20,newsletter
+P003,store,2023-08-28,25,newsletter
+P003,store,2024-01-08,25,newsletter
+P003,store,2024-04-08,20,bundle
+P003,store,2024-04-22,25,newsletter
+P003,store,2024-06-03,15,newsletter
+P003,store,2025-02-03,20,bundle
+P003,store,2025-03-03,10,bundle
+P003,store,2025-03-24,30,price cut
+P003,store,2025-05-26,10,newsletter
+P003,store,2025-09-08,15,newsletter
+P003,store,2025-10-27,25,newsletter
+P003,store,2025-11-17,30,newsletter
+P003,online,2023-01-30,10,newsletter
+P003,online,2023-05-15,25,bundle
+P003,online,2023-06-12,30,bundle
+P003,online,2023-09-25,25,price cut
+P003,online,2023-12-04,20,bundle
+P003,online,2024-02-05,20,price cut
+P003,online,2024-02-26,10,price cut
+P003,online,2024-04-15,10,bundle
+P003,online,2024-06-17,15,bundle
+P003,online,2024-09-16,30,newsletter
+P003,online,2024-09-30,20,newsletter
+P003,online,2024-11-18,25,price cut
+P003,online,2025-02-24,30,price cut
+P003,online,2025-06-09,25,bundle
+P003,online,2025-06-30,30,newsletter
+P003,online,2025-09-22,10,newsletter
+P003,online,2025-11-17,10,price cut
+P004,store,2023-04-24,10,bundle
+P004,store,2023-11-13,20,bundle
+P004,store,2023-12-04,10,bundle
+P004,store,2024-01-08,30,bundle
+P004,store,2024-05-27,25,bundle
+P004,store,2024-10-07,30,price cut
+P004,store,2024-10-21,30,price cut
+P004,store,2025-03-03,15,newsletter
+P004,store,2025-04-07,20,newsletter
+P004,store,2025-07-28,25,price cut
+P004,store,2025-11-10,20,bundle
+P004,store,2025-12-22,10,newsletter
+P004,online,2023-06-12,25,bundle
+P004,online,2023-07-24,10,newsletter
+P004,online,2023-10-02,10,price cut
+P004,online,2023-10-23,30,bundle
+P004,online,2024-03-11,10,bundle
+P004,online,2024-09-30,30,bundle
+P004,online,2025-03-03,30,price cut
+P004,online,2025-07-07,25,bundle
+P004,online,2025-10-27,20,price cut
+P005,store,2023-01-30,25,price cut
+P005,store,2023-05-08,10,newsletter
+P005,store,2023-06-05,10,newsletter
+P005,store,2023-12-11,25,price cut
+P005,store,2024-06-10,10,newsletter
+P005,store,2024-07-01,25,newsletter
+P005,store,2025-02-03,20,price cut
+P005,store,2025-04-21,20,newsletter
+P005,store,2025-05-12,15,bundle
+P005,store,2025-06-30,30,newsletter
+P005,store,2025-09-22,20,newsletter
+P005,store,2025-10-20,10,newsletter
+P005,online,2023-02-06,10,bundle
+P005,online,2023-04-03,15,price cut
+P005,online,2023-09-11,15,newsletter
+P005,online,2023-11-06,15,bundle
+P005,online,2024-01-29,10,bundle
+P005,online,2024-04-08,20,newsletter
+P005,online,2024-06-24,15,bundle
+P005,online,2024-07-15,15,newsletter
+P005,online,2024-08-19,20,bundle
+P005,online,2024-09-09,20,price cut
+P005,online,2025-01-27,10,price cut
+P005,online,2025-04-14,15,bundle
+P005,online,2025-04-28,25,bundle
+P005,online,2025-05-26,25,bundle
+P005,online,2025-09-22,30,bundle
+P005,online,2025-12-08,10,price cut
+P006,store,2023-07-17,20,newsletter
+P006,store,2023-12-04,30,bundle
+P006,store,2024-03-18,25,newsletter
+P006,store,2024-07-22,30,newsletter
+P006,store,2024-11-11,15,price cut
+P006,store,2025-01-13,15,newsletter
+P006,store,2025-02-24,25,bundle
+P006,store,2025-03-31,30,price cut
+P006,store,2025-05-26,30,price cut
+P006,store,2025-10-27,30,price cut
+P006,online,2023-03-27,20,bundle
+P006,online,2023-05-15,30,bundle
+P006,online,2023-07-24,15,price cut
+P006,online,2023-10-16,10,price cut
+P006,online,2023-11-13,10,bundle
+P006,online,2024-04-15,20,price cut
+P006,online,2024-05-13,30,price cut
+P006,online,2024-06-03,10,bundle
+P006,online,2024-10-21,25,bundle
+P006,online,2025-03-17,25,price cut
+P006,online,2025-04-07,25,newsletter
+P006,online,2025-05-26,15,newsletter
+P006,online,2025-07-28,10,bundle
+P006,online,2025-09-08,25,newsletter
+P007,store,2023-01-09,15,price cut
+P007,store,2023-02-27,15,price cut
+P007,store,2023-04-10,25,bundle
+P007,store,2023-06-26,30,price cut
+P007,store,2023-11-13,20,newsletter
+P007,store,2024-01-08,20,price cut
+P007,store,2024-05-20,20,newsletter
+P007,store,2024-09-30,20,bundle
+P007,store,2024-10-28,20,newsletter
+P007,store,2025-05-12,25,bundle
+P007,store,2025-05-26,15,price cut
+P007,store,2025-06-16,30,newsletter
+P007,store,2025-07-21,30,price cut
+P007,store,2025-09-01,30,price cut
+P007,online,2023-03-06,10,price cut
+P007,online,2023-03-20,15,price cut
+P007,online,2023-07-31,30,bundle
+P007,online,2023-08-21,20,newsletter
+P007,online,2023-10-30,30,bundle
+P007,online,2024-02-05,15,newsletter
+P007,online,2024-03-18,30,newsletter
+P007,online,2024-04-08,20,newsletter
+P007,online,2025-01-06,10,bundle
+P007,online,2025-03-24,25,price cut
+P007,online,2025-05-12,10,newsletter
+P007,online,2025-06-23,10,bundle
+P008,store,2023-02-06,30,newsletter
+P008,store,2023-07-31,25,price cut
+P008,store,2023-08-14,10,price cut
+P008,store,2023-09-11,25,newsletter
+P008,store,2023-11-13,20,price cut
+P008,store,2023-11-27,10,bundle
+P008,store,2024-01-22,25,bundle
+P008,store,2024-03-11,15,price cut
+P008,store,2024-04-08,15,price cut
+P008,store,2024-06-17,30,newsletter
+P008,store,2024-07-15,10,bundle
+P008,store,2024-07-29,25,newsletter
+P008,store,2024-10-14,15,bundle
+P008,store,2025-02-17,15,price cut
+P008,store,2025-03-24,30,bundle
+P008,store,2025-07-14,10,price cut
+P008,store,2025-11-10,10,newsletter
+P008,online,2023-03-20,10,bundle
+P008,online,2023-04-24,20,newsletter
+P008,online,2023-06-26,15,newsletter
+P008,online,2023-07-17,25,price cut
+P008,online,2023-08-14,10,price cut
+P008,online,2023-10-23,20,price cut
+P008,online,2023-11-06,15,newsletter
+P008,online,2023-11-27,25,newsletter
+P008,online,2024-02-19,20,bundle
+P008,online,2024-03-11,15,price cut
+P008,online,2024-06-10,10,newsletter
+P008,online,2024-08-05,20,price cut
+P008,online,2024-11-18,15,bundle
+P008,online,2025-04-14,30,price cut
+P008,online,2025-06-09,30,newsletter
+P008,online,2025-07-07,30,newsletter
+P008,online,2025-09-29,15,price cut
+P009,store,2023-02-13,30,bundle
+P009,store,2023-05-15,15,bundle
+P009,store,2023-12-04,25,newsletter
+P009,store,2024-01-15,30,price cut
+P009,store,2025-02-24,30,price cut
+P009,store,2025-06-16,25,newsletter
+P009,store,2025-08-18,10,price cut
+P009,store,2025-09-01,15,bundle
+P009,store,2025-12-15,10,price cut
+P009,online,2023-02-27,30,price cut
+P009,online,2023-04-10,25,newsletter
+P009,online,2023-05-01,15,newsletter
+P009,online,2023-07-31,15,price cut
+P009,online,2023-09-11,10,newsletter
+P009,online,2024-02-05,30,price cut
+P009,online,2024-05-27,10,bundle
+P009,online,2024-06-10,10,bundle
+P009,online,2024-09-30,25,price cut
+P009,online,2024-10-21,20,bundle
+P009,online,2024-12-30,15,newsletter
+P009,online,2025-03-03,15,bundle
+P009,online,2025-06-23,20,price cut
+P009,online,2025-07-28,30,price cut
+P009,online,2025-10-13,15,price cut
+P010,store,2023-04-24,15,newsletter
+P010,store,2023-05-15,20,bundle
+P010,store,2023-07-31,15,price cut
+P010,store,2023-09-04,10,bundle
+P010,store,2024-02-12,10,price cut
+P010,store,2024-03-18,30,newsletter
+P010,store,2024-07-08,15,price cut
+P010,store,2024-11-04,30,newsletter
+P010,store,2025-01-13,20,price cut
+P010,store,2025-03-03,30,price cut
+P010,store,2025-06-16,25,newsletter
+P010,store,2025-07-28,30,newsletter
+P010,store,2025-12-22,10,bundle
+P010,online,2023-02-27,10,newsletter
+P010,online,2023-07-31,30,price cut
+P010,online,2023-12-18,25,newsletter
+P010,online,2024-08-05,15,bundle
+P010,online,2025-02-24,15,bundle
+P010,online,2025-05-12,20,bundle
+P010,online,2025-06-02,25,bundle
+P011,store,2023-01-16,30,newsletter
+P011,store,2023-02-27,20,bundle
+P011,store,2023-04-10,30,price cut
+P011,store,2023-05-29,15,newsletter
+P011,store,2023-07-31,15,price cut
+P011,store,2023-11-06,25,price cut
+P011,store,2023-12-18,25,newsletter
+P011,store,2024-04-01,20,bundle
+P011,store,2024-05-06,20,newsletter
+P011,store,2024-06-03,20,newsletter
+P011,store,2024-10-28,25,bundle
+P011,store,2025-05-26,15,newsletter
+P011,store,2025-08-25,25,price cut
+P011,store,2025-11-10,15,price cut
+P011,online,2023-02-27,20,newsletter
+P011,online,2023-04-10,20,bundle
+P011,online,2023-06-26,20,bundle
+P011,online,2023-08-14,15,price cut
+P011,online,2023-09-11,15,newsletter
+P011,online,2024-01-22,15,bundle
+P011,online,2024-03-04,25,price cut
+P011,online,2024-04-08,25,newsletter
+P011,online,2024-05-06,30,bundle
+P011,online,2024-05-20,10,bundle
+P011,online,2024-08-19,10,bundle
+P011,online,2024-11-25,25,bundle
+P011,online,2024-12-23,20,price cut
+P011,online,2025-01-27,10,newsletter
+P012,store,2023-05-29,15,newsletter
+P012,store,2023-06-19,30,newsletter
+P012,store,2023-10-30,15,price cut
+P012,store,2023-12-04,20,price cut
+P012,store,2024-04-15,25,price cut
+P012,store,2024-04-29,10,newsletter
+P012,store,2024-05-20,10,bundle
+P012,store,2024-06-17,30,newsletter
+P012,store,2024-11-04,30,bundle
+P012,store,2025-03-24,20,bundle
+P012,store,2025-06-16,30,bundle
+P012,online,2023-01-23,30,price cut
+P012,online,2023-05-15,15,price cut
+P012,online,2023-10-23,20,bundle
+P012,online,2023-11-20,25,bundle
+P012,online,2024-03-04,25,newsletter
+P012,online,2024-10-07,20,bundle
+P012,online,2025-01-06,25,newsletter
+P012,online,2025-06-16,20,price cut
+P012,online,2025-07-21,30,price cut
+P012,online,2025-12-15,10,newsletter
+P013,store,2023-04-10,10,price cut
+P013,store,2023-06-19,25,price cut
+P013,store,2023-09-18,10,price cut
+P013,store,2023-10-23,15,bundle
+P013,store,2024-01-15,15,bundle
+P013,store,2024-02-19,25,price cut
+P013,store,2024-03-11,20,price cut
+P013,store,2024-04-15,15,bundle
+P013,store,2024-08-19,30,bundle
+P013,store,2024-09-23,30,price cut
+P013,store,2024-12-16,10,newsletter
+P013,store,2025-04-21,15,bundle
+P013,store,2025-05-05,30,bundle
+P013,store,2025-10-06,20,price cut
+P013,online,2023-01-23,10,price cut
+P013,online,2023-02-27,30,price cut
+P013,online,2023-03-20,15,newsletter
+P013,online,2023-04-10,30,price cut
+P013,online,2023-06-05,25,price cut
+P013,online,2023-07-24,30,price cut
+P013,online,2023-10-23,10,newsletter
+P013,online,2023-11-27,10,bundle
+P013,online,2024-04-01,10,price cut
+P013,online,2024-04-15,25,bundle
+P013,online,2025-09-01,20,price cut
+P013,online,2025-12-15,10,price cut
+P014,store,2023-01-23,10,bundle
+P014,store,2023-02-06,10,newsletter
+P014,store,2023-02-27,20,newsletter
+P014,store,2023-05-08,10,price cut
+P014,store,2023-06-05,25,newsletter
+P014,store,2023-07-10,10,price cut
+P014,store,2023-09-04,25,newsletter
+P014,store,2023-10-02,30,price cut
+P014,store,2023-11-20,10,newsletter
+P014,store,2024-05-06,10,bundle
+P014,store,2025-04-28,20,newsletter
+P014,store,2025-12-15,30,price cut
+P014,online,2023-02-06,10,bundle
+P014,online,2023-07-10,10,price cut
+P014,online,2023-08-07,10,bundle
+P014,online,2023-09-25,20,bundle
+P014,online,2023-12-25,10,bundle
+P014,online,2024-04-29,10,newsletter
+P014,online,2024-05-13,30,newsletter
+P014,online,2024-07-29,20,newsletter
+P014,online,2024-08-19,25,bundle
+P014,online,2024-09-30,15,bundle
+P014,online,2024-10-28,25,price cut
+P014,online,2024-11-11,20,price cut
+P014,online,2024-11-25,15,price cut
+P014,online,2025-04-14,10,bundle
+P014,online,2025-05-05,20,bundle
+P015,store,2023-12-18,25,price cut
+P015,store,2024-01-29,15,newsletter
+P015,store,2024-02-19,25,price cut
+P015,store,2024-04-15,25,bundle
+P015,store,2024-06-24,25,bundle
+P015,store,2024-12-02,10,bundle
+P015,store,2025-07-14,20,newsletter
+P015,store,2025-10-13,25,price cut
+P015,store,2025-12-08,30,price cut
+P015,online,2023-09-25,10,newsletter
+P015,online,2024-06-17,20,price cut
+P015,online,2024-09-30,25,bundle
+P015,online,2025-02-10,25,bundle
+P015,online,2025-05-05,30,price cut
+P015,online,2025-06-23,25,newsletter
+P015,online,2025-07-14,20,bundle
+P016,store,2023-07-17,10,price cut
+P016,store,2023-09-18,10,newsletter
+P016,store,2023-10-16,20,price cut
+P016,store,2023-11-20,10,bundle
+P016,store,2024-02-26,20,newsletter
+P016,store,2024-04-15,30,price cut
+P016,store,2024-06-24,25,bundle
+P016,store,2024-09-09,20,bundle
+P016,store,2024-11-04,30,bundle
+P016,store,2024-12-16,30,bundle
+P016,store,2025-06-16,15,price cut
+P016,store,2025-07-14,30,price cut
+P016,online,2023-01-09,20,newsletter
+P016,online,2023-07-17,15,bundle
+P016,online,2023-09-04,30,newsletter
+P016,online,2024-07-08,30,price cut
+P016,online,2024-08-05,30,bundle
+P016,online,2024-09-16,20,price cut
+P016,online,2025-05-19,10,price cut
+P016,online,2025-08-18,20,price cut
+P017,store,2023-02-06,20,newsletter
+P017,store,2023-09-04,15,bundle
+P017,store,2024-02-12,25,newsletter
+P017,store,2024-04-22,25,newsletter
+P017,store,2025-01-06,25,price cut
+P017,store,2025-03-03,20,newsletter
+P017,store,2025-06-23,25,newsletter
+P017,store,2025-10-13,30,newsletter
+P017,store,2025-10-27,15,price cut
+P017,online,2023-01-16,30,price cut
+P017,online,2023-03-06,30,price cut
+P017,online,2023-04-10,25,bundle
+P017,online,2023-06-05,25,bundle
+P017,online,2023-08-28,10,price cut
+P017,online,2023-12-04,15,newsletter
+P017,online,2024-07-29,25,price cut
+P017,online,2024-09-16,10,bundle
+P017,online,2025-03-31,10,bundle
+P017,online,2025-08-18,25,bundle
+P017,online,2025-09-01,15,bundle
+P018,store,2023-01-09,25,newsletter
+P018,store,2023-02-20,10,price cut
+P018,store,2023-10-02,10,price cut
+P018,store,2024-08-19,30,newsletter
+P018,store,2024-12-02,25,price cut
+P018,store,2025-02-10,30,bundle
+P018,store,2025-04-21,25,bundle
+P018,store,2025-06-30,15,bundle
+P018,store,2025-10-20,15,price cut
+P018,store,2025-11-10,20,bundle
+P018,store,2025-12-08,15,newsletter
+P018,online,2023-06-26,30,price cut
+P018,online,2023-10-16,30,newsletter
+P018,online,2024-07-08,15,newsletter
+P018,online,2025-01-20,30,bundle
+P018,online,2025-08-25,25,price cut
+P018,online,2025-11-17,25,bundle
+P019,store,2023-04-24,20,price cut
+P019,store,2023-06-12,20,price cut
+P019,store,2023-08-07,20,bundle
+P019,store,2023-09-25,25,bundle
+P019,store,2023-11-06,25,bundle
+P019,store,2024-04-29,10,newsletter
+P019,store,2024-08-12,30,newsletter
+P019,store,2024-09-02,10,bundle
+P019,store,2025-03-17,30,newsletter
+P019,store,2025-07-21,15,bundle
+P019,online,2024-01-08,15,bundle
+P019,online,2024-04-15,10,bundle
+P019,online,2024-05-20,25,bundle
+P019,online,2024-06-17,20,price cut
+P019,online,2024-08-19,25,price cut
+P019,online,2024-10-14,30,bundle
+P019,online,2025-02-10,30,newsletter
+P019,online,2025-02-24,30,bundle
+P019,online,2025-05-19,25,bundle
+P019,online,2025-06-30,10,price cut
+P019,online,2025-09-08,25,price cut
+P019,online,2025-09-29,25,price cut
+P020,store,2023-02-27,30,newsletter
+P020,store,2023-04-17,20,bundle
+P020,store,2023-06-12,30,bundle
+P020,store,2023-09-25,30,price cut
+P020,store,2024-09-09,30,newsletter
+P020,store,2024-09-30,25,price cut
+P020,store,2024-10-21,20,bundle
+P020,store,2025-02-03,10,bundle
+P020,store,2025-03-24,20,bundle
+P020,store,2025-04-07,10,price cut
+P020,online,2023-01-09,10,newsletter
+P020,online,2023-01-23,30,newsletter
+P020,online,2023-04-24,20,bundle
+P020,online,2023-05-22,15,price cut
+P020,online,2023-11-06,20,price cut
+P020,online,2024-04-22,10,price cut
+P020,online,2024-11-11,20,price cut
+P020,online,2024-12-30,10,bundle
+P020,online,2025-04-14,30,price cut
+P021,store,2023-06-12,25,bundle
+P021,store,2023-11-27,30,newsletter
+P021,store,2023-12-11,25,newsletter
+P021,store,2024-03-18,10,newsletter
+P021,store,2024-05-06,25,newsletter
+P021,store,2024-08-05,15,bundle
+P021,store,2024-08-19,15,bundle
+P021,store,2024-10-21,25,newsletter
+P021,store,2024-12-16,20,bundle
+P021,store,2025-03-10,30,newsletter
+P021,store,2025-03-24,30,price cut
+P021,store,2025-06-30,25,price cut
+P021,store,2025-09-22,30,bundle
+P021,store,2025-10-13,25,newsletter
+P021,store,2025-10-27,10,newsletter
+P021,online,2023-02-27,25,newsletter
+P021,online,2023-06-26,30,newsletter
+P021,online,2023-07-24,30,newsletter
+P021,online,2023-08-28,30,bundle
+P021,online,2023-10-23,15,bundle
+P021,online,2024-01-01,10,bundle
+P021,online,2024-02-19,20,price cut
+P021,online,2024-05-06,30,bundle
+P021,online,2024-09-02,25,newsletter
+P021,online,2024-10-14,10,price cut
+P021,online,2025-01-06,10,newsletter
+P021,online,2025-01-27,20,bundle
+P021,online,2025-04-07,15,price cut
+P021,online,2025-07-21,20,price cut
+P021,online,2025-08-04,20,price cut
+P021,online,2025-10-20,30,newsletter
+P021,online,2025-12-15,25,bundle
+P022,store,2023-01-09,20,price cut
+P022,store,2023-03-20,25,price cut
+P022,store,2023-04-10,30,newsletter
+P022,store,2023-05-15,25,bundle
+P022,store,2023-07-10,20,newsletter
+P022,store,2023-08-28,10,price cut
+P022,store,2023-12-25,10,price cut
+P022,store,2024-02-19,20,price cut
+P022,store,2024-05-13,30,price cut
+P022,store,2024-11-04,25,bundle
+P022,store,2024-12-02,30,bundle
+P022,store,2024-12-16,30,newsletter
+P022,store,2025-02-24,15,price cut
+P022,store,2025-03-31,10,price cut
+P022,store,2025-05-12,25,newsletter
+P022,store,2025-06-23,20,bundle
+P022,store,2025-07-07,20,price cut
+P022,store,2025-08-04,25,bundle
+P022,online,2023-02-27,10,price cut
+P022,online,2023-03-20,30,bundle
+P022,online,2023-04-03,20,newsletter
+P022,online,2023-05-01,15,bundle
+P022,online,2023-06-19,30,price cut
+P022,online,2023-09-04,15,price cut
+P022,online,2023-10-02,10,price cut
+P022,online,2023-10-16,30,bundle
+P022,online,2024-01-22,30,price cut
+P022,online,2024-02-05,15,price cut
+P022,online,2024-03-18,15,price cut
+P022,online,2024-04-22,20,newsletter
+P022,online,2024-05-13,10,newsletter
+P022,online,2024-06-03,15,bundle
+P022,online,2024-07-01,25,newsletter
+P022,online,2024-10-14,15,bundle
+P022,online,2024-11-18,10,price cut
+P022,online,2024-12-09,15,bundle
+P022,online,2025-03-03,25,price cut
+P022,online,2025-04-07,15,price cut
+P022,online,2025-06-30,20,newsletter
+P022,online,2025-11-03,20,bundle
+P023,store,2023-02-06,15,bundle
+P023,store,2023-03-20,20,price cut
+P023,store,2023-05-01,15,newsletter
+P023,store,2023-06-12,15,newsletter
+P023,store,2023-07-03,10,bundle
+P023,store,2023-08-28,25,bundle
+P023,store,2023-09-25,15,price cut
+P023,store,2023-12-25,30,newsletter
+P023,store,2024-03-04,25,newsletter
+P023,store,2024-03-18,10,price cut
+P023,store,2024-04-08,25,price cut
+P023,store,2024-04-29,30,newsletter
+P023,store,2024-05-13,30,bundle
+P023,store,2024-08-26,30,newsletter
+P023,store,2024-09-30,25,price cut
+P023,store,2024-11-18,30,price cut
+P023,store,2024-12-23,15,price cut
+P023,store,2025-01-06,10,newsletter
+P023,store,2025-03-31,25,bundle
+P023,store,2025-05-05,10,price cut
+P023,store,2025-05-26,20,bundle
+P023,store,2025-08-04,15,bundle
+P023,store,2025-09-08,10,newsletter
+P023,store,2025-09-22,10,bundle
+P023,store,2025-11-03,10,bundle
+P023,store,2025-12-15,20,newsletter
+P023,online,2023-04-03,10,price cut
+P023,online,2023-04-17,25,newsletter
+P023,online,2023-05-15,25,price cut
+P023,online,2023-06-19,25,newsletter
+P023,online,2023-08-07,30,price cut
+P023,online,2023-08-28,25,bundle
+P023,online,2023-10-09,25,newsletter
+P023,online,2023-12-04,30,price cut
+P023,online,2024-03-11,20,price cut
+P023,online,2024-04-08,25,bundle
+P023,online,2024-04-22,25,newsletter
+P023,online,2024-06-03,20,price cut
+P023,online,2024-07-01,25,price cut
+P023,online,2024-07-22,30,price cut
+P023,online,2024-08-26,15,price cut
+P023,online,2024-12-02,25,price cut
+P023,online,2024-12-30,25,newsletter
+P023,online,2025-03-24,30,price cut
+P023,online,2025-04-07,20,bundle
+P023,online,2025-05-26,30,newsletter
+P023,online,2025-12-08,30,newsletter
+P023,online,2025-12-22,30,newsletter
+P024,store,2023-01-09,10,bundle
+P024,store,2023-03-20,10,bundle
+P024,store,2023-07-03,30,bundle
+P024,store,2023-11-13,25,price cut
+P024,store,2023-12-04,15,newsletter
+P024,store,2024-02-05,15,newsletter
+P024,store,2024-02-26,30,newsletter
+P024,store,2024-04-01,15,price cut
+P024,store,2024-05-20,20,price cut
+P024,store,2024-07-08,25,price cut
+P024,store,2024-11-25,20,bundle
+P024,store,2025-03-17,10,bundle
+P024,store,2025-05-12,20,bundle
+P024,store,2025-05-26,10,price cut
+P024,store,2025-06-16,15,bundle
+P024,store,2025-07-14,25,bundle
+P024,store,2025-08-11,25,price cut
+P024,store,2025-12-01,15,newsletter
+P024,online,2023-01-16,15,bundle
+P024,online,2023-02-13,15,newsletter
+P024,online,2023-07-03,25,newsletter
+P024,online,2023-07-24,10,newsletter
+P024,online,2023-08-28,20,price cut
+P024,online,2023-11-06,15,newsletter
+P024,online,2024-01-22,25,newsletter
+P024,online,2024-02-19,30,bundle
+P024,online,2024-03-04,15,newsletter
+P024,online,2024-03-18,25,price cut
+P024,online,2024-04-01,30,newsletter
+P024,online,2024-07-22,30,price cut
+P024,online,2024-08-05,10,price cut
+P024,online,2024-10-21,25,newsletter
+P024,online,2025-02-17,20,bundle
+P024,online,2025-03-03,30,bundle
+P024,online,2025-03-31,25,bundle
+P024,online,2025-04-28,10,price cut
+P024,online,2025-06-23,20,bundle
+P024,online,2025-07-14,20,price cut
+P024,online,2025-09-22,25,newsletter
+P025,store,2023-02-20,15,bundle
+P025,store,2023-03-06,15,price cut
+P025,store,2023-04-03,20,newsletter
+P025,store,2023-04-24,25,price cut
+P025,store,2023-06-19,25,newsletter
+P025,store,2023-09-11,20,bundle
+P025,store,2024-01-01,10,bundle
+P025,store,2024-03-11,25,price cut
+P025,store,2024-05-27,15,newsletter
+P025,store,2024-06-24,30,newsletter
+P025,store,2024-09-16,30,newsletter
+P025,store,2024-12-30,20,newsletter
+P025,store,2025-01-13,30,newsletter
+P025,store,2025-02-17,25,price cut
+P025,store,2025-04-14,10,bundle
+P025,store,2025-07-07,15,bundle
+P025,store,2025-07-21,25,price cut
+P025,store,2025-08-18,10,newsletter
+P025,store,2025-10-20,30,price cut
+P025,store,2025-11-24,25,newsletter
+P025,online,2023-01-16,25,newsletter
+P025,online,2023-02-27,10,newsletter
+P025,online,2023-03-27,30,newsletter
+P025,online,2023-04-24,30,bundle
+P025,online,2023-06-26,30,price cut
+P025,online,2023-07-17,15,price cut
+P025,online,2023-08-07,25,price cut
+P025,online,2023-12-18,15,price cut
+P025,online,2024-01-15,15,price cut
+P025,online,2024-01-29,10,newsletter
+P025,online,2024-02-19,25,bundle
+P025,online,2024-04-22,30,price cut
+P025,online,2024-05-13,10,price cut
+P025,online,2024-06-03,25,bundle
+P025,online,2024-07-29,25,newsletter
+P025,online,2024-09-09,10,bundle
+P025,online,2024-10-14,25,price cut
+P025,online,2024-12-02,15,price cut
+P025,online,2025-01-13,15,newsletter
+P025,online,2025-07-07,25,bundle
+P025,online,2025-10-06,15,bundle
+P025,online,2025-11-03,25,price cut
+P026,store,2023-01-30,20,price cut
+P026,store,2023-03-13,20,newsletter
+P026,store,2023-03-27,30,bundle
+P026,store,2023-05-01,15,bundle
+P026,store,2023-05-22,10,newsletter
+P026,store,2023-06-12,30,price cut
+P026,store,2023-06-26,25,newsletter
+P026,store,2023-07-24,30,price cut
+P026,store,2023-11-27,10,bundle
+P026,store,2024-01-15,25,price cut
+P026,store,2024-01-29,25,price cut
+P026,store,2024-03-11,20,bundle
+P026,store,2024-06-10,20,newsletter
+P026,store,2024-07-01,30,bundle
+P026,store,2024-09-16,25,bundle
+P026,store,2024-10-21,30,newsletter
+P026,store,2025-01-27,25,bundle
+P026,store,2025-04-28,30,bundle
+P026,store,2025-05-26,10,bundle
+P026,store,2025-06-16,10,newsletter
+P026,store,2025-06-30,10,newsletter
+P026,store,2025-11-10,10,newsletter
+P026,store,2025-12-15,25,newsletter
+P026,online,2023-03-06,10,price cut
+P026,online,2023-04-17,25,price cut
+P026,online,2023-09-04,15,bundle
+P026,online,2023-10-16,25,bundle
+P026,online,2024-01-08,20,price cut
+P026,online,2024-01-22,15,newsletter
+P026,online,2024-04-08,10,bundle
+P026,online,2024-04-22,20,bundle
+P026,online,2024-06-10,15,bundle
+P026,online,2024-09-02,30,price cut
+P026,online,2024-09-23,30,price cut
+P026,online,2024-11-25,20,newsletter
+P026,online,2025-01-27,10,price cut
+P026,online,2025-02-24,20,price cut
+P026,online,2025-03-10,20,bundle
+P026,online,2025-03-31,10,price cut
+P026,online,2025-06-23,30,bundle
+P026,online,2025-07-28,10,newsletter
+P026,online,2025-08-25,25,newsletter
+P026,online,2025-09-29,25,newsletter
+P027,store,2023-01-16,20,price cut
+P027,store,2023-02-13,20,newsletter
+P027,store,2023-03-13,15,bundle
+P027,store,2023-03-27,30,newsletter
+P027,store,2023-06-05,10,bundle
+P027,store,2023-07-17,15,price cut
+P027,store,2023-08-07,15,price cut
+P027,store,2023-10-02,20,price cut
+P027,store,2023-11-20,15,price cut
+P027,store,2023-12-25,25,bundle
+P027,store,2024-01-15,30,bundle
+P027,store,2024-04-15,10,price cut
+P027,store,2024-09-09,30,bundle
+P027,store,2024-12-09,25,price cut
+P027,store,2024-12-30,30,newsletter
+P027,store,2025-01-20,20,newsletter
+P027,store,2025-06-09,10,bundle
+P027,store,2025-06-30,15,newsletter
+P027,store,2025-09-01,15,price cut
+P027,store,2025-09-15,15,price cut
+P027,store,2025-10-20,10,bundle
+P027,store,2025-11-10,10,bundle
+P027,online,2023-03-06,15,bundle
+P027,online,2023-05-22,20,bundle
+P027,online,2023-06-19,25,newsletter
+P027,online,2023-07-10,15,bundle
+P027,online,2023-10-16,10,price cut
+P027,online,2023-10-30,25,bundle
+P027,online,2024-02-05,10,newsletter
+P027,online,2024-03-11,30,price cut
+P027,online,2024-05-06,15,price cut
+P027,online,2024-08-05,15,bundle
+P027,online,2024-09-30,10,newsletter
+P027,online,2024-11-11,30,price cut
+P027,online,2024-12-16,10,bundle
+P027,online,2025-03-03,25,bundle
+P027,online,2025-03-17,10,newsletter
+P027,online,2025-04-14,30,newsletter
+P027,online,2025-05-05,10,bundle
+P027,online,2025-06-02,10,bundle
+P027,online,2025-07-21,20,bundle
+P027,online,2025-09-15,10,price cut
+P027,online,2025-10-06,15,bundle
+P027,online,2025-11-24,20,price cut
+P028,store,2023-01-16,15,price cut
+P028,store,2023-01-30,10,newsletter
+P028,store,2023-03-20,25,price cut
+P028,store,2023-04-17,15,bundle
+P028,store,2023-05-22,20,bundle
+P028,store,2023-10-02,20,price cut
+P028,store,2023-11-20,15,bundle
+P028,store,2023-12-11,15,price cut
+P028,store,2024-01-01,20,price cut
+P028,store,2024-06-17,25,bundle
+P028,store,2024-07-29,15,newsletter
+P028,store,2024-11-25,10,price cut
+P028,store,2025-02-24,20,price cut
+P028,store,2025-03-17,20,newsletter
+P028,store,2025-04-07,10,price cut
+P028,store,2025-05-26,30,bundle
+P028,store,2025-07-14,25,price cut
+P028,store,2025-08-25,15,newsletter
+P028,store,2025-09-15,30,newsletter
+P028,store,2025-11-03,15,price cut
+P028,online,2023-02-27,15,price cut
+P028,online,2023-04-24,30,newsletter
+P028,online,2023-06-05,10,price cut
+P028,online,2023-10-09,20,newsletter
+P028,online,2023-11-06,10,newsletter
+P028,online,2023-12-11,10,newsletter
+P028,online,2024-01-01,30,price cut
+P028,online,2024-02-12,20,newsletter
+P028,online,2024-03-25,25,bundle
+P028,online,2024-06-03,25,newsletter
+P028,online,2024-07-01,10,newsletter
+P028,online,2024-07-15,10,price cut
+P028,online,2025-01-20,10,bundle
+P028,online,2025-02-03,30,price cut
+P028,online,2025-03-31,15,newsletter
+P028,online,2025-04-14,30,bundle
+P028,online,2025-04-28,30,newsletter
+P028,online,2025-05-12,30,bundle
+P028,online,2025-09-08,20,price cut
+P028,online,2025-10-27,20,price cut
+P029,store,2023-02-27,25,price cut
+P029,store,2023-05-29,10,bundle
+P029,store,2023-07-03,15,price cut
+P029,store,2023-09-25,20,newsletter
+P029,store,2023-11-06,25,newsletter
+P029,store,2023-12-25,10,newsletter
+P029,store,2024-01-15,30,price cut
+P029,store,2024-03-11,10,newsletter
+P029,store,2024-03-25,15,bundle
+P029,store,2024-04-15,25,bundle
+P029,store,2024-06-10,15,newsletter
+P029,store,2024-06-24,20,newsletter
+P029,store,2024-10-14,25,newsletter
+P029,store,2025-02-10,30,bundle
+P029,store,2025-03-17,30,price cut
+P029,store,2025-04-21,10,newsletter
+P029,store,2025-05-05,25,newsletter
+P029,store,2025-07-14,20,newsletter
+P029,store,2025-09-29,10,price cut
+P029,online,2023-02-27,15,newsletter
+P029,online,2023-04-24,30,newsletter
+P029,online,2023-07-31,30,bundle
+P029,online,2023-12-11,15,bundle
+P029,online,2024-01-29,30,bundle
+P029,online,2024-05-06,20,price cut
+P029,online,2024-05-27,10,bundle
+P029,online,2024-08-05,25,price cut
+P029,online,2024-08-19,20,bundle
+P029,online,2024-09-02,20,newsletter
+P029,online,2024-10-21,15,bundle
+P029,online,2024-11-04,25,price cut
+P029,online,2025-03-10,25,price cut
+P029,online,2025-04-07,30,newsletter
+P029,online,2025-04-28,30,price cut
+P029,online,2025-06-09,25,newsletter
+P029,online,2025-09-01,10,bundle
+P029,online,2025-11-24,25,bundle
+P030,store,2023-03-20,25,bundle
+P030,store,2023-04-24,30,bundle
+P030,store,2023-06-12,25,price cut
+P030,store,2023-09-11,20,bundle
+P030,store,2024-01-01,20,bundle
+P030,store,2024-04-08,30,price cut
+P030,store,2024-08-26,30,bundle
+P030,store,2024-09-09,30,bundle
+P030,store,2025-03-03,15,newsletter
+P030,store,2025-04-07,30,bundle
+P030,store,2025-08-04,15,bundle
+P030,store,2025-10-13,15,newsletter
+P030,store,2025-11-17,10,bundle
+P030,online,2023-02-06,15,price cut
+P030,online,2023-04-03,15,newsletter
+P030,online,2023-06-26,30,price cut
+P030,online,2023-10-23,15,newsletter
+P030,online,2024-06-10,20,price cut
+P030,online,2024-10-07,25,bundle
+P030,online,2024-11-04,30,bundle
+P030,online,2024-12-16,30,price cut
+P030,online,2025-01-06,10,price cut
+P030,online,2025-02-17,25,newsletter
+P030,online,2025-03-17,25,price cut
+P030,online,2025-04-28,20,price cut
+P030,online,2025-07-07,20,newsletter
+P030,online,2025-07-21,10,newsletter
+P030,online,2025-08-11,30,price cut
+P030,online,2025-09-15,10,newsletter
+P031,store,2023-02-20,10,bundle
+P031,store,2023-03-13,10,price cut
+P031,store,2023-05-22,25,bundle
+P031,store,2023-06-05,10,newsletter
+P031,store,2023-08-28,20,price cut
+P031,store,2023-10-23,10,bundle
+P031,store,2023-11-27,15,price cut
+P031,store,2024-01-08,20,price cut
+P031,store,2024-02-12,10,bundle
+P031,store,2024-05-13,15,newsletter
+P031,store,2024-06-03,25,newsletter
+P031,store,2024-07-15,15,newsletter
+P031,store,2024-08-05,30,bundle
+P031,store,2024-09-16,25,bundle
+P031,store,2024-09-30,10,price cut
+P031,store,2024-11-04,30,price cut
+P031,store,2025-01-06,20,price cut
+P031,store,2025-02-03,15,newsletter
+P031,store,2025-04-21,10,bundle
+P031,store,2025-05-12,20,price cut
+P031,store,2025-06-09,30,price cut
+P031,store,2025-08-04,25,bundle
+P031,store,2025-10-13,15,bundle
+P031,store,2025-12-01,25,bundle
+P031,store,2025-12-15,25,bundle
+P031,online,2023-03-06,15,newsletter
+P031,online,2023-06-05,30,price cut
+P031,online,2023-06-19,15,bundle
+P031,online,2023-08-21,10,bundle
+P031,online,2023-11-13,30,newsletter
+P031,online,2024-01-15,30,price cut
+P031,online,2024-04-15,10,newsletter
+P031,online,2024-07-15,30,bundle
+P031,online,2024-08-26,30,newsletter
+P031,online,2024-11-04,15,price cut
+P031,online,2025-01-20,30,bundle
+P031,online,2025-02-10,25,newsletter
+P031,online,2025-06-09,15,price cut
+P031,online,2025-10-06,25,bundle
+P032,store,2023-01-16,30,bundle
+P032,store,2023-02-06,15,price cut
+P032,store,2023-05-22,15,bundle
+P032,store,2023-07-24,15,price cut
+P032,store,2023-08-07,25,newsletter
+P032,store,2023-11-27,15,bundle
+P032,store,2024-01-15,30,bundle
+P032,store,2024-05-20,15,newsletter
+P032,store,2024-06-10,10,price cut
+P032,store,2024-08-05,10,price cut
+P032,store,2024-09-02,10,bundle
+P032,store,2025-01-06,25,price cut
+P032,store,2025-02-03,15,newsletter
+P032,store,2025-03-17,20,newsletter
+P032,store,2025-05-12,20,price cut
+P032,store,2025-06-16,15,price cut
+P032,store,2025-06-30,10,bundle
+P032,store,2025-09-29,10,newsletter
+P032,store,2025-12-15,20,bundle
+P032,online,2023-02-06,30,bundle
+P032,online,2023-03-27,20,newsletter
+P032,online,2023-06-12,25,bundle
+P032,online,2023-08-14,20,price cut
+P032,online,2023-09-11,30,bundle
+P032,online,2023-12-25,25,newsletter
+P032,online,2024-03-04,30,bundle
+P032,online,2024-03-25,20,price cut
+P032,online,2024-04-29,20,price cut
+P032,online,2024-06-24,20,newsletter
+P032,online,2024-10-07,25,price cut
+P032,online,2025-02-24,30,bundle
+P032,online,2025-05-19,25,newsletter
+P032,online,2025-06-30,20,bundle
+P032,online,2025-09-08,25,price cut
+P032,online,2025-10-20,20,newsletter
+P033,store,2023-04-10,10,price cut
+P033,store,2023-05-22,10,bundle
+P033,store,2023-07-10,15,bundle
+P033,store,2023-08-07,20,bundle
+P033,store,2023-08-28,20,price cut
+P033,store,2023-09-25,10,price cut
+P033,store,2023-10-23,30,bundle
+P033,store,2023-12-11,20,bundle
+P033,store,2024-01-22,20,newsletter
+P033,store,2024-02-19,10,price cut
+P033,store,2024-11-11,10,newsletter
+P033,store,2024-12-02,15,newsletter
+P033,store,2025-01-06,30,bundle
+P033,store,2025-01-20,30,newsletter
+P033,store,2025-06-02,20,bundle
+P033,store,2025-06-23,20,newsletter
+P033,store,2025-10-06,25,price cut
+P033,store,2025-10-20,20,bundle
+P033,store,2025-12-01,30,price cut
+P033,online,2023-01-16,15,bundle
+P033,online,2023-02-13,30,newsletter
+P033,online,2023-07-24,15,newsletter
+P033,online,2023-10-23,25,price cut
+P033,online,2023-11-13,25,price cut
+P033,online,2024-03-04,10,bundle
+P033,online,2024-03-25,20,newsletter
+P033,online,2024-04-08,15,price cut
+P033,online,2024-05-06,25,price cut
+P033,online,2024-09-09,30,bundle
+P033,online,2025-01-06,10,bundle
+P033,online,2025-03-24,30,newsletter
+P033,online,2025-06-30,10,newsletter
+P033,online,2025-07-14,20,bundle
+P033,online,2025-09-08,10,price cut
+P034,store,2023-04-03,25,newsletter
+P034,store,2023-07-31,30,newsletter
+P034,store,2023-10-23,10,price cut
+P034,store,2023-12-04,10,price cut
+P034,store,2024-03-04,20,newsletter
+P034,store,2024-03-18,15,bundle
+P034,store,2024-07-29,30,bundle
+P034,store,2024-11-04,25,price cut
+P034,store,2024-12-09,15,bundle
+P034,store,2025-02-10,25,bundle
+P034,store,2025-03-31,10,bundle
+P034,store,2025-06-30,15,bundle
+P034,store,2025-09-29,10,bundle
+P034,store,2025-11-03,25,price cut
+P034,store,2025-12-08,15,bundle
+P034,online,2023-03-13,30,newsletter
+P034,online,2023-05-15,30,newsletter
+P034,online,2023-07-03,20,price cut
+P034,online,2023-08-21,30,price cut
+P034,online,2023-09-25,10,newsletter
+P034,online,2023-10-09,20,newsletter
+P034,online,2023-10-30,25,bundle
+P034,online,2023-11-13,15,price cut
+P034,online,2023-11-27,15,newsletter
+P034,online,2023-12-25,25,bundle
+P034,online,2024-01-15,15,bundle
+P034,online,2024-02-05,30,price cut
+P034,online,2024-03-04,25,price cut
+P034,online,2024-04-15,20,price cut
+P034,online,2024-09-16,30,newsletter
+P034,online,2025-01-13,15,price cut
+P034,online,2025-03-10,10,newsletter
+P034,online,2025-05-05,10,newsletter
+P034,online,2025-08-25,20,price cut
+P034,online,2025-10-27,15,price cut
+P034,online,2025-12-01,20,newsletter

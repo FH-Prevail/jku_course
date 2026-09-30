@@ -1,0 +1,41 @@
+product_id,product_name,category,unit_price,unit_cost,lead_time_weeks,holding_cost_rate
+P001,Wireless Earbuds,Electronics,331.95,251.42,2,0.2
+P002,Bluetooth Speaker,Electronics,291.79,203.02,3,0.2
+P003,Smart Plug,Electronics,260.81,207.05,3,0.2
+P004,4K Streaming Stick,Electronics,135.38,105.05,2,0.2
+P005,Robot Vacuum,Electronics,268.73,210.46,2,0.2
+P006,Gaming Headset,Electronics,155.12,110.27,2,0.2
+P007,E-Reader,Electronics,325.2,224.64,2,0.2
+P008,Soundbar,Electronics,240.89,177.22,2,0.2
+P009,Building Blocks Set,Toys,65.89,41.68,6,0.2
+P010,Plush Bear,Toys,25.0,13.83,4,0.2
+P011,Puzzle 1000,Toys,62.09,38.86,5,0.2
+P012,RC Car,Toys,54.54,35.56,5,0.2
+P013,Board Game Classic,Toys,14.31,8.31,6,0.2
+P014,Wooden Train Set,Toys,31.23,17.72,6,0.2
+P015,Garden Hose 20m,Garden,141.43,100.65,2,0.2
+P016,Plant Fertilizer 1kg,Garden,39.07,25.03,4,0.2
+P017,Patio Chair,Garden,92.01,54.42,5,0.2
+P018,Hedge Trimmer,Garden,173.56,108.94,3,0.2
+P019,Solar Path Light,Garden,52.85,33.16,4,0.2
+P020,Barbecue Grill,Garden,12.41,8.04,2,0.2
+P021,Espresso Beans 1kg,Grocery,10.53,8.31,1,0.2
+P022,Olive Oil 750ml,Grocery,10.59,9.12,1,0.2
+P023,Pasta 500g,Grocery,8.63,7.0,1,0.2
+P024,Oat Drink 1L,Grocery,4.46,3.49,1,0.2
+P025,Dark Chocolate 100g,Grocery,4.27,3.72,1,0.2
+P026,Mineral Water 6x1L,Grocery,7.48,5.56,1,0.2
+P027,Protein Bar,Grocery,3.99,3.23,1,0.2
+P028,Green Tea 50 bags,Grocery,2.22,1.86,1,0.2
+P029,Denim Jacket,Fashion,112.87,49.04,4,0.2
+P030,Running Shoes,Fashion,140.79,60.61,6,0.2
+P031,Wool Scarf,Fashion,20.12,8.44,4,0.2
+P032,Linen Shirt,Fashion,48.98,20.66,6,0.2
+P033,Rain Coat,Fashion,77.74,32.93,5,0.2
+P034,Leather Belt,Fashion,41.03,18.86,5,0.2
+P035,Vacuum Filter HEPA,Spare Parts,31.6,15.99,6,0.2
+P036,Coffee Machine Gasket,Spare Parts,73.79,41.67,3,0.2
+P037,Grill Igniter,Spare Parts,25.83,14.73,6,0.2
+P038,Trimmer Blade,Spare Parts,27.84,15.62,6,0.2
+P039,Speaker Battery,Spare Parts,9.15,5.38,3,0.2
+P040,Hose Connector,Spare Parts,13.92,8.15,4,0.2

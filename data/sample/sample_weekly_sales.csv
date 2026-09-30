@@ -1,0 +1,469 @@
+week_start,product_name,category,channel,units,price,discount_pct,promo_flag
+2023-01-02,Plush Bear,Toys,store,77,25.0,0,0
+2023-01-09,Plush Bear,Toys,store,70,25.0,0,0
+2023-01-16,Plush Bear,Toys,store,79,25.0,0,0
+2023-01-23,Plush Bear,Toys,store,85,25.0,0,0
+2023-01-30,Plush Bear,Toys,store,89,25.0,0,0
+2023-02-06,Plush Bear,Toys,store,75,25.0,0,0
+2023-02-13,Plush Bear,Toys,store,121,25.0,0,0
+2023-02-20,Plush Bear,Toys,store,120,25.0,0,0
+2023-02-27,Plush Bear,Toys,store,123,25.0,0,0
+2023-03-06,Plush Bear,Toys,store,123,25.0,0,0
+2023-03-13,Plush Bear,Toys,store,169,25.0,0,0
+2023-03-20,Plush Bear,Toys,store,138,25.0,0,0
+2023-03-27,Plush Bear,Toys,store,119,25.0,0,0
+2023-04-03,Plush Bear,Toys,store,133,25.0,0,0
+2023-04-10,Plush Bear,Toys,store,156,25.0,0,0
+2023-04-17,Plush Bear,Toys,store,83,25.0,0,0
+2023-04-24,Plush Bear,Toys,store,177,21.25,15,1
+2023-05-01,Plush Bear,Toys,store,125,25.0,0,0
+2023-05-08,Plush Bear,Toys,store,93,25.0,0,0
+2023-05-15,Plush Bear,Toys,store,241,20.0,20,1
+2023-05-22,Plush Bear,Toys,store,71,25.0,0,0
+2023-05-29,Plush Bear,Toys,store,133,25.0,0,0
+2023-06-05,Plush Bear,Toys,store,115,25.0,0,0
+2023-06-12,Plush Bear,Toys,store,87,25.0,0,0
+2023-06-19,Plush Bear,Toys,store,153,25.0,0,0
+2023-06-26,Plush Bear,Toys,store,110,25.0,0,0
+2023-07-03,Plush Bear,Toys,store,115,25.0,0,0
+2023-07-10,Plush Bear,Toys,store,87,25.0,0,0
+2023-07-17,Plush Bear,Toys,store,113,25.0,0,0
+2023-07-24,Plush Bear,Toys,store,145,25.0,0,0
+2023-07-31,Plush Bear,Toys,store,186,21.25,15,1
+2023-08-07,Plush Bear,Toys,store,101,25.0,0,0
+2023-08-14,Plush Bear,Toys,store,114,25.0,0,0
+2023-08-21,Plush Bear,Toys,store,85,25.0,0,0
+2023-08-28,Plush Bear,Toys,store,169,25.0,0,0
+2023-09-04,Plush Bear,Toys,store,209,22.5,10,1
+2023-09-11,Plush Bear,Toys,store,80,25.0,0,0
+2023-09-18,Plush Bear,Toys,store,128,25.0,0,0
+2023-09-25,Plush Bear,Toys,store,124,25.0,0,0
+2023-10-02,Plush Bear,Toys,store,160,25.0,0,0
+2023-10-09,Plush Bear,Toys,store,163,25.0,0,0
+2023-10-16,Plush Bear,Toys,store,115,25.0,0,0
+2023-10-23,Plush Bear,Toys,store,114,25.0,0,0
+2023-10-30,Plush Bear,Toys,store,120,25.0,0,0
+2023-11-06,Plush Bear,Toys,store,153,25.0,0,0
+2023-11-13,Plush Bear,Toys,store,150,25.0,0,0
+2023-11-20,Plush Bear,Toys,store,151,25.0,0,0
+2023-11-27,Plush Bear,Toys,store,335,25.0,0,0
+2023-12-04,Plush Bear,Toys,store,267,25.0,0,0
+2023-12-11,Plush Bear,Toys,store,281,25.0,0,0
+2023-12-18,Plush Bear,Toys,store,342,25.0,0,0
+2023-12-25,Plush Bear,Toys,store,307,25.0,0,0
+2024-01-01,Plush Bear,Toys,store,89,25.0,0,0
+2024-01-08,Plush Bear,Toys,store,84,25.0,0,0
+2024-01-15,Plush Bear,Toys,store,76,25.0,0,0
+2024-01-22,Plush Bear,Toys,store,95,25.0,0,0
+2024-01-29,Plush Bear,Toys,store,76,25.0,0,0
+2024-02-05,Plush Bear,Toys,store,69,25.0,0,0
+2024-02-12,Plush Bear,Toys,store,120,22.5,10,1
+2024-02-19,Plush Bear,Toys,store,105,25.0,0,0
+2024-02-26,Plush Bear,Toys,store,117,25.0,0,0
+2024-03-04,Plush Bear,Toys,store,130,25.0,0,0
+2024-03-11,Plush Bear,Toys,store,69,25.0,0,0
+2024-03-18,Plush Bear,Toys,store,376,17.5,30,1
+2024-03-25,Plush Bear,Toys,store,74,25.0,0,0
+2024-04-01,Plush Bear,Toys,store,114,25.0,0,0
+2024-04-08,Plush Bear,Toys,store,129,25.0,0,0
+2024-04-15,Plush Bear,Toys,store,125,25.0,0,0
+2024-04-22,Plush Bear,Toys,store,83,25.0,0,0
+2024-04-29,Plush Bear,Toys,store,82,25.0,0,0
+2024-05-06,Plush Bear,Toys,store,96,25.0,0,0
+2024-05-13,Plush Bear,Toys,store,128,25.0,0,0
+2024-05-20,Plush Bear,Toys,store,114,25.0,0,0
+2024-05-27,Plush Bear,Toys,store,115,25.0,0,0
+2024-06-03,Plush Bear,Toys,store,131,25.0,0,0
+2024-06-10,Plush Bear,Toys,store,116,25.0,0,0
+2024-06-17,Plush Bear,Toys,store,82,25.0,0,0
+2024-06-24,Plush Bear,Toys,store,132,25.0,0,0
+2024-07-01,Plush Bear,Toys,store,141,25.0,0,0
+2024-07-08,Plush Bear,Toys,store,179,21.25,15,1
+2024-07-15,Plush Bear,Toys,store,138,25.0,0,0
+2024-07-22,Plush Bear,Toys,store,152,25.0,0,0
+2024-07-29,Plush Bear,Toys,store,130,25.0,0,0
+2024-08-05,Plush Bear,Toys,store,72,25.0,0,0
+2024-08-12,Plush Bear,Toys,store,97,25.0,0,0
+2024-08-19,Plush Bear,Toys,store,110,25.0,0,0
+2024-08-26,Plush Bear,Toys,store,92,25.0,0,0
+2024-09-02,Plush Bear,Toys,store,180,25.0,0,0
+2024-09-09,Plush Bear,Toys,store,86,25.0,0,0
+2024-09-16,Plush Bear,Toys,store,100,25.0,0,0
+2024-09-23,Plush Bear,Toys,store,101,25.0,0,0
+2024-09-30,Plush Bear,Toys,store,131,25.0,0,0
+2024-10-07,Plush Bear,Toys,store,106,25.0,0,0
+2024-10-14,Plush Bear,Toys,store,133,25.0,0,0
+2024-10-21,Plush Bear,Toys,store,158,25.0,0,0
+2024-10-28,Plush Bear,Toys,store,100,25.0,0,0
+2024-11-04,Plush Bear,Toys,store,585,17.5,30,1
+2024-11-11,Plush Bear,Toys,store,166,25.0,0,0
+2024-11-18,Plush Bear,Toys,store,207,25.0,0,0
+2024-11-25,Plush Bear,Toys,store,233,25.0,0,0
+2024-12-02,Plush Bear,Toys,store,228,25.0,0,0
+2024-12-09,Plush Bear,Toys,store,280,25.0,0,0
+2024-12-16,Plush Bear,Toys,store,324,25.0,0,0
+2024-12-23,Plush Bear,Toys,store,203,25.0,0,0
+2024-12-30,Plush Bear,Toys,store,56,25.0,0,0
+2025-01-06,Plush Bear,Toys,store,118,25.0,0,0
+2025-01-13,Plush Bear,Toys,store,115,20.0,20,1
+2025-01-20,Plush Bear,Toys,store,92,25.0,0,0
+2025-01-27,Plush Bear,Toys,store,80,25.0,0,0
+2025-02-03,Plush Bear,Toys,store,101,25.0,0,0
+2025-02-10,Plush Bear,Toys,store,161,25.0,0,0
+2025-02-17,Plush Bear,Toys,store,109,25.0,0,0
+2025-02-24,Plush Bear,Toys,store,105,25.0,0,0
+2025-03-03,Plush Bear,Toys,store,283,17.5,30,1
+2025-03-10,Plush Bear,Toys,store,117,25.0,0,0
+2025-03-17,Plush Bear,Toys,store,109,25.0,0,0
+2025-03-24,Plush Bear,Toys,store,127,25.0,0,0
+2025-03-31,Plush Bear,Toys,store,140,25.0,0,0
+2025-04-07,Plush Bear,Toys,store,89,25.0,0,0
+2025-04-14,Plush Bear,Toys,store,108,25.0,0,0
+2025-04-21,Plush Bear,Toys,store,98,25.0,0,0
+2025-04-28,Plush Bear,Toys,store,95,25.0,0,0
+2025-05-05,Plush Bear,Toys,store,121,25.0,0,0
+2025-05-12,Plush Bear,Toys,store,74,25.0,0,0
+2025-05-19,Plush Bear,Toys,store,156,25.0,0,0
+2025-05-26,Plush Bear,Toys,store,136,25.0,0,0
+2025-06-02,Plush Bear,Toys,store,91,25.0,0,0
+2025-06-09,Plush Bear,Toys,store,115,25.0,0,0
+2025-06-16,Plush Bear,Toys,store,259,18.75,25,1
+2025-06-23,Plush Bear,Toys,store,107,25.0,0,0
+2025-06-30,Plush Bear,Toys,store,89,25.0,0,0
+2025-07-07,Plush Bear,Toys,store,120,25.0,0,0
+2025-07-14,Plush Bear,Toys,store,125,25.0,0,0
+2025-07-21,Plush Bear,Toys,store,125,25.0,0,0
+2025-07-28,Plush Bear,Toys,store,259,17.5,30,1
+2025-08-04,Plush Bear,Toys,store,125,25.0,0,0
+2025-08-11,Plush Bear,Toys,store,133,25.0,0,0
+2025-08-18,Plush Bear,Toys,store,145,25.0,0,0
+2025-08-25,Plush Bear,Toys,store,119,25.0,0,0
+2025-09-01,Plush Bear,Toys,store,124,25.0,0,0
+2025-09-08,Plush Bear,Toys,store,110,25.0,0,0
+2025-09-15,Plush Bear,Toys,store,144,25.0,0,0
+2025-09-22,Plush Bear,Toys,store,180,25.0,0,0
+2025-09-29,Plush Bear,Toys,store,105,25.0,0,0
+2025-10-06,Plush Bear,Toys,store,126,25.0,0,0
+2025-10-13,Plush Bear,Toys,store,140,25.0,0,0
+2025-10-20,Plush Bear,Toys,store,141,25.0,0,0
+2025-10-27,Plush Bear,Toys,store,125,25.0,0,0
+2025-11-03,Plush Bear,Toys,store,133,25.0,0,0
+2025-11-10,Plush Bear,Toys,store,148,25.0,0,0
+2025-11-17,Plush Bear,Toys,store,154,25.0,0,0
+2025-11-24,Plush Bear,Toys,store,200,25.0,0,0
+2025-12-01,Plush Bear,Toys,store,296,25.0,0,0
+2025-12-08,Plush Bear,Toys,store,274,25.0,0,0
+2025-12-15,Plush Bear,Toys,store,326,25.0,0,0
+2025-12-22,Plush Bear,Toys,store,344,22.5,10,1
+2023-01-02,Puzzle 1000,Toys,store,41,62.09,0,0
+2023-01-09,Puzzle 1000,Toys,store,45,62.09,0,0
+2023-01-16,Puzzle 1000,Toys,store,16,43.46,30,1
+2023-01-23,Puzzle 1000,Toys,store,9,62.09,0,0
+2023-01-30,Puzzle 1000,Toys,store,28,62.09,0,0
+2023-02-06,Puzzle 1000,Toys,store,4,62.09,0,0
+2023-02-13,Puzzle 1000,Toys,store,4,62.09,0,0
+2023-02-20,Puzzle 1000,Toys,store,190,62.09,0,0
+2023-02-27,Puzzle 1000,Toys,store,40,49.67,20,1
+2023-03-06,Puzzle 1000,Toys,store,16,62.09,0,0
+2023-03-13,Puzzle 1000,Toys,store,51,62.09,0,0
+2023-03-20,Puzzle 1000,Toys,store,105,62.09,0,0
+2023-03-27,Puzzle 1000,Toys,store,2,62.09,0,0
+2023-04-03,Puzzle 1000,Toys,store,0,62.09,0,0
+2023-04-10,Puzzle 1000,Toys,store,12,43.46,30,1
+2023-04-17,Puzzle 1000,Toys,store,45,62.09,0,0
+2023-04-24,Puzzle 1000,Toys,store,45,62.09,0,0
+2023-05-01,Puzzle 1000,Toys,store,35,62.09,0,0
+2023-05-08,Puzzle 1000,Toys,store,37,62.09,0,0
+2023-05-15,Puzzle 1000,Toys,store,21,62.09,0,0
+2023-05-22,Puzzle 1000,Toys,store,8,62.09,0,0
+2023-05-29,Puzzle 1000,Toys,store,39,52.78,15,1
+2023-06-05,Puzzle 1000,Toys,store,34,62.09,0,0
+2023-06-12,Puzzle 1000,Toys,store,21,62.09,0,0
+2023-06-19,Puzzle 1000,Toys,store,2,62.09,0,0
+2023-06-26,Puzzle 1000,Toys,store,1,62.09,0,0
+2023-07-03,Puzzle 1000,Toys,store,9,62.09,0,0
+2023-07-10,Puzzle 1000,Toys,store,28,62.09,0,0
+2023-07-17,Puzzle 1000,Toys,store,10,62.09,0,0
+2023-07-24,Puzzle 1000,Toys,store,28,62.09,0,0
+2023-07-31,Puzzle 1000,Toys,store,47,52.78,15,1
+2023-08-07,Puzzle 1000,Toys,store,55,62.09,0,0
+2023-08-14,Puzzle 1000,Toys,store,8,62.09,0,0
+2023-08-21,Puzzle 1000,Toys,store,1,62.09,0,0
+2023-08-28,Puzzle 1000,Toys,store,19,62.09,0,0
+2023-09-04,Puzzle 1000,Toys,store,35,62.09,0,0
+2023-09-11,Puzzle 1000,Toys,store,8,62.09,0,0
+2023-09-18,Puzzle 1000,Toys,store,21,62.09,0,0
+2023-09-25,Puzzle 1000,Toys,store,63,62.09,0,0
+2023-10-02,Puzzle 1000,Toys,store,36,62.09,0,0
+2023-10-09,Puzzle 1000,Toys,store,5,62.09,0,0
+2023-10-16,Puzzle 1000,Toys,store,57,62.09,0,0
+2023-10-23,Puzzle 1000,Toys,store,0,62.09,0,0
+2023-10-30,Puzzle 1000,Toys,store,53,62.09,0,0
+2023-11-06,Puzzle 1000,Toys,store,159,46.57,25,1
+2023-11-13,Puzzle 1000,Toys,store,10,62.09,0,0
+2023-11-20,Puzzle 1000,Toys,store,79,62.09,0,0
+2023-11-27,Puzzle 1000,Toys,store,58,62.09,0,0
+2023-12-04,Puzzle 1000,Toys,store,50,62.09,0,0
+2023-12-11,Puzzle 1000,Toys,store,43,62.09,0,0
+2023-12-18,Puzzle 1000,Toys,store,278,46.57,25,1
+2023-12-25,Puzzle 1000,Toys,store,38,62.09,0,0
+2024-01-01,Puzzle 1000,Toys,store,70,62.09,0,0
+2024-01-08,Puzzle 1000,Toys,store,20,62.09,0,0
+2024-01-15,Puzzle 1000,Toys,store,19,62.09,0,0
+2024-01-22,Puzzle 1000,Toys,store,16,62.09,0,0
+2024-01-29,Puzzle 1000,Toys,store,7,62.09,0,0
+2024-02-05,Puzzle 1000,Toys,store,19,62.09,0,0
+2024-02-12,Puzzle 1000,Toys,store,53,62.09,0,0
+2024-02-19,Puzzle 1000,Toys,store,28,62.09,0,0
+2024-02-26,Puzzle 1000,Toys,store,32,62.09,0,0
+2024-03-04,Puzzle 1000,Toys,store,8,62.09,0,0
+2024-03-11,Puzzle 1000,Toys,store,34,62.09,0,0
+2024-03-18,Puzzle 1000,Toys,store,81,62.09,0,0
+2024-03-25,Puzzle 1000,Toys,store,22,62.09,0,0
+2024-04-01,Puzzle 1000,Toys,store,71,49.67,20,1
+2024-04-08,Puzzle 1000,Toys,store,67,62.09,0,0
+2024-04-15,Puzzle 1000,Toys,store,5,62.09,0,0
+2024-04-22,Puzzle 1000,Toys,store,11,62.09,0,0
+2024-04-29,Puzzle 1000,Toys,store,66,62.09,0,0
+2024-05-06,Puzzle 1000,Toys,store,60,49.67,20,1
+2024-05-13,Puzzle 1000,Toys,store,24,62.09,0,0
+2024-05-20,Puzzle 1000,Toys,store,23,62.09,0,0
+2024-05-27,Puzzle 1000,Toys,store,24,62.09,0,0
+2024-06-03,Puzzle 1000,Toys,store,117,49.67,20,1
+2024-06-10,Puzzle 1000,Toys,store,22,62.09,0,0
+2024-06-17,Puzzle 1000,Toys,store,17,62.09,0,0
+2024-06-24,Puzzle 1000,Toys,store,6,62.09,0,0
+2024-07-01,Puzzle 1000,Toys,store,82,62.09,0,0
+2024-07-08,Puzzle 1000,Toys,store,3,62.09,0,0
+2024-07-15,Puzzle 1000,Toys,store,62,62.09,0,0
+2024-07-22,Puzzle 1000,Toys,store,36,62.09,0,0
+2024-07-29,Puzzle 1000,Toys,store,7,62.09,0,0
+2024-08-05,Puzzle 1000,Toys,store,11,62.09,0,0
+2024-08-12,Puzzle 1000,Toys,store,36,62.09,0,0
+2024-08-19,Puzzle 1000,Toys,store,42,62.09,0,0
+2024-08-26,Puzzle 1000,Toys,store,14,62.09,0,0
+2024-09-02,Puzzle 1000,Toys,store,5,62.09,0,0
+2024-09-09,Puzzle 1000,Toys,store,4,62.09,0,0
+2024-09-16,Puzzle 1000,Toys,store,17,62.09,0,0
+2024-09-23,Puzzle 1000,Toys,store,6,62.09,0,0
+2024-09-30,Puzzle 1000,Toys,store,16,62.09,0,0
+2024-10-07,Puzzle 1000,Toys,store,12,62.09,0,0
+2024-10-14,Puzzle 1000,Toys,store,4,62.09,0,0
+2024-10-21,Puzzle 1000,Toys,store,2,62.09,0,0
+2024-10-28,Puzzle 1000,Toys,store,28,46.57,25,1
+2024-11-04,Puzzle 1000,Toys,store,48,62.09,0,0
+2024-11-11,Puzzle 1000,Toys,store,0,62.09,0,0
+2024-11-18,Puzzle 1000,Toys,store,24,62.09,0,0
+2024-11-25,Puzzle 1000,Toys,store,77,62.09,0,0
+2024-12-02,Puzzle 1000,Toys,store,91,62.09,0,0
+2024-12-09,Puzzle 1000,Toys,store,17,62.09,0,0
+2024-12-16,Puzzle 1000,Toys,store,103,62.09,0,0
+2024-12-23,Puzzle 1000,Toys,store,43,62.09,0,0
+2024-12-30,Puzzle 1000,Toys,store,27,62.09,0,0
+2025-01-06,Puzzle 1000,Toys,store,105,62.09,0,0
+2025-01-13,Puzzle 1000,Toys,store,1,62.09,0,0
+2025-01-20,Puzzle 1000,Toys,store,1,62.09,0,0
+2025-01-27,Puzzle 1000,Toys,store,0,62.09,0,0
+2025-02-03,Puzzle 1000,Toys,store,1,62.09,0,0
+2025-02-10,Puzzle 1000,Toys,store,25,62.09,0,0
+2025-02-17,Puzzle 1000,Toys,store,14,62.09,0,0
+2025-02-24,Puzzle 1000,Toys,store,11,62.09,0,0
+2025-03-03,Puzzle 1000,Toys,store,71,62.09,0,0
+2025-03-10,Puzzle 1000,Toys,store,50,62.09,0,0
+2025-03-17,Puzzle 1000,Toys,store,22,62.09,0,0
+2025-03-24,Puzzle 1000,Toys,store,39,62.09,0,0
+2025-03-31,Puzzle 1000,Toys,store,19,62.09,0,0
+2025-04-07,Puzzle 1000,Toys,store,10,62.09,0,0
+2025-04-14,Puzzle 1000,Toys,store,42,62.09,0,0
+2025-04-21,Puzzle 1000,Toys,store,24,62.09,0,0
+2025-04-28,Puzzle 1000,Toys,store,3,62.09,0,0
+2025-05-05,Puzzle 1000,Toys,store,6,62.09,0,0
+2025-05-12,Puzzle 1000,Toys,store,37,62.09,0,0
+2025-05-19,Puzzle 1000,Toys,store,47,62.09,0,0
+2025-05-26,Puzzle 1000,Toys,store,16,52.78,15,1
+2025-06-02,Puzzle 1000,Toys,store,69,62.09,0,0
+2025-06-09,Puzzle 1000,Toys,store,2,62.09,0,0
+2025-06-16,Puzzle 1000,Toys,store,19,62.09,0,0
+2025-06-23,Puzzle 1000,Toys,store,22,62.09,0,0
+2025-06-30,Puzzle 1000,Toys,store,25,62.09,0,0
+2025-07-07,Puzzle 1000,Toys,store,58,62.09,0,0
+2025-07-14,Puzzle 1000,Toys,store,79,62.09,0,0
+2025-07-21,Puzzle 1000,Toys,store,13,62.09,0,0
+2025-07-28,Puzzle 1000,Toys,store,6,62.09,0,0
+2025-08-04,Puzzle 1000,Toys,store,18,62.09,0,0
+2025-08-11,Puzzle 1000,Toys,store,33,62.09,0,0
+2025-08-18,Puzzle 1000,Toys,store,2,62.09,0,0
+2025-08-25,Puzzle 1000,Toys,store,8,46.57,25,1
+2025-09-01,Puzzle 1000,Toys,store,22,62.09,0,0
+2025-09-08,Puzzle 1000,Toys,store,16,62.09,0,0
+2025-09-15,Puzzle 1000,Toys,store,20,62.09,0,0
+2025-09-22,Puzzle 1000,Toys,store,17,62.09,0,0
+2025-09-29,Puzzle 1000,Toys,store,84,62.09,0,0
+2025-10-06,Puzzle 1000,Toys,store,15,62.09,0,0
+2025-10-13,Puzzle 1000,Toys,store,56,62.09,0,0
+2025-10-20,Puzzle 1000,Toys,store,9,62.09,0,0
+2025-10-27,Puzzle 1000,Toys,store,5,62.09,0,0
+2025-11-03,Puzzle 1000,Toys,store,86,62.09,0,0
+2025-11-10,Puzzle 1000,Toys,store,6,52.78,15,1
+2025-11-17,Puzzle 1000,Toys,store,110,62.09,0,0
+2025-11-24,Puzzle 1000,Toys,store,8,62.09,0,0
+2025-12-01,Puzzle 1000,Toys,store,31,62.09,0,0
+2025-12-08,Puzzle 1000,Toys,store,94,62.09,0,0
+2025-12-15,Puzzle 1000,Toys,store,41,62.09,0,0
+2025-12-22,Puzzle 1000,Toys,store,19,62.09,0,0
+2023-01-02,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-01-09,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-01-16,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-01-23,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-01-30,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-02-06,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-02-13,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-02-20,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-02-27,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-03-06,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-03-13,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-03-20,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-03-27,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-04-03,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-04-10,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-04-17,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-04-24,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-05-01,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-05-08,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-05-15,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-05-22,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-05-29,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-06-05,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-06-12,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-06-19,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-06-26,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-07-03,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-07-10,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-07-17,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-07-24,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-07-31,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-08-07,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-08-14,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-08-21,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-08-28,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-09-04,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-09-11,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-09-18,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-09-25,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-10-02,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-10-09,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-10-16,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-10-23,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-10-30,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2023-11-06,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-11-13,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2023-11-20,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-11-27,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-12-04,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-12-11,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-12-18,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2023-12-25,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-01-01,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-01-08,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-01-15,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-01-22,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-01-29,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-02-05,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-02-12,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-02-19,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-02-26,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-03-04,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-03-11,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-03-18,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-03-25,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-04-01,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-04-08,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-04-15,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-04-22,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-04-29,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-05-06,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-05-13,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-05-20,Vacuum Filter,Spare Parts,store,3,31.6,0,0
+2024-05-27,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-06-03,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-06-10,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-06-17,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-06-24,Vacuum Filter,Spare Parts,store,3,31.6,0,0
+2024-07-01,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-07-08,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-07-15,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-07-22,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-07-29,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-08-05,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-08-12,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-08-19,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-08-26,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-09-02,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-09-09,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-09-16,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-09-23,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-09-30,Vacuum Filter,Spare Parts,store,3,31.6,0,0
+2024-10-07,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-10-14,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-10-21,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-10-28,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-11-04,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-11-11,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-11-18,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-11-25,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2024-12-02,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-12-09,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2024-12-16,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-12-23,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2024-12-30,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-01-06,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-01-13,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2025-01-20,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-01-27,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-02-03,Vacuum Filter,Spare Parts,store,3,31.6,0,0
+2025-02-10,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2025-02-17,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-02-24,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-03-03,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-03-10,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-03-17,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-03-24,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-03-31,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-04-07,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-04-14,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-04-21,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-04-28,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2025-05-05,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-05-12,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-05-19,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-05-26,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-06-02,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2025-06-09,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-06-16,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-06-23,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-06-30,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-07-07,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-07-14,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-07-21,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-07-28,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-08-04,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-08-11,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-08-18,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-08-25,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-09-01,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-09-08,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-09-15,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-09-22,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-09-29,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-10-06,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-10-13,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2025-10-20,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-10-27,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-11-03,Vacuum Filter,Spare Parts,store,3,31.6,0,0
+2025-11-10,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-11-17,Vacuum Filter,Spare Parts,store,1,31.6,0,0
+2025-11-24,Vacuum Filter,Spare Parts,store,2,31.6,0,0
+2025-12-01,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-12-08,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-12-15,Vacuum Filter,Spare Parts,store,0,31.6,0,0
+2025-12-22,Vacuum Filter,Spare Parts,store,2,31.6,0,0

@@ -1,0 +1,17 @@
+numpy
+pandas>=2.2
+scipy
+matplotlib
+statsmodels
+scikit-learn
+lightgbm
+ipywidgets
+nbformat
+nbclient
+ipykernel
+matplotlib-inline
+python-pptx
+python-docx
+Pillow
+optuna
+qrcode
