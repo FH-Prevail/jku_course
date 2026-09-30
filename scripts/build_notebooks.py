@@ -31,6 +31,8 @@ get_ipython().run_line_magic("matplotlib", "inline")
 import classroom as lesson
 importlib.reload(lesson)
 lesson.load(folder)
+print("Ready. The course data is loaded.")
+print("The forecasts were computed in advance, using only what was known at each forecast date.")
 '''
 intro='''*UE Digital Analytics im Handel · JKU Linz · 03.10.2026 · Sina Mirshahi, Logistikum*
 

@@ -27,8 +27,6 @@ def load(folder):
     B = pd.read_csv(folder/'comparisons.csv', parse_dates=['week_start', 'test_start'])
     I = pd.read_csv(folder/'inventory.csv', parse_dates=['week_start'])
     R = json.loads((folder/'results.json').read_text())
-    print('Ready. Two decisions: choose a forecast, then choose a stock policy.')
-    print('The forecasts were computed in advance using only information available at each forecast date.')
 
 
 def show(obj):
