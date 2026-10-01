@@ -33,7 +33,7 @@ SETUP_TAIL='''
 print("Ready. The course data is loaded.")
 print("The forecasts were computed in advance, using only what was known at each forecast date.")
 '''
-setup=(SETUP_HEAD.replace('@@DATA_URL@@',DATA_URL)+'\n'+SETTINGS+'\n\n\n'+inspect.getsource(lesson.series_id)+SETUP_TAIL)
+setup=(SETUP_HEAD.replace('@@DATA_URL@@',DATA_URL)+'\n'+SETTINGS+'\n\n\n'+inspect.getsource(lesson.series_id)+'\n\n'+inspect.getsource(lesson.neat)+SETUP_TAIL)
 intro='''*UE Digital Analytics im Handel · JKU Linz · 03.10.2026 · Sina Mirshahi, Logistikum*
 
 Choose **Copy to Drive** (File, Save a copy in Drive), then **Runtime → Run all**. You do not have to write code: run the cells, read the outputs and use the controls.
@@ -100,7 +100,7 @@ Whichever route you took, the table is now called `df`: one row per product and 
 df.info()         # column names, types, missing values'''),
  code('''df.describe()     # the numbers at a glance: count, mean, smallest, largest'''),
  code('''df["week_start"] = pd.to_datetime(df["week_start"])
-df.groupby("product_name")["units"].agg(["mean", "sum", "max"]).round(1)   # per product: average week, total, best week'''),
+df.groupby("product_name")["units"].agg(["mean", "sum", "max"]).round(1).reset_index()   # per product: average week, total, best week'''),
  code('''weekly = df.pivot(index="week_start", columns="product_name", values="units")
 weekly.plot(figsize=(10, 4), title="Units sold per week, store");'''),
  md('''**Ask Gemini**, for example: "Summarise this table", "Which product sells most in December?" or "Plot the Plush Bear's weekly units and mark the promotion weeks." Read the code it writes before you run it, and check its answer against the table.

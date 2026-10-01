@@ -59,6 +59,21 @@ def series_id(product):
     raise ValueError("Choose one of the product names in the dropdown.")
 
 
+def neat(table, formats=None, na_rep=""):
+    """Show a table the same way in every cell: all titles in one header row, the first column on the left,
+    the other columns on the right, under their titles."""
+    table = table.rename_axis(columns=None)          # no title above the column titles
+    if table.index.name is not None:
+        table = table.reset_index()                  # the row labels become an ordinary first column
+    styled = table.style.hide(axis="index")
+    if formats:
+        styled = styled.format(formats, na_rep=na_rep)
+    return styled.set_table_styles([
+        {"selector": "th, td", "props": "text-align: right; padding: 4px 14px;"},
+        {"selector": "th.col0, td.col0", "props": "text-align: left;"},
+    ])
+
+
 # ------------------------------------------------------------------ notebook 1, section 1: read the demand
 
 def totals():
@@ -73,7 +88,7 @@ def totals():
     fig.tight_layout()
     plt.show()
     yearly = demand.assign(year=demand["week_start"].dt.year).groupby(["year", "channel"])["units"].sum().unstack()
-    return yearly.rename_axis("Year").rename(columns={"store": "Store units", "online": "Online units"})
+    return neat(yearly.rename_axis("Year").rename(columns={"store": "Store units", "online": "Online units"})[["Store units", "Online units"]])
 
 
 def pattern_examples():
@@ -159,8 +174,8 @@ def compare(product="Plush Bear, store", window="Christmas"):
     made = (actual["week_start"].min() - pd.Timedelta(weeks=1)).date()
     print(f"Forecast made after {made}; all four weeks forecast together.")
     scores = score_table(rows)
-    display(scores.style.format({"Average miss, units": "{:.1f}", "Total miss, % of demand": "{:.1f} %",
-                                 "Average bias, units": "{:+.1f}"}, na_rep="Undefined: no demand"))
+    display(neat(scores, {"Average miss, units": "{:.1f}", "Total miss, % of demand": "{:.1f} %",
+                          "Average bias, units": "{:+.1f}"}, na_rep="Undefined: no demand"))
     winner = scores["Average miss, units"].idxmin()
     print(f"In this window, {winner} has the smallest average miss. This is evidence for this product and window only.")
     print("Bias is forecast minus actual: positive means too high; negative means too low.")
@@ -192,7 +207,7 @@ def backtest():
     print("13 test dates; four weeks ahead each; all 80 series. The same weeks and products for every method.")
     print("The four methods of the window comparison come first; four more local methods from the slides were scored the same way.")
     print("Flagged stockout observations are excluded from scoring because their demand is unknown.")
-    return pd.DataFrame(table, columns=["Method", "WAPE: total miss / total demand", "Bias: net error / total demand"]).set_index("Method")
+    return neat(pd.DataFrame(table, columns=["Method", "WAPE: total miss / total demand", "Bias: net error / total demand"]))
 
 
 def zeros_demo():
@@ -200,7 +215,8 @@ def zeros_demo():
     actual = np.array([0, 0, 0, 4])
     forecast = np.zeros(4)
     print("Teaching example, not an extracted course product.")
-    display(pd.DataFrame({"Week": [1, 2, 3, 4], "Actual units": actual, "Forecast units": forecast}))
+    display(neat(pd.DataFrame({"Week": [1, 2, 3, 4], "Actual units": actual, "Forecast units": forecast}),
+                 {"Actual units": "{:.0f}", "Forecast units": "{:.0f}"}))
     print("Three weeks exactly right, but all four units of demand missed.")
     print("MAPE is undefined because actual demand is zero in three weeks. WAPE is 100 %.")
     print("Do not choose a stock policy by counting the weeks a forecast gets right.")
@@ -225,8 +241,8 @@ def worked_order():
     """Show the worked order as a table."""
     e = order_example()
     print("Teaching scenario: five weekly forecasts, one order decision. These are round illustrative numbers.")
-    display(pd.DataFrame({"Quantity": ["Forecast over five weeks", "Safety stock", "Stock target", "Already on the shelf", "Already on order", "Order now"],
-                          "Units": [e["forecast_total"], e["safety_stock"], e["stock_target"], e["on_hand"], e["on_order"], e["order"]]}).set_index("Quantity"))
+    display(neat(pd.DataFrame({"Quantity": ["Forecast over five weeks", "Safety stock", "Stock target", "Already on the shelf", "Already on order", "Order now"],
+                               "Units": [e["forecast_total"], e["safety_stock"], e["stock_target"], e["on_hand"], e["on_order"], e["order"]]})))
     print("We assume no backorders and arrivals as scheduled. The stock target is not the quantity to order.")
 
 
@@ -284,9 +300,9 @@ def stock_decision(product="Plush Bear, store", target=95):
     r = simulate(product, target)
     lead_time = profile(product)[4]
     print(f"{product}: cycle service target {target} %; supplier lead time {lead_time} weeks.")
-    display(pd.DataFrame({"Observed result": [f"{r['average_stock']:.0f} units", f"{r['fill_rate']:.1f} %",
-                                              f"{r['stockout_weeks']} of {r['test_weeks']} weeks", f"{r['lost_units']:.0f} units"]},
-                         index=["Average stock on the shelf", "Fill rate: share of demand served", "Weeks with a stockout", "Demand not served"]))
+    display(neat(pd.DataFrame({"Measure": ["Average stock on the shelf", "Fill rate: share of demand served", "Weeks with a stockout", "Demand not served"],
+                               "Observed result": [f"{r['average_stock']:.0f} units", f"{r['fill_rate']:.1f} %",
+                                                   f"{r['stockout_weeks']} of {r['test_weeks']} weeks", f"{r['lost_units']:.0f} units"]})))
     print(f"Safety stock allowance: about {r['safety_stock']:.0f} units. This is part of the stock target, not the order quantity.")
     print("A cycle service target is a planning probability; fill rate measures units served. They are different measures.")
 
@@ -307,8 +323,8 @@ def stock_table(product="Plush Bear, store", targets=(50, 80, 90, 95, 99)):
     for t in targets:
         r = simulate(product, t)
         table.append([f"{t} %", f"{r['average_stock']:.0f}", f"{r['fill_rate']:.1f} %", r["stockout_weeks"], f"{r['lost_units']:.0f}"])
-    return pd.DataFrame(table, columns=["Cycle service target", "Average stock, units", "Fill rate", "Weeks with a stockout",
-                                        "Units not served"]).set_index("Cycle service target")
+    return neat(pd.DataFrame(table, columns=["Cycle service target", "Average stock, units", "Fill rate", "Weeks with a stockout",
+                                             "Units not served"]))
 
 
 def stock_compare():
@@ -317,8 +333,8 @@ def stock_compare():
     for product in ["Plush Bear, store", "Puzzle 1000, store", "Vacuum Filter, store"]:
         r = simulate(product, 95)
         table.append([product, f"{r['fill_rate']:.1f} %", r["stockout_weeks"], f"{r['weeks_stock']:.1f}"])
-    return pd.DataFrame(table, columns=["Product", "Fill rate at 95 % target", "Weeks with a stockout",
-                                        "Weeks of demand on shelf"]).set_index("Product")
+    return neat(pd.DataFrame(table, columns=["Product", "Fill rate at 95 % target", "Weeks with a stockout",
+                                             "Weeks of demand on shelf"]))
 
 
 def forecast_value(product="Plush Bear, store"):
@@ -332,7 +348,7 @@ def forecast_value(product="Plush Bear, store"):
     print(f"{product}. Same 95 % target, each method uses its own measured errors.")
     print(f"Unit cost EUR {item['unit_cost']:.2f}; annual holding rate {item['holding_cost_rate']:.0%}.")
     print("Annualised stock holding cost only: a scenario based on the replay average, excluding shortages and implementation.")
-    return pd.DataFrame(table, columns=["Method", "Average stock, units", "Fill rate", "Annualised holding cost"]).set_index("Method")
+    return neat(pd.DataFrame(table, columns=["Method", "Average stock, units", "Fill rate", "Annualised holding cost"]))
 
 
 def christmas_order(salvage=50):
