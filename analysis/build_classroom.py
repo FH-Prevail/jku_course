@@ -121,7 +121,8 @@ r['explain']={'base_wape_2025':base_wape,'permutation_wape_increase':perm,'n_inp
 # Classical additive decomposition, written out so every step can be explained in class:
 # trend = centred 2x52 moving average (ends extended by a straight line fitted to the nearest 26 trend values),
 # season = for each week of the year, the MEDIAN of the three years' deviations from the trend (a promotion spike in
-# one year does not become "season"), lightly smoothed over 3 weeks and centred; remainder = sales - trend - season.
+# one year does not become "season"), centred to sum to zero over a year; remainder = sales - trend - season.
+# No smoothing across neighbouring weeks: it would wrap around the year and lend the Christmas peak to the first week of January.
 def _decompose(y,period=52):
     t=y.rolling(period,center=True).mean().rolling(2,center=True).mean().shift(-1).to_numpy().copy()
     idx=np.arange(len(y));ok=np.flatnonzero(~np.isnan(t));f0,f1=ok[0],ok[-1]
@@ -129,7 +130,7 @@ def _decompose(y,period=52):
     b=np.polyfit(idx[f1-25:f1+1],t[f1-25:f1+1],1);t[f1+1:]=np.polyval(b,idx[f1+1:])
     det=y.to_numpy()-t;wk=idx%period
     sw=np.array([np.median(det[wk==k]) for k in range(period)])
-    sw=np.convolve(np.r_[sw[-1:],sw,sw[:1]],np.ones(3)/3,mode='valid');sw-=sw.mean();se=sw[wk]
+    sw=sw-sw.mean();se=sw[wk]
     return t,se,y.to_numpy()-t-se
 pb=actual['P010_store'].astype(float);_t,_s,_r=_decompose(pb)
 pbw=raw[raw.series_id=='P010_store'].sort_values('week_start');_pr=pbw.promo_flag.to_numpy()==1
