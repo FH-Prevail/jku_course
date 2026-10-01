@@ -237,10 +237,10 @@ def order_example(target=95):
             "on_hand": on_hand, "on_order": on_order, "order": order}
 
 
-def worked_order():
-    """Show the worked order as a table."""
-    e = order_example()
-    print("Teaching scenario: five weekly forecasts, one order decision. These are round illustrative numbers.")
+def worked_order(target=95):
+    """Show the worked order as a table, for a cycle service target in percent."""
+    e = order_example(target)
+    print(f"Teaching scenario: five weekly forecasts, one order decision, a {target} percent service target. These are round illustrative numbers.")
     display(neat(pd.DataFrame({"Quantity": ["Forecast over five weeks", "Safety stock", "Stock target", "Already on the shelf", "Already on order", "Order now"],
                                "Units": [e["forecast_total"], e["safety_stock"], e["stock_target"], e["on_hand"], e["on_order"], e["order"]]})))
     print("We assume no backorders and arrivals as scheduled. The stock target is not the quantity to order.")

@@ -13,6 +13,17 @@ REPO_RAW='https://raw.githubusercontent.com/FH-Prevail/jku_course/main'
 DATA_URL=REPO_RAW+'/data/classroom'
 _mod=Path(lesson.__file__).read_text()
 SETTINGS=_mod.split('# >>> settings (copied into the first cell of each notebook)\n')[1].split('# <<< settings')[0].rstrip()
+# The worked examples in the task text (Plush Bear, store), computed from the course data so they match the outputs.
+lesson.load(ROOT/'data/classroom')
+EXP='Plush Bear, store'
+def _best(product,window):
+ t=lesson.score_table(lesson.comparison_data(product,window));m=t['Average miss, units'].idxmin()
+ return m,float(t.loc[m,'Average miss, units']),float(t.loc[m,'Average bias, units']),t
+_PAT=next(x for x in lesson.results['patterns']['series'] if x['series_id']==lesson.series_id(EXP))
+_XM,_XMISS,_XBIAS,_XT=_best(EXP,'Christmas');_SM,_SMISS,_SBIAS,_=_best(EXP,'Summer')
+_RLY=float(_XT.loc['Repeat last year','Average miss, units']);_SES=float(_XT.loc['Simple exponential smoothing','Average miss, units'])
+_BT=lesson.results['backtest'];_YEAR=min(_BT,key=lambda m:_BT[m]['wape'])
+_R90,_R95,_R99=(lesson.simulate(EXP,t) for t in (90,95,99))
 SETUP_HEAD='''# Start here: run this cell first. It loads the course data from GitHub and prepares the pictures.
 import json
 import urllib.request
@@ -116,6 +127,7 @@ def assignment(number,other,tasks):
 
 This notebook is **half of your T2 assignment**; notebook {other} is the other half. Together they count **25 % of the course grade**, plus 5 % for taking part in class. This notebook has **{tasks} tasks and 10 points**.
 
+- **Every task says step by step what to do** and shows a worked example for the Plush Bear in store. Do the same for your own product, with your own numbers.
 - **Write your answers** in the cells marked **Your answer**: double-click the cell, replace each ___ with your answer, then press Shift + Enter.
 - **Individual work.** You may discuss with others, but the answers you submit are your own.
 - **Gemini is allowed.** Say in your answer where you used it, and check what it says against the numbers.
@@ -146,17 +158,23 @@ Four demand patterns are useful descriptions, not guarantees of forecast accurac
  run(lesson.pattern_examples,call='pattern_examples()'),
  md('''Two numbers place every product on one picture. **ADI** (average demand interval) is the average number of weeks between sales: 1 means a sale every week. **CV²** (squared coefficient of variation) says how irregular the amounts are from one sale to the next. The dashed lines are the usual limits from the literature, 1.32 and 0.49; they are a convention, not a law.'''),
  run(lesson.pattern_map,call='pattern_map()'),
- md('''### Task 1.1 · Your product's demand pattern (2 points)
+ md(f'''### Task 1.1 · Your product's demand pattern (2 points)
 
-Choose **your product** for this notebook, one of these five: `Plush Bear, store` · `Plush Bear, online` · `Puzzle 1000, store` · `Vacuum Filter, store` · `Garden Hose, store`.
+**Choose your product** for this notebook, one of these three: `Plush Bear, online` · `Puzzle 1000, store` · `Garden Hose, store`. You use the same product in all three tasks. The Plush Bear in store is the worked example, so it is not one of the choices.
 
-Put its name in the cell below (keep the quotation marks) and run it: it prints the product's two numbers and its demand pattern.'''),
+**What to do**
+1. In the cell below, replace `Plush Bear, store` with the name of your product. Keep the quotation marks.
+2. Run the cell. It prints two numbers, ADI and CV², and the demand pattern.
+3. Copy them into the answer cell and complete the two sentences. Rule of thumb: an ADI close to 1 means a sale every week, above 1.32 many weeks without a sale; a CV² below 0.49 means fairly regular amounts, above 0.49 very variable amounts.
+
+**Worked example, Plush Bear in store:** ADI {_PAT['adi']:.2f}, so it sells every week; CV² {_PAT['cv2']:.2f}, below 0.49, so the amounts are fairly regular; demand pattern: {_PAT['pattern']}.'''),
  run(lesson.pattern_of,call='pattern_of("Plush Bear, store")   # put the name of your product here'),
  md('''**Your answer, Task 1.1**
 
 - My product: ___
-- Its demand pattern: ___ (ADI ___, CV² ___)
-- What these two numbers say about how this product sells, in your own words (one or two sentences): ___'''),
+- ADI: ___, so the product sells ___ (every week, or with many weeks without a sale)
+- CV²: ___, so the amounts are ___ (fairly regular, or very variable)
+- Demand pattern: ___ (smooth, erratic, intermittent or lumpy)'''),
  md('''## 2. Compare four approaches
 
 - **Repeat last year**, also called seasonal naive: reuse sales from 52 weeks earlier.
@@ -172,28 +190,58 @@ First look at the Christmas example. Do not choose a winner from the shape alone
 
 **Try it using the dropdowns.** Change Window to Summer. Then select Garden Hose, store. Compare that product in Summer and Christmas. Change Plush Bear from store to online to investigate a channel difference.'''),
  run(lesson.forecast_widget,call='forecast_controls = forecast_widget()'),
- md('''### Task 1.2 · Two windows compared (4 points)
+ md(f'''### Task 1.2 · Two windows compared (4 points)
 
-Use the dropdowns for **your product** from Task 1.1. Fill in the table for Christmas and for Summer: the method with the smallest average miss, its average miss, and its bias, with its sign.'''),
+**What to do**
+1. In the dropdowns above, choose **your product** and the window **Christmas**. No dropdowns? Type `compare("Garden Hose, store", "Christmas")` with your product into the empty code cell under this task and run it.
+2. Look at the table under the chart. Find the **smallest number in the column "Average miss, units"**; the sentence under the table names that method too.
+3. Write down that method, its average miss and its **average bias with its sign**: + means the forecast was too high, − too low.
+4. Change the window to **Summer** and do the same.
+5. Answer the two questions under the table. For the second one, choose the reason that fits your table best:
+   - **A.** Christmas has a peak. Methods that see the yearly season (repeat last year, Prophet, LightGBM in global mode) can follow it; simple exponential smoothing draws one flat line.
+   - **B.** Only Prophet and LightGBM in global mode know the planned discounts.
+   - **C.** Last year's season can mislead: when this year's peak is smaller or larger, the methods that copy last year miss.
+   - **D.** LightGBM in global mode learns from all 80 series at once, so it does well for many products.
+
+**Worked example, Plush Bear in store:** at Christmas **{_XM}** has the smallest average miss, **{_XMISS:.1f}** units, with a bias of **{_XBIAS:+.1f}**. In Summer it is **{_SM}**, **{_SMISS:.1f}** units, bias **{_SBIAS:+.1f}**. Not the same method. Reason A: simple exponential smoothing drew one flat line and missed the Christmas weeks by {_SES:.1f} units on average.'''),
  md('''**Your answer, Task 1.2**
 
-| Window | Method with the smallest average miss | Its average miss, units | Its bias, units |
+| Window | Method with the smallest average miss | Its average miss, units | Its average bias, units, with + or − |
 |---|---|---|---|
 | Christmas | ___ | ___ | ___ |
 | Summer | ___ | ___ | ___ |
 
-- Did the best method change between the two windows? ___
-- One reason, from how the methods work (for example: which one sees the season, the trend or the planned discount?): ___'''),
+- Is it the same method in both windows? ___ (yes or no)
+- The reason that fits my table best: ___ (A, B, C or D), because ___ (one sentence with your numbers)'''),
  md('''**Optional, not graded: change the code with Gemini.** Ask Gemini to write the code that shows your product in Spring, for example: *"Use compare to show Garden Hose, store in Spring"*, and run it in the empty cell below. No Gemini on your account? Copy the last line of the cell in section 2 into the empty cell and change the product and the window.'''),
  code('# Optional: the code from Gemini, or your own, goes here\n'),
- md('''## 3. Your first recommendation
+ md(f'''## 3. Your first recommendation
 
 ### Task 1.3 · Your forecast choice (4 points)
 
-Choose one window for your product and recommend a method. A good answer names the method, gives one number from your table as evidence, and states one limitation of that evidence.'''),
+Imagine the store manager asks you: *"Which forecast should we use for this product?"* Answer in five short lines.
+
+**What to do**
+1. Choose **one window** from your Task 1.2 table: Christmas or Summer.
+2. **Recommend a method**, usually the one with the smallest average miss. Another one is fine if you say why.
+3. **Give your evidence:** its average miss from your table, and the average miss of repeat last year in the same window (the row "Repeat last year" in the table under the chart). If your method is repeat last year, compare it with the second best method instead.
+4. **Name one risk** of trusting this evidence, and explain it in one sentence with your numbers:
+   - **a.** It is only one window of four weeks.
+   - **b.** The bias shows that the method runs too high or too low.
+   - **c.** It is one product in one channel.
+5. **Name one check** before ordering, and say why:
+   - **a.** The whole-year table in section 4, after the break.
+   - **b.** The same product in the other channel.
+   - **c.** What running out costs compared with leftover stock.
+
+**Worked example, Plush Bear in store:** (1) Christmas. (2) {_XM}. (3) Its average miss was {_XMISS:.1f} units a week, against {_RLY:.1f} for repeat last year. (4) Risk b: its bias was {_XBIAS:+.1f}, so it ran about {abs(_XBIAS):.0f} units a week too low and the shelf could run empty. (5) Check a: over the whole year, {_YEAR} has the lowest WAPE ({_BT[_YEAR]['wape']:.1f} % against {_BT[_XM]['wape']:.1f} % for {_XM}), so the Christmas result may not hold in other weeks.'''),
  md('''**Your answer, Task 1.3**
 
-For **___** in **___**, I would start with **___** because **___**. A limitation of this evidence: **___**. Before ordering, I would also check **___**.'''),
+1. Window: ___
+2. Method I recommend: ___
+3. My evidence: its average miss was ___ units a week, against ___ units for ___.
+4. Risk (a, b or c): ___, because ___
+5. Check (a, b or c): ___, because ___'''),
  md('''Stop here for the first exercise. The following sections support the evaluation discussion after the break.'''),
  md('''## 4. Check more than one window
 
@@ -225,12 +273,20 @@ This worked example uses round teaching numbers: five forecasts of 180, 190, 210
 
 ### Task 2.1 · The worked order at 99 percent (2 points)
 
-The cell below computes the worked order at a 95 percent target. Change 95 to 99 and run it.'''),
- code('order_example(95)   # change 95 to 99'),
+**What to do**
+1. In the cell below, change **95** to **99** and run it. It shows the same table as above, for a 99 percent target.
+2. Copy three numbers into the answer table: the safety stock, the stock target and the order now.
+3. Complete the sentence under the table.'''),
+ code('worked_order(95)   # change 95 to 99'),
  md('''**Your answer, Task 2.1**
 
-- At 99 percent: safety stock ___ units, stock target ___ units, order now ___ units
-- Why do we order less than the stock target? ___'''),
+| | At 95 % (the table above) | At 99 % (your result) |
+|---|---|---|
+| Safety stock, units | 148 | ___ |
+| Stock target, units | 1,148 | ___ |
+| Order now, units | 348 | ___ |
+
+- The order is smaller than the stock target because ___ units are already on the shelf or on order; ordering the whole target would ___.'''),
  md('''## 2. Choose a service target
 
 A **cycle service level** is the probability of completing a replenishment cycle without a stockout. A target of 95 percent is a planning assumption, not a promise about the percentage of units served.
@@ -243,11 +299,17 @@ LightGBM in global mode is trained once, before 2025. Error variability is measu
  run(lesson.stock_widget,call='stock_controls = stock_widget()'),
  md('''**If the slider is unavailable**, compare these preset settings instead.'''),
  run(lesson.stock_table,call="stock_table('Plush Bear, store')"),
- md('''**What to see.** Compare each increase in stock with the change in fill rate. If fill rate is unchanged, the extra stock served no additional demand in these test weeks; this does not prove that the extra cushion is useless in every future period.
+ md(f'''**What to see.** Compare each increase in stock with the change in fill rate. If fill rate is unchanged, the extra stock served no additional demand in these test weeks; this does not prove that the extra cushion is useless in every future period.
 
 ### Task 2.2 · What does each step buy? (4 points)
 
-Choose **one product**: Puzzle 1000 or Vacuum Filter. Put its name in the cell below and run it, or use the slider above.'''),
+**What to do**
+1. Choose **your product**: `Puzzle 1000, store` or `Vacuum Filter, store`. You use it in Task 2.3 too.
+2. In the cell below, put its name (keep the quotation marks) and run it. The table shows the replay at five targets.
+3. Copy the rows for **80, 90, 95 and 99 %** into the answer table; skip 50 %.
+4. Compare the 95 % row with the 99 % row and complete the two sentences.
+
+**Worked example, Plush Bear in store** (the table above): from 95 to 99 % the average stock rises from {_R95['average_stock']:.0f} to {_R99['average_stock']:.0f} units, and the fill rate goes from {_R95['fill_rate']:.1f} % to {_R99['fill_rate']:.1f} %. The extra {round(_R99['average_stock']) - round(_R95['average_stock'])} units served no more customers in these weeks, so the step to 99 % is not worth it for the Bear.'''),
  code('stock_table("Puzzle 1000, store")   # or "Vacuum Filter, store"'),
  md('''**Your answer, Task 2.2**
 
@@ -260,7 +322,8 @@ My product: ___
 | 95 % | ___ | ___ | ___ |
 | 99 % | ___ | ___ | ___ |
 
-- What does the step from 95 to 99 percent buy, and what does it cost? ___'''),
+- From 95 to 99 %, the average stock rises from ___ to ___ units (what it costs), and the fill rate goes from ___ % to ___ % (what it buys).
+- Is the step to 99 % worth it for this product? ___ (yes or no), because ___'''),
  md('''## 3. Compare the products
 
 All three products below use a 95 percent cycle service target. “Weeks of demand on shelf” divides average stock by average demand during the same replay period.'''),
@@ -268,14 +331,33 @@ All three products below use a 95 percent cycle service target. “Weeks of dema
  md('''**What to see.** A high target can coexist with shortages when the error assumptions are poor. A slow mover can hold many weeks of demand in only a few units; inspect unit cost before calling that stock excessive.
 
 The safety stock calculation assumes independent weekly errors, a stable error distribution and an approximate bell curve. Those assumptions are especially weak for sparse demand. Treat the replay as a check on the rule, not a service guarantee.'''),
- md('''## 4. Your management recommendation
+ md(f'''## 4. Your management recommendation
 
 ### Task 2.3 · Your stock recommendation (4 points)
 
-Choose one product and recommend a cycle service target. Use the replay as evidence: the stock it held and the demand it served. You may discuss with others; write your own answer.'''),
+Imagine the store manager asks you: *"Which service target should we use for this product?"* Answer in five short lines, for your product from Task 2.2.
+
+**What to do**
+1. Write your product.
+2. **Choose one target:** 80, 90, 95 or 99 %.
+3. **Give your evidence:** at that target, the average stock and the fill rate from your Task 2.2 table.
+4. **Say what you give up**, and explain it in one sentence with your numbers:
+   - **a.** More stock tied up on the shelf.
+   - **b.** Some customers not served.
+   - **c.** Less safety in unusual weeks.
+5. **Name one check** before using it in the real store, and say why:
+   - **a.** What holding one unit for a year costs.
+   - **b.** What a lost sale costs.
+   - **c.** Whether the forecast runs too high or too low (its bias).
+
+**Worked example, Plush Bear in store:** (1) Plush Bear, store. (2) 90 %. (3) The shelf held on average {_R90['average_stock']:.0f} units and served {_R90['fill_rate']:.1f} % of demand. (4) Give up c: less safety in unusual weeks; but in these 26 weeks 95 and 99 % served no more customers and held {round(_R95['average_stock']) - round(_R90['average_stock'])} and {round(_R99['average_stock']) - round(_R90['average_stock'])} more units. (5) Check b: what a lost sale at Christmas costs, because one empty-shelf week could cost more than the stock we save.'''),
  md('''**Your answer, Task 2.3**
 
-For **___**, I would trial a cycle service target of **___** percent. The replay held about **___** units on average and served **___** percent of demand. I accept **___**. Before using this in a business, I would check **___**.'''),
+1. Product: ___
+2. Target: ___ %
+3. My evidence: at this target the shelf held on average ___ units and served ___ % of demand.
+4. What I give up (a, b or c): ___, because ___
+5. Check (a, b or c): ___, because ___'''),
  md('''You have completed the graded tasks; the next sections are optional.'''),
  md('''## 5. Optional: what is a better forecast worth?
 
