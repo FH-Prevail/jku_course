@@ -28,7 +28,7 @@ for o in range(104,153,4):
     preds=model.predict(te[cols]);pred_lookup=dict(zip(zip(te.series_id,te.horizon),preds))
     for sid in wide.columns:
         train=wide[sid].iloc[:o].to_numpy(float)
-        forecasts={'Repeat last year':rf.seasonal_naive(train,4),'Smooth recent demand':rf.ses(train,4),
+        forecasts={'Repeat last year':rf.seasonal_naive(train,4),'Simple exponential smoothing':rf.ses(train,4),
                    'Prophet':rf.prophet_forecast(weeks[:o],train,disc[sid].iloc[:o],weeks[o:o+4],disc[sid].iloc[o:o+4]),
                    'LightGBM in global mode':np.array([pred_lookup[sid,h] for h in range(1,5)])}
         for m,fc in forecasts.items():
@@ -53,7 +53,7 @@ for sid in selected:
     for t in sorted(te.t.unique()):
         fs=[float(lookup.loc[(sid,t,h)]) for h in range(1,8) if t+h-1<len(weeks)]
         fs+= [fs[-1]]*(7-len(fs))
-        forecasts={'Repeat last year':rf.seasonal_naive(y[:t],7),'Smooth recent demand':rf.ses(y[:t],7),'LightGBM in global mode':fs}
+        forecasts={'Repeat last year':rf.seasonal_naive(y[:t],7),'Simple exponential smoothing':rf.ses(y[:t],7),'LightGBM in global mode':fs}
         for m,f in forecasts.items():inv.append([sid,str(weeks[t].date()),m,float(actual[sid].iloc[t]),*map(float,f)])
 pd.DataFrame(inv,columns=['series_id','week_start','method','actual']+[f'h{h}' for h in range(1,8)]).to_csv(OUT/'inventory.csv',index=False)
 raw.to_csv(OUT/'demand.csv',index=False);products.to_csv(OUT/'products.csv',index=False)

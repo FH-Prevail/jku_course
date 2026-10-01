@@ -121,7 +121,7 @@ Four demand patterns are useful descriptions, not guarantees of forecast accurac
  md('''## 2. Compare four approaches
 
 - **Repeat last year**, also called seasonal naive: reuse sales from 52 weeks earlier.
-- **Smooth recent demand**, or simple exponential smoothing: give more weight to recent sales; this version forecasts a constant level.
+- **Simple exponential smoothing (SES)**: a weighted average that gives more weight to recent sales; it forecasts one constant level for all weeks ahead.
 - **Prophet**, a local model from Meta: one model per product and channel that adds up a trend, a yearly season and the effect of the planned discount.
 - **LightGBM in global mode**: one LightGBM model learns from all products and channels, using past sales and planned prices, promotions and calendar information. (LightGBM can also be trained one series at a time, in local mode; here it runs in global mode.)
 

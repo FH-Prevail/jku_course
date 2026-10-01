@@ -9,8 +9,8 @@ from scipy.stats import norm
 
 BLUE = '#2F789F'
 INK = '#253746'
-METHODS = ['Repeat last year', 'Smooth recent demand', 'LightGBM in global mode']            # the stock replay uses these three
-COMPARE = ['Repeat last year', 'Smooth recent demand', 'Prophet', 'LightGBM in global mode']  # the forecast comparisons: two simple rules, Prophet (local), LightGBM trained on all series (global mode)
+METHODS = ['Repeat last year', 'Simple exponential smoothing', 'LightGBM in global mode']            # the stock replay uses these three
+COMPARE = ['Repeat last year', 'Simple exponential smoothing', 'Prophet', 'LightGBM in global mode']  # the forecast comparisons: two simple rules, Prophet (local), LightGBM trained on all series (global mode)
 PRODUCTS = {'Plush Bear, store': 'P010_store', 'Plush Bear, online': 'P010_online',
             'Puzzle 1000, store': 'P011_store', 'Vacuum Filter, store': 'P035_store',
             'Garden Hose, store': 'P015_store'}

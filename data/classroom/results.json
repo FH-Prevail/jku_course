@@ -20,7 +20,7 @@
       "wape": 43.760401881383764,
       "bias_pct": -2.666360524338315
     },
-    "Smooth recent demand": {
+    "Simple exponential smoothing": {
       "wape": 34.92849253276216,
       "bias_pct": -0.9308339869111603
     }
@@ -215,7 +215,7 @@
         "bias_pct": -1.6858059533750653
       }
     },
-    "Smooth recent demand": {
+    "Simple exponential smoothing": {
       "all": {
         "wape": 34.92849253276216,
         "bias_pct": -0.9308339869111603
@@ -303,7 +303,7 @@
       "3": 44.05485120619828,
       "4": 45.37516738743881
     },
-    "Smooth recent demand": {
+    "Simple exponential smoothing": {
       "1": 34.043211780127194,
       "2": 35.14408281950289,
       "3": 34.86015630003062,
@@ -438,7 +438,7 @@
         34.57333626825152,
         37.89108522057861
       ],
-      "Smooth recent demand": [
+      "Simple exponential smoothing": [
         62.08584533910743,
         28.954784208294228,
         30.125978384285183,
@@ -480,7 +480,7 @@
       "Moving average": 31.452087969629535,
       "Prophet": 15.062254231010238,
       "Repeat last year": 37.89108522057861,
-      "Smooth recent demand": 26.623973363490684,
+      "Simple exponential smoothing": 26.623973363490684,
       "TSB": 33.17891954009954
     },
     "rolling": {
@@ -491,7 +491,7 @@
       "Moving average": 31.634760879256113,
       "Prophet": 19.84355813200733,
       "Repeat last year": 36.60867326757539,
-      "Smooth recent demand": 29.359971842295334,
+      "Simple exponential smoothing": 29.359971842295334,
       "TSB": 30.339073405538723
     }
   },
@@ -1148,7 +1148,7 @@
         "n_series": 26
       }
     },
-    "Smooth recent demand": {
+    "Simple exponential smoothing": {
       "erratic": {
         "wape": 74.03100116379294,
         "bias_pct": -7.3139681279035,
@@ -3586,7 +3586,7 @@
       "protection_weeks": 5,
       "test_weeks": 26
     },
-    "Smooth recent demand": {
+    "Simple exponential smoothing": {
       "target": 95.0,
       "safety_stock": 220.0,
       "average_stock": 207.5,
@@ -3648,7 +3648,7 @@
           "Total miss, % of demand": 29.310344827586203,
           "Average bias, units": -5.5
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 23.752211580116352,
           "Total miss, % of demand": 20.476044465617544,
           "Average bias, units": 23.504423160232705
@@ -3670,7 +3670,7 @@
           "Total miss, % of demand": 54.434782608695656,
           "Average bias, units": -10.25
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 45.75,
           "Total miss, % of demand": 31.82608695652174,
           "Average bias, units": -29.88258013163724
@@ -3692,7 +3692,7 @@
           "Total miss, % of demand": 17.5,
           "Average bias, units": -51.25
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 154.9493058065727,
           "Total miss, % of demand": 49.98364703437829,
           "Average bias, units": -154.9493058065727
@@ -3716,7 +3716,7 @@
           "Total miss, % of demand": 14.736842105263156,
           "Average bias, units": -9.0
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 16.655544383284578,
           "Total miss, % of demand": 11.688101321603213,
           "Average bias, units": -4.811088766569156
@@ -3738,7 +3738,7 @@
           "Total miss, % of demand": 4.901960784313726,
           "Average bias, units": 2.75
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 38.23834495450504,
           "Total miss, % of demand": 29.990858787847092,
           "Average bias, units": 38.23834495450504
@@ -3760,7 +3760,7 @@
           "Total miss, % of demand": 21.438953488372093,
           "Average bias, units": -58.75
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 45.50295072519032,
           "Total miss, % of demand": 13.227601954997183,
           "Average bias, units": -38.005901450380634
@@ -3784,7 +3784,7 @@
           "Total miss, % of demand": 148.1818181818182,
           "Average bias, units": 13.75
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 13.0,
           "Total miss, % of demand": 47.27272727272727,
           "Average bias, units": 7.750001053230811
@@ -3806,7 +3806,7 @@
           "Total miss, % of demand": 104.83870967741935,
           "Average bias, units": -4.0
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 15.199218882609067,
           "Total miss, % of demand": 49.02973833099699,
           "Average bias, units": 3.3984377652181337
@@ -3828,7 +3828,7 @@
           "Total miss, % of demand": 120.54054054054053,
           "Average bias, units": 17.25
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 21.25,
           "Total miss, % of demand": 45.94594594594595,
           "Average bias, units": -12.434210203377305
@@ -3852,7 +3852,7 @@
           "Total miss, % of demand": 300.0,
           "Average bias, units": 0.25
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 0.5517241338680781,
           "Total miss, % of demand": 220.68965354723122,
           "Average bias, units": 0.35344826773615623
@@ -3874,7 +3874,7 @@
           "Total miss, % of demand": null,
           "Average bias, units": 0.75
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 0.6093750008432912,
           "Total miss, % of demand": null,
           "Average bias, units": 0.6093750008432912
@@ -3896,7 +3896,7 @@
           "Total miss, % of demand": 100.0,
           "Average bias, units": 0.5
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 0.7993421005582121,
           "Total miss, % of demand": 159.86842011164242,
           "Average bias, units": 0.09868420111642418
@@ -3920,7 +3920,7 @@
           "Total miss, % of demand": 66.60000000000001,
           "Average bias, units": 73.25
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 25.685071655533037,
           "Total miss, % of demand": 20.54805732442643,
           "Average bias, units": -21.370143311066073
@@ -3942,7 +3942,7 @@
           "Total miss, % of demand": 42.675159235668794,
           "Average bias, units": 52.0
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 59.01048258362579,
           "Total miss, % of demand": 37.586294639252095,
           "Average bias, units": 59.01048258362579
@@ -3964,7 +3964,7 @@
           "Total miss, % of demand": 58.17307692307693,
           "Average bias, units": -45.5
         },
-        "Smooth recent demand": {
+        "Simple exponential smoothing": {
           "Average miss, units": 57.58212788398549,
           "Total miss, % of demand": 55.36743065767836,
           "Average bias, units": -12.835744232029004
@@ -4084,8 +4084,8 @@
   },
   "source_hashes": {
     "src/retail_fc.py": "decdb5e8a98b66175ce251eacc732c35e0c2a69518c59691c24a3d2657c0e33b",
-    "src/classroom.py": "f8a4524ca0586cbfbdd272125fdd80749b2aff2a0d2b2b04de8dc006e6f663d2",
-    "analysis/build_classroom.py": "5124ee2599e0319b8a2701340244c472d14fb4ba580f8e52101070ba10b95115",
+    "src/classroom.py": "f89fcd97f54a0649cde0d93d05b1c1db56846cc739fd4e6f1209b661cce274ee",
+    "analysis/build_classroom.py": "c012801b985f5fa67b7177259dd913eff0fedc30828a21f6595ae48378e8dae7",
     "data/demand_weekly.csv": "d32c56bcc33197b9f153014fce05f5fafad64e01e0358969c12fb149ab28b511",
     "data/products.csv": "87cb40a96d3605b7588114181c7fe5712c90f595b0d5a14710dbc03b0dfe2f00"
   }
