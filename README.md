@@ -26,7 +26,7 @@ Or open Colab and choose **File, Open notebook, GitHub**, type `FH-Prevail/jku_c
 
 **Keep your work:** in Colab choose **Copy to Drive** (File, Save a copy in Drive) before you change anything. The copy goes to your own Google Drive; without it, your changes are lost when you close the tab. The notebooks here never change.
 
-Notebooks 1 and 2 start with a setup cell that fetches the course data (`data/classroom/`) and the display helpers (`src/classroom.py`) from this repository and prints "Ready". Nothing is trained in Colab: every table and picture comes from forecasts computed in advance. Gemini, where your account offers it, can explain any output; check what it says against the numbers.
+Every cell shows its code above its result: the same code that produced the numbers on the slides. The first cell of notebooks 1 and 2 loads the course data (`data/classroom/`) from this repository and prints "Ready". Nothing is trained in Colab: every table and picture comes from forecasts computed in advance. Gemini, where your account offers it, can explain or change any cell; check what it says against the numbers.
 
 ## Data
 
@@ -38,7 +38,7 @@ One synthetic dataset, built like a real retailer's: 40 products sold in store a
 
 ## How the numbers were made
 
-`analysis/build_classroom.py` trains, backtests and freezes every number the notebooks show into `data/classroom/results.json`; `src/retail_fc.py` holds the forecasting and inventory mathematics and `src/classroom.py` the notebook displays. To rebuild on your own computer:
+`analysis/build_classroom.py` trains, backtests and freezes every number the notebooks show into `data/classroom/results.json`; `src/retail_fc.py` holds the forecasting and inventory mathematics and `src/classroom.py` the code shown in the notebook cells (`scripts/build_notebooks.py` copies it in). To rebuild on your own computer:
 
 ```bash
 python3 -m pip install -r requirements.txt

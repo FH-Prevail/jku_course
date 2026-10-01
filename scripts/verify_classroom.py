@@ -50,20 +50,33 @@ import matplotlib.pyplot as plt
 plt.close('all')
 print('PASS: evidence, order arithmetic, finite endpoints, zero windows, feature causality and control callbacks.')
 if args.execute:
- os.environ['T2_NO_WIDGETS']='1'   # headless kernels can stall on widget display; the callbacks were exercised above
+ # Run the notebooks exactly as students see them, with two substitutions in a temporary copy only:
+ # the data address points at this folder, and the cells that only draw interactive controls are skipped
+ # (a headless kernel can stall on them; their callbacks were exercised above). The saved notebook keeps
+ # the original code and gets the outputs of every other cell.
  import nbformat
  from nbclient import NotebookClient
+ LOCAL=(ROOT/'data/classroom').as_uri()
  def execute(name):
-  dest=Path(tempfile.mkdtemp(prefix='t2-student-'));path=ROOT/'notebooks'/name;shutil.copy2(path,dest/name)
-  nb=nbformat.read(dest/name,4)
+  dest=Path(tempfile.mkdtemp(prefix='t2-student-'));path=ROOT/'notebooks'/name
+  nb=nbformat.read(path,4);original={}
+  for i,cell in enumerate(nb.cells):
+   if cell.cell_type!='code':continue
+   if 'SOURCE = "https://raw.githubusercontent.com/FH-Prevail/jku_course/main/data/classroom"' in cell.source:
+    original[i]=cell.source;cell.source=cell.source.replace('https://raw.githubusercontent.com/FH-Prevail/jku_course/main/data/classroom',LOCAL)
+   elif '_widget()' in cell.source.splitlines()[-1]:
+    original[i]=cell.source;cell.source='pass'
   NotebookClient(nb,timeout=400,kernel_name='python3',resources={'metadata':{'path':str(dest)}},
                  on_cell_start=lambda **kw: print(name, 'cell', kw['cell_index'], flush=True)).execute()
   errors=[o for cell in nb.cells for o in cell.get('outputs',[]) if o.output_type=='error']
-  assert not errors
+  assert not errors,errors
   warnings=[o for cell in nb.cells for o in cell.get('outputs',[]) if o.get('name')=='stderr']
   assert not warnings, warnings
   if name.startswith('1_'):
    assert sum('image/png' in o.get('data',{}) for cell in nb.cells for o in cell.get('outputs',[]))>=3
+  for i,src in original.items():
+   nb.cells[i].source=src
+   if 'SOURCE =' not in src:nb.cells[i].outputs=[];nb.cells[i].execution_count=None   # a control cell: it runs in Colab
   nbformat.write(nb,path)
   return name,len([cell for cell in nb.cells if cell.cell_type=='code']),str(dest)
  with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:

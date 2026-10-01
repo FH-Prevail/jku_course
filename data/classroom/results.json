@@ -3598,6 +3598,18 @@
       "protection_weeks": 5,
       "test_weeks": 26
     },
+    "Prophet": {
+      "target": 95.0,
+      "safety_stock": 172.0,
+      "average_stock": 225.30769230769232,
+      "fill_rate": 100.0,
+      "stockout_weeks": 0,
+      "lost_units": 0.0,
+      "weeks_stock": 1.3591647331786543,
+      "weekly_sigma": 46.54499993303642,
+      "protection_weeks": 5,
+      "test_weeks": 26
+    },
     "LightGBM in global mode": {
       "target": 95.0,
       "safety_stock": 147.0,
@@ -4084,8 +4096,8 @@
   },
   "source_hashes": {
     "src/retail_fc.py": "decdb5e8a98b66175ce251eacc732c35e0c2a69518c59691c24a3d2657c0e33b",
-    "src/classroom.py": "f89fcd97f54a0649cde0d93d05b1c1db56846cc739fd4e6f1209b661cce274ee",
-    "analysis/build_classroom.py": "c012801b985f5fa67b7177259dd913eff0fedc30828a21f6595ae48378e8dae7",
+    "src/classroom.py": "2d6e8bdb3ef064f7b534bbea06fed0a6b3bfd26a2681fc1838624d05cf9be1ee",
+    "analysis/build_classroom.py": "a66753124f5f49b31598a2170f087e7896cf1d79ccff7c75485165f0b45819c7",
     "data/demand_weekly.csv": "d32c56bcc33197b9f153014fce05f5fafad64e01e0358969c12fb149ab28b511",
     "data/products.csv": "87cb40a96d3605b7588114181c7fe5712c90f595b0d5a14710dbc03b0dfe2f00"
   }

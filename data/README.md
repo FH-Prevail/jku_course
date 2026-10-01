@@ -72,10 +72,9 @@ Free to use for teaching. No real company data is contained.
 `classroom/` contains the frozen demand, products, forecast comparisons, inventory
 forecast profiles and `results.json`, shared by the deck and the two student
 notebooks. Build it with `python3 analysis/build_classroom.py` from the repository
-root. The notebooks' setup cell downloads these files and the helper
-`src/classroom.py` from the repository's main branch (or from a local folder given
-in `T2_SOURCE`, for testing). Every forecast was computed in advance, so nothing is
-trained live in class.
+root. The first cell of each notebook reads these files straight from the
+repository's main branch with pandas. Every forecast was computed in advance, so
+nothing is trained live in class.
 
 The classroom pipeline estimates the four flagged stockout observations from
 preceding history for training and excludes censored targets from forecast
