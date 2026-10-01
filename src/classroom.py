@@ -108,6 +108,15 @@ def pattern_map():
     print("ADI: the average number of weeks between sales (1 = a sale every week). CV²: how irregular the amounts are from one sale to the next.")
 
 
+def pattern_of(product="Plush Bear, store"):
+    """The two numbers of one product, ADI and CV², and the demand pattern they give (measured on 2023 and 2024)."""
+    sid = series_id(product)
+    row = next(s for s in results["patterns"]["series"] if s["series_id"] == sid)
+    cuts = results["patterns"]["cuts"]
+    print(f"{product}: ADI {row['adi']:.2f} (limit {cuts['adi']}), CV² {row['cv2']:.2f} (limit {cuts['cv2']})")
+    print(f"Demand pattern: {row['pattern']}")
+
+
 # ------------------------------------------------------------------ notebook 1, section 2: compare four approaches
 
 def comparison_data(product="Plush Bear, store", window="Christmas"):
