@@ -293,7 +293,9 @@ A **cycle service level** is the probability of completing a replenishment cycle
 
 **Fill rate** is the share of demand actually served. The replay below reports fill rate, weeks with a stockout and average stock. We do not compare fill rate directly with the cycle service target.
 
-LightGBM in global mode is trained once, before 2025. Error variability is measured on 25 weeks from January to June; the stock rule is then replayed on 26 weeks from 30 June to 22 December. Orders are rounded up to whole units.'''),
+LightGBM in global mode is trained once, before 2025. Error variability is measured on 25 weeks from January to June. Orders are rounded up to whole units.
+
+**The replay** is like the backtest, but for stock: we run the ordering rule week by week on the real demand of 30 June to 22 December 2025, as if we had used it then. Each week it orders up to the stock target, the delivery arrives after the lead time, customers buy what is on the shelf, and a sale we miss is lost. Then we count the average stock, the fill rate and the weeks with a stock-out.'''),
  run(lesson.profile,lesson.simulate,lesson.stock_decision,call="stock_decision('Plush Bear, store', 95)"),
  md('''**Try it.** Move Target % from 50 to 80, then to 95 and 99. Does every increase serve more demand? Then choose Puzzle 1000 and Vacuum Filter; the same target need not deliver the same observed outcome.'''),
  run(lesson.stock_widget,call='stock_controls = stock_widget()'),
