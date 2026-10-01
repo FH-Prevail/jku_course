@@ -8,6 +8,10 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm
 
 BLUE = '#2F789F'
+# The deck's line colours: one colour per method, the same on every slide and in every notebook chart.
+LINE_COL = {'Actual sales': '#262626', 'Repeat last year': '#E66A1F', 'Simple exponential smoothing': '#1B9E5A',
+            'Prophet': '#D04F95', 'LightGBM in global mode': '#0B5CAD'}
+LINE_MARK = {'Repeat last year': 's', 'Simple exponential smoothing': '^', 'Prophet': 'X', 'LightGBM in global mode': 'D'}
 INK = '#253746'
 METHODS = ['Repeat last year', 'Simple exponential smoothing', 'LightGBM in global mode']            # the stock replay uses these three
 COMPARE = ['Repeat last year', 'Simple exponential smoothing', 'Prophet', 'LightGBM in global mode']  # the forecast comparisons: two simple rules, Prophet (local), LightGBM trained on all series (global mode)
@@ -51,7 +55,7 @@ def _sid(product):
 def totals():
     t=D.groupby(['week_start','channel']).units.sum().unstack().resample('MS').sum()
     fig,ax=plt.subplots(figsize=(9,3.8))
-    for ch,sty in [('store','-'),('online','--')]: ax.plot(t.index,t[ch],sty,color=BLUE,lw=2,label=ch)
+    for ch,col in [('store','#0B5CAD'),('online','#E66A1F')]: ax.plot(t.index,t[ch],color=col,lw=2,label=ch)
     ax.set(ylabel='Units sold per month',title='All products: store and online');ax.legend();fig.tight_layout();plt.show()
     y=D.assign(year=D.week_start.dt.year).groupby(['year','channel']).units.sum().unstack()
     return y.rename_axis('Year').rename(columns={'store':'Store units','online':'Online units'})
@@ -109,8 +113,8 @@ def compare(product='Plush Bear, store',window='Christmas'):
     g=comparison_data(product,window);a=g[g.method==METHODS[0]].sort_values('week_start')
     fig,ax=plt.subplots(figsize=(9,3.8))
     ax.bar(np.arange(4)-.12,a.actual,width=.24,color='#A8B4BE',label='Actual sales')
-    for m,style,marker in zip(COMPARE,['--',':','-.','-'],['s','^','D','o']):
-        q=g[g.method==m].sort_values('week_start');ax.plot(range(4),q.forecast,color=BLUE,ls=style,marker=marker,lw=2,label=m)
+    for m in COMPARE:
+        q=g[g.method==m].sort_values('week_start');ax.plot(range(4),q.forecast,color=LINE_COL[m],marker=LINE_MARK[m],lw=2,label=m)
     ax.set(xticks=range(4),xticklabels=a.week_start.dt.strftime('%d %b'),ylabel='Units',title=f'{product} | {window}')
     ax.legend(loc='upper left',bbox_to_anchor=(1,1),fontsize=10);fig.tight_layout();plt.show()
     print(f'Forecast made after { (a.week_start.min()-pd.Timedelta(weeks=1)).date() }; all four weeks forecast together.')
