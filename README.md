@@ -13,8 +13,8 @@ Course material for the T2 session: the slides, three Colab notebooks and one sy
 | Notebook | What it is for | Open in Colab |
 |---|---|---|
 | [0 · Your Own Data In Colab](notebooks/0_your_data_in_colab.ipynb) | Three ways to load a file (upload, direct link, Google Drive), tried with a small sample, then a first look at the table | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FH-Prevail/jku_course/blob/main/notebooks/0_your_data_in_colab.ipynb) |
-| [1 · Demand Patterns and Forecast Comparison](notebooks/1_see_and_forecast.ipynb) | Hands-on 1 (sections 1 to 3) and graded Tasks 1.1 to 1.5; sections 4 and 5 support the evaluation chapter | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FH-Prevail/jku_course/blob/main/notebooks/1_see_and_forecast.ipynb) |
-| [2 · Safety Stock and Replenishment Policy](notebooks/2_forecast_to_stock.ipynb) | Hands-on 2 (sections 1 to 4) and graded Tasks 2.1 to 2.4; sections 5 and 6 are optional | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FH-Prevail/jku_course/blob/main/notebooks/2_forecast_to_stock.ipynb) |
+| [1 · Demand Patterns and Forecast Comparison](notebooks/1_see_and_forecast.ipynb) | Hands-on 1 (sections 1 to 3) and graded Tasks 1.1 to 1.3; sections 4 and 5 support the evaluation chapter | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FH-Prevail/jku_course/blob/main/notebooks/1_see_and_forecast.ipynb) |
+| [2 · Safety Stock and Replenishment Policy](notebooks/2_forecast_to_stock.ipynb) | Hands-on 2 (sections 1 to 4) and graded Tasks 2.1 to 2.3; sections 5 and 6 are optional | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FH-Prevail/jku_course/blob/main/notebooks/2_forecast_to_stock.ipynb) |
 
 If a button does not open, copy the address instead:
 
@@ -34,7 +34,7 @@ One synthetic dataset, built like a real retailer's: 40 products sold in store a
 
 ## Assignment (graded)
 
-The T2 assignment is the tasks inside notebooks 1 and 2, done individually. Notebook 1 has five tasks and notebook 2 has four, 10 points each; each notebook is half of the assignment. Together they count **25 % of the course grade**, plus 5 % for taking part in the session.
+The T2 assignment is the tasks inside notebooks 1 and 2, done individually. Each notebook has three tasks and 10 points; each notebook is half of the assignment. Together they count **25 % of the course grade**, plus 5 % for taking part in the session.
 
 1. Open the notebook in Colab and choose **Copy to Drive**, so your answers are saved.
 2. Write your name and student number in the first cell, and your answers in the cells marked **Your answer**.

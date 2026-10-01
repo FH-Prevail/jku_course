@@ -172,7 +172,7 @@ First look at the Christmas example. Do not choose a winner from the shape alone
 
 **Try it using the dropdowns.** Change Window to Summer. Then select Garden Hose, store. Compare that product in Summer and Christmas. Change Plush Bear from store to online to investigate a channel difference.'''),
  run(lesson.forecast_widget,call='forecast_controls = forecast_widget()'),
- md('''### Task 1.2 · Two windows compared (3 points)
+ md('''### Task 1.2 · Two windows compared (4 points)
 
 Use the dropdowns for **your product** from Task 1.1. Fill in the table for Christmas and for Summer: the method with the smallest average miss, its average miss, and its bias, with its sign.'''),
  md('''**Your answer, Task 1.2**
@@ -184,23 +184,14 @@ Use the dropdowns for **your product** from Task 1.1. Fill in the table for Chri
 
 - Did the best method change between the two windows? ___
 - One reason, from how the methods work (for example: which one sees the season, the trend or the planned discount?): ___'''),
- md('''### Task 1.3 · Change the code with Gemini (2 points)
-
-Ask Gemini to write the code that shows **your product in Spring**, for example: *"Use compare to show Garden Hose, store in Spring"*. Run its code in the empty cell below.
-
-No Gemini on your account? Write it yourself: copy the last line of the cell in section 2 into the empty cell and change the product and the window.'''),
- code('# Task 1.3: the code from Gemini, or your own, goes here\n'),
- md('''**Your answer, Task 1.3**
-
-- The prompt I gave Gemini (or: "I changed it myself"): ___
-- In Spring, the method with the smallest average miss for my product: ___
-- Is that the same as what the dropdowns show for Spring? ___'''),
+ md('''**Optional, not graded: change the code with Gemini.** Ask Gemini to write the code that shows your product in Spring, for example: *"Use compare to show Garden Hose, store in Spring"*, and run it in the empty cell below. No Gemini on your account? Copy the last line of the cell in section 2 into the empty cell and change the product and the window.'''),
+ code('# Optional: the code from Gemini, or your own, goes here\n'),
  md('''## 3. Your first recommendation
 
-### Task 1.4 · Your forecast choice (2 points)
+### Task 1.3 · Your forecast choice (4 points)
 
 Choose one window for your product and recommend a method. A good answer names the method, gives one number from your table as evidence, and states one limitation of that evidence.'''),
- md('''**Your answer, Task 1.4**
+ md('''**Your answer, Task 1.3**
 
 For **___** in **___**, I would start with **___** because **___**. A limitation of this evidence: **___**. Before ordering, I would also check **___**.'''),
  md('''Stop here for the first exercise. The following sections support the evaluation discussion after the break.'''),
@@ -211,11 +202,6 @@ A **backtest** replays past forecast decisions using only information available 
 **WAPE**, weighted absolute percentage error, is total absolute miss divided by total actual demand. **Percentage bias** is total signed error divided by total demand; earlier we expressed bias in units instead. Both definitions use forecast minus actual for the sign.'''),
  run(lesson.backtest,call='backtest()'),
  md('''**What to see.** The table compares all 80 series on the same dates; the four extra rows are the further local methods from the slides (Holt-Winters, Croston SBA, TSB, a moving average), scored the same way. Large sellers have more influence on these aggregate percentages, so the best assortment result does not promise the best result for your product. These results were computed in advance; LightGBM in global mode was retrained at each test date.'''),
- md('''### Task 1.5 · Check your choice against the whole year (1 point)'''),
- md('''**Your answer, Task 1.5**
-
-- The method with the lowest WAPE over the whole year: ___ (WAPE ___ %)
-- Is it the method you chose in Task 1.4? What does that tell you about judging a method on one window? ___'''),
  md('''## 5. A forecast can be right most weeks and still miss all sales
 
 **MAPE**, mean absolute percentage error, computes a percentage miss for each week before averaging. A week with zero actual demand makes that division undefined.'''),
@@ -223,7 +209,7 @@ A **backtest** replays past forecast decisions using only information available 
  md('''**What to see.** The zero forecast matches three weeks exactly but misses the only sale. Counting correct weeks is not enough to judge an order policy; carry this question into notebook 2: how much stock would you need?
 
 **Evidence note.** Four observations in the source data are flagged as censored sales: the shelf was empty, so demand is unknown. For training, these are replaced with the preceding four weeks’ mean using only past information; flagged test rows are excluded from forecast scoring. The README of the `data` folder in the course repository describes the data in full.'''),
- submit(1)],assignment=assignment(1,2,5))
+ submit(1)],assignment=assignment(1,2,3))
 
 notebook('2_forecast_to_stock.ipynb','2 · Safety Stock and Replenishment Policy',[
  NAME,
@@ -259,7 +245,7 @@ LightGBM in global mode is trained once, before 2025. Error variability is measu
  run(lesson.stock_table,call="stock_table('Plush Bear, store')"),
  md('''**What to see.** Compare each increase in stock with the change in fill rate. If fill rate is unchanged, the extra stock served no additional demand in these test weeks; this does not prove that the extra cushion is useless in every future period.
 
-### Task 2.2 · What does each step buy? (3 points)
+### Task 2.2 · What does each step buy? (4 points)
 
 Choose **one product**: Puzzle 1000 or Vacuum Filter. Put its name in the cell below and run it, or use the slider above.'''),
  code('stock_table("Puzzle 1000, store")   # or "Vacuum Filter, store"'),
@@ -281,19 +267,13 @@ All three products below use a 95 percent cycle service target. “Weeks of dema
  run(lesson.stock_compare,call='stock_compare()'),
  md('''**What to see.** A high target can coexist with shortages when the error assumptions are poor. A slow mover can hold many weeks of demand in only a few units; inspect unit cost before calling that stock excessive.
 
-The safety stock calculation assumes independent weekly errors, a stable error distribution and an approximate bell curve. Those assumptions are especially weak for sparse demand. Treat the replay as a check on the rule, not a service guarantee.
-
-### Task 2.3 · Same target, different outcomes (2 points)'''),
- md('''**Your answer, Task 2.3**
-
-- At 95 percent, the product that serves the smallest share of demand: ___ (fill rate ___ %)
-- One reason why a 95 percent target did not serve 95 percent of its units (think of its forecast's bias, its error spread or its lead time): ___'''),
+The safety stock calculation assumes independent weekly errors, a stable error distribution and an approximate bell curve. Those assumptions are especially weak for sparse demand. Treat the replay as a check on the rule, not a service guarantee.'''),
  md('''## 4. Your management recommendation
 
-### Task 2.4 · Your stock recommendation (3 points)
+### Task 2.3 · Your stock recommendation (4 points)
 
 Choose one product and recommend a cycle service target. Use the replay as evidence: the stock it held and the demand it served. You may discuss with others; write your own answer.'''),
- md('''**Your answer, Task 2.4**
+ md('''**Your answer, Task 2.3**
 
 For **___**, I would trial a cycle service target of **___** percent. The replay held about **___** units on average and served **___** percent of demand. I accept **___**. Before using this in a business, I would check **___**.'''),
  md('''You have completed the graded tasks; the next sections are optional.'''),
@@ -314,6 +294,6 @@ This is a separate decision assuming the order can arrive for the selling week; 
  md('''**What to see.** Higher recovery makes leftovers cheaper and increases the order, while the forecast stays fixed. This shows why a forecast alone cannot choose an order quantity.
 
 **Take home.** Keep the forecast, its error and the business cost of a mistake together. Your recommendation should state a choice, evidence and a limitation.'''),
- submit(2)],assignment=assignment(2,1,4))
+ submit(2)],assignment=assignment(2,1,3))
 
 print('Built the three notebooks; notebooks 1 and 2 load the course data from',DATA_URL)
