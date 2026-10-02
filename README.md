@@ -39,7 +39,7 @@ The T2 assignment is the tasks inside notebooks 1 and 2, done individually. Each
 1. Open the notebook in Colab and choose **Copy to Drive**, so your answers are saved.
 2. Write your name and student number in the first cell, and your answers in the cells marked **Your answer**.
 3. **Runtime, Run all**, then **File, Download, Download .ipynb**. Name the files `T2_Notebook1_Lastname_Firstname.ipynb` and `T2_Notebook2_Lastname_Firstname.ipynb`.
-4. Upload both files to the T2 assignment on MS Teams by **Saturday 17 October 2026, 23:59**.
+4. Upload both files to the T2 assignment on MS Teams by **Saturday 10 October 2026, 23:59**.
 
 You may discuss with others, but the answers you submit are your own. Gemini is allowed: say in your answer where you used it, and check it against the numbers.
 

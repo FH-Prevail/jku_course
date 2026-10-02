@@ -121,7 +121,7 @@ weekly.plot(figsize=(10, 4), title="Units sold per week, store");'''),
 
 Three ways to get a file into Colab, tried with one small sample, **sample_weekly_sales.csv**: weekly store sales of three products from 2023 to 2025 (synthetic, the same data as the course). Pick one route in sections 1 to 3, then explore the table in section 4. Run a cell with the play button next to it, or Shift + Enter.''')
 
-DEADLINE='Saturday 17 October 2026, 23:59'
+DEADLINE='Saturday 10 October 2026, 23:59'
 def assignment(number,other,tasks):
  return f'''## Your assignment (graded)
 
