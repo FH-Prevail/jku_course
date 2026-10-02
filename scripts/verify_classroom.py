@@ -77,7 +77,7 @@ if args.execute:
   for i,src in original.items():
    nb.cells[i].source=src
    if 'SOURCE =' not in src:nb.cells[i].outputs=[];nb.cells[i].execution_count=None   # a control cell: it runs in Colab
-  nbformat.write(nb,path)
+  with open(path,'w',encoding='utf-8',newline='\n') as f:nbformat.write(nb,f)   # LF on every system, also Windows
   return name,len([cell for cell in nb.cells if cell.cell_type=='code']),str(dest)
  with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
   for item in pool.map(execute,['1_see_and_forecast.ipynb','2_forecast_to_stock.ipynb']):print('PASS clean notebook:',item)

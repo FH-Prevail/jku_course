@@ -81,7 +81,7 @@ def notebook(name,title,cells,lead=None,assignment=None):
        else [md('# '+title+'\n\n'+colab_badge(name)+'\n\n'+lead)])
  n=nbf.v4.new_notebook(cells=[*head,*cells])
  n.metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'language_info':{'name':'python'},'colab':{'name':name,'provenance':[]}}
- nbf.write(n,ROOT/'notebooks'/name)
+ with open(ROOT/'notebooks'/name,'w',encoding='utf-8',newline='\n') as f:nbf.write(n,f)   # LF on every system, also Windows
 
 SAMPLE=REPO_RAW+'/data/sample/sample_weekly_sales.csv'
 notebook('0_your_data_in_colab.ipynb','0 · Your Own Data In Colab',[
