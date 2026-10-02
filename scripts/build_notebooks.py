@@ -289,11 +289,11 @@ This worked example uses round teaching numbers: five forecasts of 180, 190, 210
 - The order is smaller than the stock target because ___ units are already on the shelf or on order; ordering the whole target would ___.'''),
  md('''## 2. Choose a service target
 
-A **cycle service level** is the probability of completing a replenishment cycle without a stockout. A target of 95 percent is a planning assumption, not a promise about the percentage of units served.
+A **cycle service target** is the share of order cycles, here weeks, that we plan to get through without a stock-out. A target of 95 percent is a planning assumption, not a promise about the percentage of units served.
 
-**Fill rate** is the share of demand actually served. The replay below reports fill rate, weeks with a stockout and average stock. We do not compare fill rate directly with the cycle service target.
+**Fill rate** is the share of demand actually served. The replay below reports fill rate, weeks with a stock-out and average stock. We do not compare fill rate directly with the cycle service target.
 
-LightGBM in global mode is trained once, before 2025. Error variability is measured on 25 weeks from January to June. Orders are rounded up to whole units.
+LightGBM in global mode is trained once, before 2025. The error spread (sd, the standard deviation of the weekly misses) is measured on 25 weeks from January to June. Orders are rounded up to whole units.
 
 **The replay** is like the backtest, but for stock: we run the ordering rule week by week on the real demand of 30 June to 22 December 2025, as if we had used it then. Each week it orders up to the stock target, the delivery arrives after the lead time, customers buy what is on the shelf, and a sale we miss is lost. Then we count the average stock, the fill rate and the weeks with a stock-out.'''),
  run(lesson.profile,lesson.simulate,lesson.stock_decision,call="stock_decision('Plush Bear, store', 95)"),

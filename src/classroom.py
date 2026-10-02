@@ -206,7 +206,7 @@ def backtest():
         table.append([method, f"{score['wape']:.1f} %", f"{score['bias_pct']:+.1f} %"])
     print("13 test dates; four weeks ahead each; all 80 series. The same weeks and products for every method.")
     print("The four methods of the window comparison come first; four more local methods from the slides were scored the same way.")
-    print("Flagged stockout observations are excluded from scoring because their demand is unknown.")
+    print("Flagged stock-out weeks are left out of the scoring because their demand is unknown.")
     return neat(pd.DataFrame(table, columns=["Method", "WAPE: total miss / total demand", "Bias: net error / total demand"]))
 
 
@@ -300,7 +300,7 @@ def stock_decision(product="Plush Bear, store", target=95):
     r = simulate(product, target)
     lead_time = profile(product)[4]
     print(f"{product}: cycle service target {target} %; supplier lead time {lead_time} weeks.")
-    display(neat(pd.DataFrame({"Measure": ["Average stock on the shelf", "Fill rate: share of demand served", "Weeks with a stockout", "Demand not served"],
+    display(neat(pd.DataFrame({"Measure": ["Average stock on the shelf", "Fill rate: share of demand served", "Weeks with a stock-out", "Demand not served"],
                                "Observed result": [f"{r['average_stock']:.0f} units", f"{r['fill_rate']:.1f} %",
                                                    f"{r['stockout_weeks']} of {r['test_weeks']} weeks", f"{r['lost_units']:.0f} units"]})))
     print(f"Safety stock allowance: about {r['safety_stock']:.0f} units. This is part of the stock target, not the order quantity.")
@@ -323,7 +323,7 @@ def stock_table(product="Plush Bear, store", targets=(50, 80, 90, 95, 99)):
     for t in targets:
         r = simulate(product, t)
         table.append([f"{t} %", f"{r['average_stock']:.0f}", f"{r['fill_rate']:.1f} %", r["stockout_weeks"], f"{r['lost_units']:.0f}"])
-    return neat(pd.DataFrame(table, columns=["Cycle service target", "Average stock, units", "Fill rate", "Weeks with a stockout",
+    return neat(pd.DataFrame(table, columns=["Cycle service target", "Average stock, units", "Fill rate", "Weeks with a stock-out",
                                              "Units not served"]))
 
 
@@ -333,7 +333,7 @@ def stock_compare():
     for product in ["Plush Bear, store", "Puzzle 1000, store", "Vacuum Filter, store"]:
         r = simulate(product, 95)
         table.append([product, f"{r['fill_rate']:.1f} %", r["stockout_weeks"], f"{r['weeks_stock']:.1f}"])
-    return neat(pd.DataFrame(table, columns=["Product", "Fill rate at 95 % target", "Weeks with a stockout",
+    return neat(pd.DataFrame(table, columns=["Product", "Fill rate at 95 % target", "Weeks with a stock-out",
                                              "Weeks of demand on shelf"]))
 
 
