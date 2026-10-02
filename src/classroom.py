@@ -46,7 +46,7 @@ def load(folder):
     if folder.startswith(("http", "file:")):
         results = json.load(urllib.request.urlopen(f"{folder}/results.json"))
     else:
-        results = json.loads(Path(folder, "results.json").read_text())
+        results = json.loads(Path(folder, "results.json").read_text(encoding="utf-8"))
     D, P, B, I, R = demand, products, comparisons, inventory, results
 
 

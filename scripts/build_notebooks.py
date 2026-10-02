@@ -11,7 +11,7 @@ sys.path.insert(0,str(ROOT/'src'))
 import classroom as lesson
 REPO_RAW='https://raw.githubusercontent.com/FH-Prevail/jku_course/main'
 DATA_URL=REPO_RAW+'/data/classroom'
-_mod=Path(lesson.__file__).read_text()
+_mod=Path(lesson.__file__).read_text(encoding='utf-8')
 SETTINGS=_mod.split('# >>> settings (copied into the first cell of each notebook)\n')[1].split('# <<< settings')[0].rstrip()
 # The worked examples in the task text (Plush Bear, store), computed from the course data so they match the outputs.
 lesson.load(ROOT/'data/classroom')

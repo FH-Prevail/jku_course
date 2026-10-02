@@ -205,7 +205,7 @@ r['facts']={'ses_alpha':{'near_zero_below_0_02':int(sum(v<0.02 for v in _al.valu
             'weekly_avg_by_month':{'months':[str(m) for m in _mon.index],'store':[float(v) for v in (_mon.store/_nw.values)],
                                    'online':[float(v) for v in (_mon.online/_nw.values)],'weeks':[int(v) for v in _nw.values]},
             'weekly_avg_by_year':{str(y):{'store':float(_yr.loc[y,'store']/_nwy[y]),'online':float(_yr.loc[y,'online']/_nwy[y]),'weeks':int(_nwy[y])} for y in _yr.index}}
-(OUT/'results.json').write_text(json.dumps(r,indent=2))
+(OUT/'results.json').write_text(json.dumps(r,indent=2),encoding='utf-8')
 import classroom as c
 c.load(OUT)
 r['order_example']=c.order_example();r['stock']={p:{str(t):c.simulate(p,t) for t in [50,80,90,95,99]} for p in ['Plush Bear, store','Puzzle 1000, store','Vacuum Filter, store']}
@@ -231,5 +231,5 @@ def finite(obj):
     if isinstance(obj, list): return [finite(v) for v in obj]
     if isinstance(obj, float) and not np.isfinite(obj): return None
     return obj
-(OUT/'results.json').write_text(json.dumps(finite(r),indent=2,allow_nan=False))
+(OUT/'results.json').write_text(json.dumps(finite(r),indent=2,allow_nan=False),encoding='utf-8')
 print('Saved classroom evidence',OUT,flush=True)
