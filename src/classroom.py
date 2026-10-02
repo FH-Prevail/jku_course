@@ -77,18 +77,62 @@ def neat(table, formats=None, na_rep=""):
 # ------------------------------------------------------------------ notebook 1, section 1: read the demand
 
 def totals():
-    """Units sold per month in each channel, then the yearly totals."""
-    weekly = demand.groupby(["week_start", "channel"])["units"].sum().unstack()
-    monthly = weekly.resample("MS").sum()                       # add up the weeks of each month
+    """Average units sold per week in each month, store and online, then the same average for each year (slide 10)."""
+    weekly = demand.groupby(["week_start", "channel"])["units"].sum().unstack()      # one row per week: store and online
+    monthly = weekly.resample("MS").mean()                      # average week of each month: months hold 4 or 5 weeks
     fig, ax = plt.subplots(figsize=(9, 3.8))
     ax.plot(monthly.index, monthly["store"], color=BLUE, lw=2, label="store")
     ax.plot(monthly.index, monthly["online"], color=COLORS["Repeat last year"], lw=2, label="online")
-    ax.set(ylabel="Units sold per month", title="All products: store and online")
+    ax.set(ylabel="Average units per week", title="All products: store and online")
     ax.legend()
     fig.tight_layout()
     plt.show()
-    yearly = demand.assign(year=demand["week_start"].dt.year).groupby(["year", "channel"])["units"].sum().unstack()
-    return neat(yearly.rename_axis("Year").rename(columns={"store": "Store units", "online": "Online units"})[["Store units", "Online units"]])
+    yearly = weekly.groupby(weekly.index.year).mean()           # average week of each year
+    table = yearly.rename_axis("Year").rename(columns={"store": "Store, units per week", "online": "Online, units per week"})
+    return neat(table[["Store, units per week", "Online, units per week"]], {"Store, units per week": "{:,.0f}", "Online, units per week": "{:,.0f}"})
+
+
+def season_by_category(categories=("Toys", "Garden", "Grocery")):
+    """The busy season (slide 11): a month's average weekly sales divided by the category's average weekly sales, 2023 to 2025.
+    1.00 is the category's average month; 2.00 is twice as much."""
+    x = demand.assign(month=demand["week_start"].dt.month)
+    index = x.groupby(["category", "month"])["units"].mean() / x.groupby("category")["units"].mean()
+    index = index.unstack()                                     # one row per category, one column per month
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    fig, ax = plt.subplots(figsize=(9, 3.6))
+    for colour, category in zip([BLUE, COLORS["Repeat last year"], COLORS["Simple exponential smoothing"]], categories):
+        ax.plot(range(1, 13), index.loc[category], color=colour, lw=2, marker="o", label=category)
+    ax.axhline(1, color="#808080", lw=1, ls=":")
+    ax.set(xticks=range(1, 13), xticklabels=months, ylabel="Seasonal index", title="The busy season by category")
+    ax.legend()
+    fig.tight_layout()
+    plt.show()
+    index.columns = months
+    return neat(index.rename_axis("Category"), {m: "{:.2f}" for m in months})
+
+
+def promotion_lift():
+    """Promotion effects (slide 12): sales in a promotion week divided by a normal week of the same product.
+    A normal week has no promotion this week and none the week before."""
+    x = demand.sort_values(["series_id", "week_start"]).copy()
+    x["promo_last_week"] = x.groupby("series_id")["promo_flag"].shift(1).fillna(0)
+    x = x[x.groupby("series_id")["promo_flag"].transform("sum") > 0]           # products that had at least one promotion
+    normal = x[(x["promo_flag"] == 0) & (x["promo_last_week"] == 0)].groupby("series_id")["units"].mean()
+    x["vs_normal"] = x["units"] / x["series_id"].map(normal)                    # 1.00 = a normal week of that product
+    promo = x[x["promo_flag"] == 1]
+    by_discount = promo.groupby("discount_pct")["vs_normal"].mean()
+    fig, ax = plt.subplots(figsize=(7, 3.4))
+    ax.bar([f"{d:.0f} % off" for d in by_discount.index], by_discount.values, color=BLUE)
+    ax.axhline(1, color="#808080", lw=1, ls=":")
+    ax.set(ylabel="Sales vs a normal week", title="Promotion weeks against normal weeks")
+    fig.tight_layout()
+    plt.show()
+    by_channel = promo.groupby("channel")["vs_normal"].mean()
+    after = x[(x["promo_flag"] == 0) & (x["promo_last_week"] == 1)]["vs_normal"].mean()
+    print(f"Online reacts more than the store: {by_channel['online']:.2f}x against {by_channel['store']:.2f}x.")
+    print(f"The week after a promotion sells {(1 - after) * 100:.0f} percent below normal: some customers bought earlier.")
+    table = pd.DataFrame({"Discount": [f"{d:.0f} %" for d in by_discount.index], "Sales vs a normal week": [f"{v:.2f}x" for v in by_discount.values]})
+    return neat(table)
 
 
 def pattern_examples():
@@ -244,6 +288,19 @@ def worked_order(target=95):
     display(neat(pd.DataFrame({"Quantity": ["Forecast over five weeks", "Safety stock", "Stock target", "Already on the shelf", "Already on order", "Order now"],
                                "Units": [e["forecast_total"], e["safety_stock"], e["stock_target"], e["on_hand"], e["on_order"], e["order"]]})))
     print("We assume no backorders and arrivals as scheduled. The stock target is not the quantity to order.")
+
+
+def z_table(targets=(50, 84.13, 90, 95, 99)):
+    """Where the safety stock of the worked order comes from (slide 51): z for each target, times the error spread over five weeks."""
+    e = order_example()
+    spread = e["weekly_sigma"] * np.sqrt(e["protection_weeks"])        # 40 x √5 = 89.4 units
+    table = []
+    for t in targets:                                                    # 84.13 % is exactly one standard deviation
+        z = norm.ppf(t / 100)
+        table.append([f"{t:.0f} %", f"{z:.3f}" if t == 95 else f"{z:.2f}", int(np.ceil(z * spread))])
+    print(f"Error spread (sd) over the {e['protection_weeks']} weeks: {e['weekly_sigma']:.0f} x √{e['protection_weeks']} = {spread:.1f} units.")
+    print("Safety stock = z x that spread, rounded up to whole units.")
+    return neat(pd.DataFrame(table, columns=["Cycle service target", "z", "Safety stock, units"]))
 
 
 def profile(product="Plush Bear, store", method="LightGBM in global mode"):

@@ -24,6 +24,8 @@ _XM,_XMISS,_XBIAS,_XT=_best(EXP,'Christmas');_SM,_SMISS,_SBIAS,_=_best(EXP,'Summ
 _RLY=float(_XT.loc['Repeat last year','Average miss, units']);_SES=float(_XT.loc['Simple exponential smoothing','Average miss, units'])
 _BT=lesson.results['backtest'];_YEAR=min(_BT,key=lambda m:_BT[m]['wape'])
 _R90,_R95,_R99=(lesson.simulate(EXP,t) for t in (90,95,99))
+_WY=lesson.results['facts']['weekly_avg_by_year'];_ON0,_ON1=_WY[min(_WY)]['online'],_WY[max(_WY)]['online']
+_SS95,_SS99=lesson.order_example(95)['safety_stock'],lesson.order_example(99)['safety_stock']
 SETUP_HEAD='''# Start here: run this cell first. It loads the course data from GitHub and prepares the pictures.
 import json
 import urllib.request
@@ -150,9 +152,17 @@ notebook('1_see_and_forecast.ipynb','1 · Demand Patterns and Forecast Compariso
 
 The retailer sells 40 products through two channels, store and online: 80 series of weekly sales. The data is synthetic, built to look like a real retailer's numbers.
 
-Read the channel picture. Is one channel growing? Do you see a recurring busy season?'''),
+Read the channel picture (slide 10). Is one channel growing? Do you see a recurring busy season?'''),
  run(lesson.totals,call='totals()'),
- md('''**What to see.** Online totals grow from 2023 to 2025. Store totals fluctuate rather than growing each year. A monthly total also depends on how many weekly observations fall in that month.
+ md(f'''**What to see.** Online sells more every year, from about {round(_ON0,-2):,.0f} to {round(_ON1,-2):,.0f} units a week; the store moves up and down. The picture shows the average week of each month, because months hold four or five weeks.
+
+**The busy season** (slide 11). The seasonal index divides a month's average weekly sales by the category's average week over all three years: 1.00 is an average month, 2.00 twice as much.'''),
+ run(lesson.season_by_category,call='season_by_category()'),
+ md('''**What to see.** Toys sell about twice their average month in December; Garden peaks in June and drops to half in January; Grocery hardly changes. A method that cannot see the calendar will be surprised every December.
+
+**Promotions** (slide 12). Sales in a promotion week, divided by a normal week of the same product: no promotion that week or the week before.'''),
+ run(lesson.promotion_lift,call='promotion_lift()'),
+ md('''**What to see.** A deeper discount sells more, and the week after a promotion sells a little less than normal. Promotions are planned, so a forecast can know about them in advance.
 
 Four demand patterns are useful descriptions, not guarantees of forecast accuracy: **smooth** means regular sales and fairly regular amounts; **erratic** means frequent sales with variable amounts; **intermittent** means many weeks without sales; **lumpy** adds variable amounts to those gaps.'''),
  run(lesson.pattern_examples,call='pattern_examples()'),
@@ -198,8 +208,8 @@ First look at the Christmas example. Do not choose a winner from the shape alone
 3. Write down that method, its average miss and its **average bias with its sign**: + means the forecast was too high, − too low.
 4. Change the window to **Summer** and do the same.
 5. Answer the two questions under the table. For the second one, choose the reason that fits your table best:
-   - **A.** Christmas has a peak. Methods that see the yearly season (repeat last year, Prophet, LightGBM in global mode) can follow it; simple exponential smoothing draws one flat line.
-   - **B.** Only Prophet and LightGBM in global mode know the planned discounts.
+   - **A.** Christmas has a peak (see the busy season in section 1). Methods that see the yearly season (repeat last year, Prophet, LightGBM in global mode) can follow it; simple exponential smoothing draws one flat line.
+   - **B.** Only Prophet and LightGBM in global mode know the planned discounts (see the promotion effects in section 1).
    - **C.** Last year's season can mislead: when this year's peak is smaller or larger, the methods that copy last year miss.
    - **D.** LightGBM in global mode learns from all 80 series at once, so it does well for many products.
 
@@ -287,6 +297,9 @@ This worked example uses round teaching numbers: five forecasts of 180, 190, 210
 | Order now, units | 348 | ___ |
 
 - The order is smaller than the stock target because ___ units are already on the shelf or on order; ordering the whole target would ___.'''),
+ md('''**Where the safety stock comes from** (slide 51). The safety factor z belongs to the bell curve: for a 95 percent target, demand stays below the forecast plus 1.645 standard deviations in 95 of 100 order cycles. Multiply z by the error spread over the five weeks to get the safety stock.'''),
+ run(lesson.z_table,call='z_table()'),
+ md(f'''**What to see.** Each step up the curve costs more stock for less extra safety: from 95 to 99 percent the cushion grows by {_SS99-_SS95} units, about {(_SS99/_SS95-1)*100:.0f} percent. The 84 percent row is exactly one standard deviation (84.13 percent).'''),
  md('''## 2. Choose a service target
 
 A **cycle service target** is the share of order cycles, here weeks, that we plan to get through without a stock-out. A target of 95 percent is a planning assumption, not a promise about the percentage of units served.
