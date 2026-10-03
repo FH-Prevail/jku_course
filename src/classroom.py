@@ -111,9 +111,30 @@ def season_by_category(categories=("Toys", "Garden", "Grocery")):
     return neat(index.rename_axis("Category"), {m: "{:.2f}" for m in months})
 
 
+def promotion_around():
+    """The weeks around a promotion (slide 12), each against a normal week of the same product.
+    Every promotion in the data lasts one week. Each position counts only weeks with no promotion in between:
+    "Week after" is a week without a promotion that comes right after a promotion week."""
+    x = demand.sort_values(["series_id", "week_start"]).copy()
+    flag = x.groupby("series_id")["promo_flag"]
+    later = {k: flag.shift(-k).fillna(0) == 1 for k in (1, 2)}               # a promotion k weeks later
+    earlier = {k: flag.shift(k).fillna(0) == 1 for k in (1, 2, 3)}           # a promotion k weeks earlier
+    none = x["promo_flag"] == 0
+    with_promotions = flag.transform("sum") > 0                               # products that had at least one promotion
+    normal = x[with_promotions & none & ~earlier[1]].groupby("series_id")["units"].mean()
+    x["vs_normal"] = x["units"] / x["series_id"].map(normal)                  # 1.00 = a normal week of that product
+    weeks = {"2 weeks before": none & ~later[1] & later[2],
+             "Week before": none & later[1],
+             "Promotion week": x["promo_flag"] == 1,
+             "Week after": none & earlier[1],
+             "2 weeks after": none & ~earlier[1] & earlier[2],
+             "3 weeks after": none & ~earlier[1] & ~earlier[2] & earlier[3]}
+    return pd.Series({name: x.loc[rows, "vs_normal"].mean() for name, rows in weeks.items()})
+
+
 def promotion_lift():
-    """Promotion effects (slide 12): sales in a promotion week divided by a normal week of the same product.
-    A normal week has no promotion this week and none the week before."""
+    """Promotion effects (slide 12): sales in a promotion week divided by a normal week of the same product, by discount,
+    then the weeks around a promotion. A normal week has no promotion this week and none the week before."""
     x = demand.sort_values(["series_id", "week_start"]).copy()
     x["promo_last_week"] = x.groupby("series_id")["promo_flag"].shift(1).fillna(0)
     x = x[x.groupby("series_id")["promo_flag"].transform("sum") > 0]           # products that had at least one promotion
@@ -121,16 +142,27 @@ def promotion_lift():
     x["vs_normal"] = x["units"] / x["series_id"].map(normal)                    # 1.00 = a normal week of that product
     promo = x[x["promo_flag"] == 1]
     by_discount = promo.groupby("discount_pct")["vs_normal"].mean()
-    fig, ax = plt.subplots(figsize=(7, 3.4))
-    ax.bar([f"{d:.0f} % off" for d in by_discount.index], by_discount.values, color=BLUE)
-    ax.axhline(1, color="#808080", lw=1, ls=":")
-    ax.set(ylabel="Sales vs a normal week", title="Promotion weeks against normal weeks")
+    around = promotion_around()
+    dip = (1 - around["Week after"]) * 100                                      # percent below a normal week
+    red = "#E40726"                                                             # FH red, only for the two pointers
+    fig, (left, right) = plt.subplots(1, 2, figsize=(12, 4))
+    left.bar([f"{d:.0f} % off" for d in by_discount.index], by_discount.values, color=BLUE)
+    left.axhline(1, color="#808080", lw=1, ls=":")
+    left.set(ylabel="Sales vs a normal week", title="By discount: the promotion week")
+    right.plot(range(len(around)), around.values, color=BLUE, marker="o", lw=2)
+    right.axhline(1, color="#808080", lw=1, ls=":")
+    right.set(xticks=range(len(around)), xticklabels=["\n".join(name.rsplit(" ", 1)) for name in around.index],
+              ylim=(0.6, 2.3), title="Around the promotion week")
+    right.annotate(f"Promotion week:\n{around['Promotion week']:.1f}x a normal week", xy=(2, around["Promotion week"]),
+                   xytext=(0, 1.75), fontsize=10, color=red, arrowprops=dict(arrowstyle="->", color=red))
+    right.annotate(f"Post-promotion dip:\n{dip:.0f} % below normal,\ncustomers bought ahead\n(pull-forward)", xy=(3, around["Week after"]),
+                   xytext=(3.3, 1.35), fontsize=10, color=red, arrowprops=dict(arrowstyle="->", color=red))
     fig.tight_layout()
     plt.show()
     by_channel = promo.groupby("channel")["vs_normal"].mean()
-    after = x[(x["promo_flag"] == 0) & (x["promo_last_week"] == 1)]["vs_normal"].mean()
     print(f"Online reacts more than the store: {by_channel['online']:.2f}x against {by_channel['store']:.2f}x.")
-    print(f"The week after a promotion sells {(1 - after) * 100:.0f} percent below normal: some customers bought earlier.")
+    print(f"The week after a promotion sells {dip:.0f} percent below normal, the post-promotion dip: "
+          "some customers bought ahead, during the promotion (pull-forward).")
     table = pd.DataFrame({"Discount": [f"{d:.0f} %" for d in by_discount.index], "Sales vs a normal week": [f"{v:.2f}x" for v in by_discount.values]})
     return neat(table)
 

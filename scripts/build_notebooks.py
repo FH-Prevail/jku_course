@@ -160,9 +160,9 @@ Read the channel picture (slide 10). Is one channel growing? Do you see a recurr
  run(lesson.season_by_category,call='season_by_category()'),
  md('''**What to see.** Toys sell about twice their average month in December; Garden peaks in June and drops to half in January; Grocery hardly changes. A method that cannot see the calendar will be surprised every December.
 
-**Promotions** (slide 12). Sales in a promotion week, divided by a normal week of the same product: no promotion that week or the week before.'''),
- run(lesson.promotion_lift,call='promotion_lift()'),
- md('''**What to see.** A deeper discount sells more, and the week after a promotion sells a little less than normal. Promotions are planned, so a forecast can know about them in advance.
+**Promotions** (slide 12). Sales in a promotion week, divided by a normal week of the same product: no promotion that week or the week before. The left picture compares discounts; the right one follows the average promotion week by week.'''),
+ run(lesson.promotion_around,lesson.promotion_lift,call='promotion_lift()'),
+ md('''**What to see.** A deeper discount sells more. The promotion week sells about twice a normal week, and the week after sells less than normal: the **post-promotion dip**. Some customers bought ahead during the promotion (pull-forward), so part of the extra sales only moved forward. Promotions are planned, so a forecast can know about them in advance.
 
 Four demand patterns are useful descriptions, not guarantees of forecast accuracy: **smooth** means regular sales and fairly regular amounts; **erratic** means frequent sales with variable amounts; **intermittent** means many weeks without sales; **lumpy** adds variable amounts to those gaps.'''),
  run(lesson.pattern_examples,call='pattern_examples()'),
