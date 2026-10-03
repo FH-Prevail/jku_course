@@ -26,7 +26,7 @@ Or open Colab and choose **File, Open notebook, GitHub**, type `FH-Prevail/jku_c
 
 **Keep your work:** in Colab choose **Copy to Drive** (File, Save a copy in Drive) before you change anything. The copy goes to your own Google Drive; without it, your changes are lost when you close the tab. The notebooks here never change.
 
-Every cell shows its code above its result: the same code that produced the numbers on the slides. The first cell of notebooks 1 and 2 loads the course data (`data/classroom/`) from this repository and prints "Ready". Nothing is trained in Colab: every table and picture comes from forecasts computed in advance. Gemini, where your account offers it, can explain or change any cell; check what it says against the numbers.
+Every cell shows its code above its result: the same code that produced the numbers on the slides. The first cell of notebooks 1 and 2 loads the course data (`data/classroom/`) from this repository and prints "Ready". Nothing is trained in Colab for the tasks: every table and picture comes from forecasts computed in advance. An optional extra at the end of notebook 1 trains Prophet and LightGBM in global mode in a few seconds, if you want to see how a forecast is made. Gemini, where your account offers it, can explain or change any cell; check what it says against the numbers.
 
 ## Data
 

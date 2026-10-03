@@ -472,3 +472,97 @@ def christmas_widget():
                            salvage=IntSlider(value=50, min=0, max=95, step=5, description="Recovery %", continuous_update=False))
     display(controls)
     return controls
+
+
+def train_prophet(product="Plush Bear, store", forecast_date="2025-12-01"):
+    """Extra, not graded: train Prophet yourself on one product and forecast the four weeks from the forecast date.
+    The same settings as the course model: a trend, a yearly season and the planned discount, added together."""
+    import logging
+    for name in ("cmdstanpy", "prophet", "prophet.plot"):
+        logging.getLogger(name).disabled = True                          # hide Prophet's progress messages
+    try:
+        from prophet import Prophet
+    except ImportError:
+        print("Prophet is not installed here. Run  %pip install prophet  in a new cell, then run this cell again.")
+        return None
+    start = pd.Timestamp(forecast_date)
+    sales = demand[demand["series_id"] == series_id(product)].sort_values("week_start")
+    past = sales[sales["week_start"] < start]                            # only what was known on the forecast date
+    future = sales[sales["week_start"] >= start].head(4)                 # the four weeks we forecast
+    model = Prophet(yearly_seasonality=True, weekly_seasonality=False, daily_seasonality=False, uncertainty_samples=0)
+    model.add_regressor("discount")                                      # the planned discount, known in advance
+    model.fit(pd.DataFrame({"ds": past["week_start"], "y": past["units"], "discount": past["discount_pct"]}))
+    plan = pd.DataFrame({"ds": future["week_start"], "discount": future["discount_pct"]})
+    forecast = model.predict(plan)["yhat"].clip(lower=0).to_numpy()     # no negative sales
+    fig, ax = plt.subplots(figsize=(10, 3.6))
+    shown = past.tail(26)
+    ax.plot(shown["week_start"], shown["units"], color=COLORS["Actual sales"], lw=1.5, label="Actual sales")
+    ax.plot(future["week_start"], future["units"], color=COLORS["Actual sales"], marker="o", lw=2)
+    ax.plot(future["week_start"], forecast, color=COLORS["Prophet"], marker=MARKERS["Prophet"], lw=2, label="Your Prophet forecast")
+    ax.axvline(start, color="#808080", lw=1, ls=":")                    # the forecast date
+    ax.set(ylabel="Units per week", title=f"{product}: Prophet trained in this cell")
+    ax.legend()
+    fig.tight_layout()
+    plt.show()
+    stored = comparisons[(comparisons["series_id"] == series_id(product)) & (comparisons["method"] == "Prophet")
+                         & (comparisons["test_start"] == start)].sort_values("horizon")["forecast"].to_numpy()
+    table = pd.DataFrame({"Week": future["week_start"].dt.strftime("%d %b %Y").to_list(), "Actual": future["units"].to_list(),
+                          "Your forecast": forecast})
+    if len(stored) == len(table):
+        table["Course forecast"] = stored                                # the forecast stored for the slides
+    print(f"Average miss of your forecast: {np.abs(forecast - future['units'].to_numpy()).mean():.1f} units a week.")
+    return neat(table, {c: "{:.0f}" for c in table.columns if "forecast" in c})
+
+
+def train_lightgbm(product="Plush Bear, store", forecast_date="2025-12-01"):
+    """Extra, not graded: train LightGBM in global mode yourself, one model for all 80 series, then forecast one product
+    for the four weeks from the forecast date. A smaller version of the course model: 11 inputs instead of 26, no tuning."""
+    try:
+        import lightgbm as lgb
+    except ImportError:
+        print("LightGBM is not installed here. Run  %pip install lightgbm  in a new cell, then run this cell again.")
+        return None
+    start = pd.Timestamp(forecast_date)
+    d = demand.sort_values(["series_id", "week_start"]).reset_index(drop=True)
+    sales = d.groupby("series_id")["units"]
+    tables = []
+    for ahead in range(1, 5):                                            # one row per series, target week and weeks ahead
+        x = d[["series_id", "week_start", "units", "product_id", "channel", "discount_pct"]].copy()
+        x["weeks_ahead"] = ahead
+        for k in (1, 2, 3, 4):                                           # the last four weeks known on the forecast date
+            x[f"sales_{k}_weeks_before"] = sales.shift(ahead + k - 1)
+        x["average_last_8_weeks"] = sales.transform(lambda s: s.shift(ahead).rolling(8).mean())
+        x["same_week_last_year"] = sales.shift(52)
+        x["week_of_year"] = d["week_start"].dt.isocalendar().week.astype(int)
+        tables.append(x)
+    rows = pd.concat(tables).dropna()
+    for column in ("product_id", "channel"):
+        rows[column] = rows[column].astype("category")                   # one learned effect per product and channel
+    inputs = [c for c in rows.columns if c not in ("series_id", "week_start", "units")]
+    train = rows[rows["week_start"] < start]                             # only target weeks before the forecast date
+    model = lgb.LGBMRegressor(objective="tweedie", n_estimators=300, learning_rate=0.05, num_leaves=31, verbose=-1)
+    model.fit(train[inputs], train["units"])
+    weeks = sorted(d.loc[d["week_start"] >= start, "week_start"].unique())[:4]
+    test = rows[(rows["series_id"] == series_id(product)) & rows["week_start"].isin(weeks)]
+    test = test[test["weeks_ahead"] == test["week_start"].map({w: i + 1 for i, w in enumerate(weeks)})].sort_values("week_start")
+    forecast = model.predict(test[inputs])
+    past = d[(d["series_id"] == series_id(product)) & (d["week_start"] < start)].tail(26)
+    fig, ax = plt.subplots(figsize=(10, 3.6))
+    ax.plot(past["week_start"], past["units"], color=COLORS["Actual sales"], lw=1.5, label="Actual sales")
+    ax.plot(test["week_start"], test["units"], color=COLORS["Actual sales"], marker="o", lw=2)
+    ax.plot(test["week_start"], forecast, color=COLORS["LightGBM in global mode"], marker=MARKERS["LightGBM in global mode"],
+            lw=2, label="Your LightGBM forecast")
+    ax.axvline(start, color="#808080", lw=1, ls=":")                    # the forecast date
+    ax.set(ylabel="Units per week", title=f"{product}: LightGBM in global mode trained in this cell")
+    ax.legend()
+    fig.tight_layout()
+    plt.show()
+    stored = comparisons[(comparisons["series_id"] == series_id(product)) & (comparisons["method"] == "LightGBM in global mode")
+                         & (comparisons["test_start"] == start)].sort_values("horizon")["forecast"].to_numpy()
+    table = pd.DataFrame({"Week": test["week_start"].dt.strftime("%d %b %Y").to_list(), "Actual": test["units"].astype(int).to_list(),
+                          "Your forecast": forecast})
+    if len(stored) == len(table):
+        table["Course forecast"] = stored                                # the forecast stored for the slides
+    print(f"Trained on {len(train):,} rows from all {d['series_id'].nunique()} series. "
+          f"Average miss of your forecast: {np.abs(forecast - test['units'].to_numpy()).mean():.1f} units a week.")
+    return neat(table, {c: "{:.0f}" for c in table.columns if "forecast" in c})

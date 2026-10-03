@@ -1,7 +1,8 @@
 """Create the notebooks. Every code cell shows the code it runs: the functions are copied from src/classroom.py,
 the same code that produced the numbers on the slides, so Gemini in Colab can explain or change any line.
-The first cell loads the course data from the repository on GitHub. Nothing is trained in the notebooks; every
-forecast was computed in advance by analysis/build_classroom.py."""
+The first cell loads the course data from the repository on GitHub. Nothing is trained for the tasks; every forecast
+they use was computed in advance by analysis/build_classroom.py. An optional extra at the end of notebook 1 trains
+Prophet and LightGBM in global mode on the spot, to show how a forecast is made."""
 from pathlib import Path
 import inspect
 import sys
@@ -267,7 +268,16 @@ A **backtest** replays past forecast decisions using only information available 
  md('''**What to see.** The zero forecast matches three weeks exactly but misses the only sale. Counting correct weeks is not enough to judge an order policy; carry this question into notebook 2: how much stock would you need?
 
 **Evidence note.** Four observations in the source data are flagged as censored sales: the shelf was empty, so demand is unknown. For training, these are replaced with the preceding four weeks’ mean using only past information; flagged test rows are excluded from forecast scoring. The README of the `data` folder in the course repository describes the data in full.'''),
- submit(1)],assignment=assignment(1,2,3))
+ submit(1),
+ md('''## Extra, not graded: train a forecast yourself
+
+If you are interested in how a forecast is made. Everything above used forecasts computed in advance; the two cells below train a model right here, in a few seconds each. Change the product or the forecast date in the last line of a cell: use a Monday from 30 December 2024 to 1 December 2025. On the 13 backtest dates (every four weeks from 30 December 2024, for example 1 December 2025) the table also shows the course forecast stored for the slides. If Colab reports a missing package, run `%pip install prophet` or `%pip install lightgbm` in a new cell.
+
+**Prophet**, a local model: one model for one product and channel. It adds up a trend, a yearly season and the effect of the planned discount, with the same settings as the course model.'''),
+ run(lesson.train_prophet,call="train_prophet('Plush Bear, store', '2025-12-01')"),
+ md('''**LightGBM in global mode**: one model learns from all 80 series at once. Each row is one series, one target week and how many weeks ahead (1 to 4); its inputs are only what was known on the forecast date: the last weeks' sales, the same week last year, the week of the year, the planned discount, and which product and channel it is. This is a smaller version of the course model (11 inputs instead of 26, no tuning), so its forecast differs a little from the stored one.'''),
+ run(lesson.train_lightgbm,call="train_lightgbm('Plush Bear, store', '2025-12-01')"),
+ md('''**What to see.** Your Prophet forecast matches the course forecast almost exactly: the same model, the same data, the same settings. Your LightGBM forecast is close but not equal, because it has fewer inputs. Try asking Gemini to add one input, for example the average of the last 26 weeks, and compare the average miss.''')],assignment=assignment(1,2,3))
 
 notebook('2_forecast_to_stock.ipynb','2 · Safety Stock and Replenishment Policy',[
  NAME,
